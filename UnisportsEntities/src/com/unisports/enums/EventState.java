@@ -10,6 +10,16 @@ package com.unisports.enums;
  * @author ESTUDIANTE1220T
  */
 public enum EventState {
-    Created,
-    Canceled
+    Created(0),
+    Canceled(1);
+    
+    private int itemVal;
+    
+    EventState(int val){
+        this.itemVal = val;
+    }
+    
+    public int getHashCode(){
+        return this.itemVal;
+    }
 }

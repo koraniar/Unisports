@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 package com.unisports.entities;
 
 import com.unisports.enums.RelationshipState;
 import java.util.Date;
 import java.util.UUID;
+
 
 public class Relationship {
     private UUID id;
@@ -18,14 +12,14 @@ public class Relationship {
     private UUID userId;
     private UUID userRelatedId;
     
+    private Relationship()
+    {
+        this.userId = UUID.randomUUID();
+    }
+    
     public UUID getId()
     {
         return this.id;
-    }
-    
-    private void setId()
-    {
-        this.userId = UUID.randomUUID();
     }
     
     public Date getConfirmedDate()

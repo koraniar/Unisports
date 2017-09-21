@@ -10,7 +10,17 @@ package com.unisports.enums;
  * @author ESTUDIANTE1220T
  */
 public enum RelationshipState {
-    WaitingFor,
-    Accepted,
-    Denied
+    WaitingFor(0),
+    Accepted(1),
+    Denied(2);
+    
+    private int itemVal;
+    
+    RelationshipState(int val){
+        this.itemVal = val;
+    }
+    
+    public int getHashCode(){
+        return this.itemVal;
+    }
 }

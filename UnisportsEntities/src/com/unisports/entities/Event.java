@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.entities;
 
 import com.unisports.enums.EventState;
@@ -10,10 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-/**
- *
- * @author ESTUDIANTE1220T
- */
+
 public class Event {
     private UUID id;
     private Date date;
@@ -21,10 +13,10 @@ public class Event {
     private double positioinX;    
     private double positioinY;
     private EventState state;
-    private List<String> teamInscriptionList;
+    private List<TeamInscription> teamInscriptionList;
     private UUID sportId;
     
-    private void setId()
+    public Event()
     {
         this.id = UUID.randomUUID();
     }
@@ -84,17 +76,17 @@ public class Event {
         return this.state;
     }
     
-    public void addItemToTeamInscriptionList(String team)
+    public void addItemToTeamInscriptionList(TeamInscription team)
     {
         this.teamInscriptionList.add(team);
     }
     
-    public void deleteItemToTeamInscriptionList(String team)
+    public void deleteItemFromTeamInscriptionList(TeamInscription team)
     {
         this.teamInscriptionList.remove(team);
     }
     
-    public List<String> getTeamInscriptionList()
+    public List<TeamInscription> getTeamInscriptionList()
     {
         return this.teamInscriptionList;
     }
