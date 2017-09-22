@@ -156,7 +156,7 @@ public class User {
         return this.relationshipList;
     }
     
-    public void addItemToNotificationList (Notification notification){
+    public void addItemToNotificationList (String notification){ //Error.
     this.notificationList.add(notification);
     }
     
