@@ -6,7 +6,6 @@ import java.util.UUID;
 
 
 public class User {
-
     private UUID id;
     private String name;
     private String lastName;
@@ -19,7 +18,7 @@ public class User {
     private double excellentAverage;
     private double regularAverage;
     private double badAverage;
-    private List<String> teamList;
+    private List<Team> teamList;
     private List<UserInscription> userinscriptionList;
     private List<Relationship> relationshipList;
     private List<String> notificationList;
