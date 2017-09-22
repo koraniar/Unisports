@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-class TeamInscription {
+public class TeamInscription {
     private UUID id;
     private int points;
     private UUID eventId;

@@ -6,10 +6,10 @@
 package com.unisports.dao;
 
 import com.unisports.database.context.Database;
-import com.unisports.entities.Notification;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import com.unisports.entities.TeamInscription;
 
 /**
  *
@@ -40,11 +40,11 @@ public class TeamInscriptionDAO {
     }
     
     public TeamInscription getAllTeamInscriptionsByUserId(UUID Id){
-        return new Notification();
+        return new TeamInscription();
     }
     
     public TeamInscription getAllTeamInscriptionsByEventId(UUID Id){
-        return new Notification();
+        return new TeamInscription();
     }
     
 }
