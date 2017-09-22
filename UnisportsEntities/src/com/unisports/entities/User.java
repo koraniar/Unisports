@@ -4,9 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-
-
 public class User {
+
     private UUID id;
     private String name;
     private String lastName;
@@ -24,14 +23,14 @@ public class User {
     private List<Relationship> relationshipList;
     private List<String> notificationList;
 
-    public User(){
+    public User() {
         this.id = UUID.randomUUID();
     }
-    
+
     public UUID getId() {
         return this.id;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -119,53 +118,53 @@ public class User {
     public double getBadAverage() {
         return this.badAverage;
     }
-    
-    public void addTeamToTeamList (Team team){
-    this.teamList.add(team);
+
+    public void addTeamToTeamList(Team team) {
+        this.teamList.add(team);
     }
-    
-    public void deleteTeamFromTeamList (Team team){
-    this.teamList.remove(team);
+
+    public void deleteTeamFromTeamList(Team team) {
+        this.teamList.remove(team);
     }
-    
-    public List<Team> getTeamList(){
+
+    public List<Team> getTeamList() {
         return this.teamList;
     }
-    
-    public void addItemToUserInscriptionList (UserInscription inscription){
-    this.userInscriptionList.add(inscription);
+
+    public void addItemToUserInscriptionList(UserInscription inscription) {
+        this.userInscriptionList.add(inscription);
     }
-    
-    public void deleteItemFromUserInscriptionList (UUID userInscriptionId){
-    this.userInscriptionList.remove(userInscriptionId);
+
+    public void deleteItemFromUserInscriptionList(UserInscription userInscriptionId) {
+        this.userInscriptionList.remove(userInscriptionId);
     }
-    
-    public List<UserInscription> getUserInscriptionList(){
+
+    public List<UserInscription> getUserInscriptionList() {
         return this.userInscriptionList;
     }
-    
-    public void addItemToRelationshipList (Relationship relationship){
-    this.relationshipList.add(relationship);
+
+    public void addItemToRelationshipList(Relationship relationship) {
+        this.relationshipList.add(relationship);
     }
-    
-    public void deleteItemFromRelationshipList (UUID relationship){
-    this.relationshipList.remove(relationship);
+
+    public void deleteItemFromRelationshipList(Relationship relationship) {
+        this.relationshipList.remove(relationship);
     }
-    
-    public List<Relationship> getRelationshipList(){
+
+    public List<Relationship> getRelationshipList() {
         return this.relationshipList;
     }
-    
-    public void addItemToNotificationList (String notification){ //Error.
-    this.notificationList.add(notification);
+
+    public void addItemToNotificationList(String notification) { //Error.
+        this.notificationList.add(notification);
     }
-    
-    public void deleteItemFromNotificationList (UUID notification){
-    this.notificationList.remove(notification);
+
+    public void deleteItemFromNotificationList(UUID notification) {
+        this.notificationList.remove(notification);
     }
-    
-    public List<String> getNotificationList(){
+
+    public List<String> getNotificationList() {
         return this.notificationList;
     }
-    
+
 }
