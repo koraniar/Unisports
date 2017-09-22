@@ -3,7 +3,7 @@ package com.unisports.entities;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
+import com.unisports.entities.Notification;
 
 
 public class User {
@@ -22,7 +22,7 @@ public class User {
     private List<Team> teamList;
     private List<UserInscription> userInscriptionList;
     private List<Relationship> relationshipList;
-    private List<String> notificationList;
+    private List<Notification> notificationList;
 
     public User(){
         this.id = UUID.randomUUID();
@@ -156,7 +156,7 @@ public class User {
         return this.relationshipList;
     }
     
-    public void addItemToNotificationList (String notification){ //Error.
+    public void addItemToNotificationList (Notification notification){ //Error.
     this.notificationList.add(notification);
     }
     
@@ -164,7 +164,7 @@ public class User {
     this.notificationList.remove(notification);
     }
     
-    public List<String> getNotificationList(){
+    public List<Notification> getNotificationList(){
         return this.notificationList;
     }
     

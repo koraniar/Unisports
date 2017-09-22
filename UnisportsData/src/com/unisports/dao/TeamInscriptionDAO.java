@@ -15,31 +15,35 @@ import java.util.UUID;
  *
  * @author danielmontana
  */
-public class NotificationDAO {
+public class TeamInscriptionDAO {
     
-    private Database _database;
+     private Database _database;
     
-    public NotificationDAO(){
+    public TeamInscriptionDAO(){
         _database = new Database();
     }
     
-    public boolean createNotification(Notification notification){
+    public boolean createTeamInscription(TeamInscription inscription){
         return true;
     }
     
-    public boolean updateNotification(Notification notification){
+    public boolean updateTeamInscription(TeamInscription inscription){
         return true;
     }
     
-    public List<Notification> getAllNotifications(){
-        return new ArrayList<Notification>();
+    public List<TeamInscription> getAllTeamInscriptions(){
+        return new ArrayList<TeamInscription>();
     }
     
-    public Notification getNotificationById(UUID Id){
+    public TeamInscription getTeamInscriptionById(UUID Id){
+        return new TeamInscription();
+    }
+    
+    public TeamInscription getAllTeamInscriptionsByUserId(UUID Id){
         return new Notification();
     }
     
-    public Notification getAllNotificationsByUserId(UUID Id){
+    public TeamInscription getAllTeamInscriptionsByEventId(UUID Id){
         return new Notification();
     }
     
