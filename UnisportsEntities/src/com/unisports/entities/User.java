@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 
+
 public class User {
     private UUID id;
     private String name;
@@ -19,7 +20,7 @@ public class User {
     private double regularAverage;
     private double badAverage;
     private List<Team> teamList;
-    private List<UserInscription> userinscriptionList;
+    private List<UserInscription> userInscriptionList;
     private List<Relationship> relationshipList;
     private List<String> notificationList;
 
@@ -118,4 +119,53 @@ public class User {
     public double getBadAverage() {
         return this.badAverage;
     }
+    
+    public void addTeamToTeamList (Team team){
+    this.teamList.add(team);
+    }
+    
+    public void deleteTeamFromTeamList (Team team){
+    this.teamList.remove(team);
+    }
+    
+    public List<Team> getTeamList(){
+        return this.teamList;
+    }
+    
+    public void addItemToUserInscriptionList (UserInscription inscription){
+    this.userInscriptionList.add(inscription);
+    }
+    
+    public void deleteItemFromUserInscriptionList (UUID userInscriptionId){
+    this.userInscriptionList.remove(userInscriptionId);
+    }
+    
+    public List<UserInscription> getUserInscriptionList(){
+        return this.userInscriptionList;
+    }
+    
+    public void addItemToRelationshipList (Relationship relationship){
+    this.relationshipList.add(relationship);
+    }
+    
+    public void deleteItemFromRelationshipList (UUID relationship){
+    this.relationshipList.remove(relationship);
+    }
+    
+    public List<Relationship> getRelationshipList(){
+        return this.relationshipList;
+    }
+    
+    public void addItemToNotificationList (Notification notification){
+    this.notificationList.add(notification);
+    }
+    
+    public void deleteItemFromNotificationList (UUID notification){
+    this.notificationList.remove(notification);
+    }
+    
+    public List<String> getNotificationList(){
+        return this.notificationList;
+    }
+    
 }
