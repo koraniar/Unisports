@@ -5,6 +5,7 @@
  */
 package com.unisports.entities;
 
+import com.unisports.enums.NotificationType;
 import java.util.UUID;
 
 /**
@@ -15,7 +16,7 @@ public class Notification {
     
     private UUID id;
     private String subject;
-    private String type;
+    private NotificationType type;
     private UUID userId;
     
     public Notification()
@@ -37,12 +38,12 @@ public class Notification {
         return this.subject;
     }
     
-    public void setType(String type)
+    public void setType(NotificationType type)
     {
         this.type = type;
     }
     
-    public String getType()
+    public NotificationType getType()
     {
         return this.type;
     }
