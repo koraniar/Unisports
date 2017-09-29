@@ -37,7 +37,7 @@ public class SportDAO {
             
             int result = statement.executeUpdate();
             statement.close();
-            _database.Disconnect();
+            //_database.Disconnect();
             return result > 0;
         } catch (SQLException ex) {
             Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,7 +46,20 @@ public class SportDAO {
     }
     
     public boolean updateSport(Sport sport){
-        return true;
+        try {
+            PreparedStatement statement = _connection.prepareStatement("UPDATE Sport SET Name = ?, Type = ? WHERE Id = ?;");
+            statement.setString(1, sport.getName());
+            statement.setInt(2, sport.getType().getHashCode());
+            statement.setString(3, sport.getId().toString());
+            
+            int result = statement.executeUpdate();
+            statement.close();
+            //_database.Disconnect();
+            return result > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
     public Sport getSportById(UUID id){
@@ -67,7 +80,7 @@ public class SportDAO {
             
             result.close();
             statement.close();
-            _database.Disconnect();
+            //_database.Disconnect();
             return sport;
         } catch (SQLException ex) {
             Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);

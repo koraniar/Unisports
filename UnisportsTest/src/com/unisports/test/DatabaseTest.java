@@ -20,10 +20,12 @@ public class DatabaseTest {
         SportDAO sportDao = new SportDAO();
         Sport sport = new Sport();
         
-        sport.setName("Futbol 5 test");        
+        sport.setName("test upd");        
         sport.setType(SportType.Futbol);
         
-        sportDao.createSport(sport);
+        System.out.println(sportDao.createSport(sport));        
+        System.out.println(sport.getId());
+
         
         Sport sp = sportDao.getSportById(sport.getId());
         if (sp != null) {
@@ -33,5 +35,9 @@ public class DatabaseTest {
         }else{
             System.out.println("none");
         }
+        
+        sp.setName("updated");
+        
+        System.out.println(sportDao.updateSport(sp));
     }
 }
