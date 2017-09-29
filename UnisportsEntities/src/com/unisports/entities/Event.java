@@ -13,6 +13,8 @@ public class Event {
     private double positioinX;    
     private double positioinY;
     private EventState state;
+    private Date createdDate;
+    private UUID creatorUserId;
     private List<TeamInscription> teamInscriptionList;
     private UUID sportId;
     
@@ -84,6 +86,26 @@ public class Event {
     public void deleteItemFromTeamInscriptionList(TeamInscription team)
     {
         this.teamInscriptionList.remove(team);
+    }
+    
+    public void setCreatedDate(Date date)
+    {
+        this.createdDate = date;
+    }
+    
+    public Date getCreatedDate()
+    {
+        return this.createdDate;
+    }
+    
+    public void setCreatorUserId(UUID id)
+    {
+        this.creatorUserId = id;
+    }
+    
+    public UUID getCreatorUserId()
+    {
+        return this.creatorUserId;
     }
     
     public List<TeamInscription> getTeamInscriptionList()
