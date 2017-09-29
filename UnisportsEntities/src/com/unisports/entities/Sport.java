@@ -13,6 +13,10 @@ public class Sport {
         this.id = UUID.randomUUID();
     }
     
+    public Sport(UUID id){
+        this.id = id;
+    }
+    
     public UUID getId(){
         return this.id;
     }

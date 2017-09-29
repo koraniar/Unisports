@@ -16,13 +16,22 @@ import java.sql.SQLException;
  */
 public class DatabaseTest {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         SportDAO sportDao = new SportDAO();
         Sport sport = new Sport();
         
-        sport.setName("Futbol 5");        
+        sport.setName("Futbol 5 test");        
         sport.setType(SportType.Futbol);
         
         sportDao.createSport(sport);
+        
+        Sport sp = sportDao.getSportById(sport.getId());
+        if (sp != null) {
+            System.out.println(sp.getName());            
+            System.out.println(sp.getId());
+            System.out.println(sp.getType());
+        }else{
+            System.out.println("none");
+        }
     }
 }
