@@ -18,47 +18,60 @@ import java.util.UUID;
  */
 public class DatabaseTest {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
+        
+        //Sport();
+        
+
+    }
+    
+    public void Sport(){
         SportDAO sportDao = new SportDAO();
         Sport sport = new Sport();
         
-        sport.setName("test upd");        
-        sport.setType(SportType.Basquetball);
+        //Create
+        sport.setName("basquet a");        
+        sport.setType(SportType.Futbol);
         
-        System.out.println(sportDao.createSport(sport));        
-        System.out.println(sport.getId());
-
+        System.out.println("Create " + sportDao.createSport(sport));
         
+        
+        //Get
         Sport sp = sportDao.getSportById(sport.getId());
         if (sp != null) {
+            System.out.println("Entity");
             System.out.println(sp.getName());            
             System.out.println(sp.getId());
             System.out.println(sp.getType());
         }else{
-            System.out.println("none");
+            System.out.println("none get by ID");
         }
         
+        //Update
         sp.setName("updated");
         
-        //System.out.println(sportDao.updateSport(sp));        
+        System.out.println("Update " + sportDao.updateSport(sp));        
         
-        System.out.println(sportDao.deleteSport(UUID.fromString("a01f3faa-5d8b-43a3-99a9-246fd99bf7d9")));
+        System.out.println(sportDao.deleteSport(UUID.fromString("b8c3406b-7268-4f3d-bbe4-848017b90036")));
         
+        
+        //GetAllSports
         List<Sport> sps = sportDao.getAllSports();
         
         if (sps != null && !sps.isEmpty()) {
-            System.out.println(sps.size());
+            System.out.println("All " + sps.size());
         }else{
             System.out.println("none list");
         }
         
+        
+        //GetByType
         List<Sport> sps2 = sportDao.getSportsByType(SportType.Basquetball);
         
         if (sps2 != null && !sps2.isEmpty()) {
-            System.out.println(sps2.size());
+            System.out.println("Bas " + sps2.size());
         }else{
             System.out.println("none list 2");
         }
-
     }
 }

@@ -73,9 +73,8 @@ public class SportDAO {
             
             if(result.first()){
                 sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));
-                //sport.setType(result.getInt("Name"));                
-                sport.setType(SportType.Futbol);
+                sport.setName(result.getString("Name"));             
+                sport.setType(SportType.values()[result.getInt("Type")]);
             }
             
             result.close();
@@ -98,9 +97,8 @@ public class SportDAO {
             
             while(result.next()){
                 Sport sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));
-                //sport.setType(result.getInt("Name"));                
-                sport.setType(SportType.Futbol);
+                sport.setName(result.getString("Name"));           
+                sport.setType(SportType.values()[result.getInt("Type")]);
                 sports.add(sport);
             }
             
@@ -140,9 +138,8 @@ public class SportDAO {
             
             while(result.next()){
                 Sport sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));
-                //sport.setType(result.getInt("Name"));                
-                sport.setType(SportType.Futbol);
+                sport.setName(result.getString("Name"));               
+                sport.setType(SportType.values()[result.getInt("Type")]);
                 sports.add(sport);
             }
             
