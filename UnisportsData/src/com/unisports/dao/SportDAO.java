@@ -21,7 +21,6 @@ public class SportDAO {
     
     public SportDAO() {
         _database = new Database();
-        
         try {
             _connection = _database.connect();
         } catch (SQLException ex) {
@@ -31,7 +30,7 @@ public class SportDAO {
     
     public boolean createSport(Sport sport) {
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Sport (Id, Name, Type, ) VALUES (?, ?, ?);");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Sport (Id, Name, Type) VALUES (?, ?, ?);");
             statement.setString(1, sport.getId().toString());
             statement.setString(2, sport.getName());
             statement.setInt(3, (sport.getType()).getHashCode());
