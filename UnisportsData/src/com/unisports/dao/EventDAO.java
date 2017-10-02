@@ -27,7 +27,31 @@ public class EventDAO {
     
     public boolean createEvent(Event event){
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Event (Id, Name, Type) VALUES (?, ?, ?);");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Event (Id, Date, Description, PositionX, PositionY, State, CreatedDate, CreatorUserId, Sport_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+            statement.setString(1, event.getId().toString());
+            statement.setDate(2, new java.sql.Date(event.getDate().getTime()));
+            statement.setString(3, event.getDescription());  
+            statement.setDouble(4, event.getPositionX());            
+            statement.setDouble(5, event.getPositionY());
+            statement.setInt(5, (event.getState()).getHashCode());
+            statement.setDate(6, new java.sql.Date(event.getCreatedDate().getTime()));
+            statement.setString(7, event.getCreatorUserId().toString());
+            statement.setString(8, event.getSportId().toString());
+
+            
+            boolean result = statement.execute();
+            statement.close();
+            //_database.Disconnect();
+            return result;
+        } catch (SQLException ex) {
+            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean updateEvent(Event event){
+        try {
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Event (Id, Date, Description, PositionX, PositionY, State, CreatedDate, CreatorUserId, Sport_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
             statement.setString(1, event.getId().toString());
             statement.setDate(2, new java.sql.Date(event.getDate().getTime()));
             statement.setString(3, event.getDescription());  
@@ -47,10 +71,6 @@ public class EventDAO {
             Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    }
-    
-    public boolean updateEvent(Event event){
-        return true;
     }
     
     public boolean deleteEvent(UUID Id){

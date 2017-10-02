@@ -21,8 +21,8 @@ public class Database {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             
-            _connection = DriverManager.getConnection("jdbc:" + databaseType + "://" + serverName +"/" + databaseName + "?user=" + user + "&password=" + password);            
-            //_connection = DriverManager.getConnection(String.format("jdbc:{0}://{1}/{2}?user={3}&password={4}", databaseType, serverName, databaseName, user, password));
+            //_connection = DriverManager.getConnection("jdbc:" + databaseType + "://" + serverName +"/" + databaseName + "?user=" + user + "&password=" + password);            
+            _connection = DriverManager.getConnection(String.format("jdbc:%s://%s/%s?user=%s&password=%s", databaseType, serverName, databaseName, user, password));
 
         }catch(ClassNotFoundException e){
             return null;

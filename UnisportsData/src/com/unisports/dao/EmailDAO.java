@@ -11,7 +11,7 @@ import com.unisports.entities.Email;
  *
  * @author koraniar
  */
-public class EmailDao {
+public class EmailDAO {
     public boolean sendEmail(Email email){
         return true;
     }
