@@ -2,9 +2,12 @@ package com.unisports.entities;
 
 import com.unisports.enums.SportType;
 import java.util.UUID;
+import javax.persistence.*;
 
 
+@Entity
 public class Sport {
+    @Id
     private UUID id;
     private String name;
     private SportType type;
