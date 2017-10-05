@@ -7,8 +7,10 @@ package com.unisports.test;
 
 import com.unisports.dao.EventDAO;
 import com.unisports.dao.SportDAO;
+import com.unisports.dao.UserDAO;
 import com.unisports.entities.Event;
 import com.unisports.entities.Sport;
+import com.unisports.entities.User;
 import com.unisports.enums.EventState;
 import com.unisports.enums.SportType;
 import java.sql.SQLException;
@@ -27,7 +29,7 @@ public class DatabaseTest {
         DatabaseTest thisTest =  new DatabaseTest(); 
         //thisTest.Sport();
         //thisTest.Event();
-        
+        //thisTest.User();
 
     }
     
@@ -113,5 +115,25 @@ public class DatabaseTest {
         } else {
             System.out.println("\nNo there events");
         }
+    }
+    
+    public void User(){
+        UserDAO userDao = new UserDAO();
+        
+        User user = new User();
+        user.setAddress("Calle 80");
+        user.setBadAverage(0);
+        user.setEmail("admin@unisports.com");
+        user.setExcellentAverage(0);
+        user.setLastName("Last");
+        user.setName("Namhe");
+        user.setNonAttendanceAverage(0);
+        user.setOveralRate(0);
+        user.setPassword("password");
+        user.setRegularAverage(0);
+        user.setbornDate(new Date());
+        user.setcontactPhone("3123588923");
+        
+        System.out.println("User created: " + userDao.createUser(user));
     }
 }

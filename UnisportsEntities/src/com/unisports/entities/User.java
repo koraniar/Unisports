@@ -18,7 +18,8 @@ public class User{
     private double overalRate;
     private double excellentAverage;
     private double regularAverage;
-    private double badAverage;
+    private double badAverage;    
+    private double nonAttendanceAverage;
     private List<Team> teamList;
     private List<UserInscription> userInscriptionList;
     private List<Relationship> relationshipList;
@@ -60,7 +61,7 @@ public class User{
         this.contactPhone = contactPhone;
     }
 
-    public String getcontectPhone() {
+    public String getcontactPhone() {
         return this.contactPhone;
     }
 
@@ -118,6 +119,14 @@ public class User{
 
     public double getBadAverage() {
         return this.badAverage;
+    }
+    
+    public void setNonAttendanceAverage(double average) {
+        this.nonAttendanceAverage = average;
+    }
+
+    public double getNonAttendanceAverage() {
+        return this.nonAttendanceAverage;
     }
 
     public void addTeamToTeamList(Team team) {
