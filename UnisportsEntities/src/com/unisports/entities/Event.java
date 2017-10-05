@@ -18,6 +18,11 @@ public class Event {
     private List<TeamInscription> teamInscriptionList;
     private UUID sportId;
     
+    public Event(UUID id)
+    {
+        this.id = id;
+    }
+    
     public Event()
     {
         this.id = UUID.randomUUID();
