@@ -39,7 +39,7 @@ public class NotificationDAO {
     
     public boolean createNotification(Notification notification){
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Notification (Id, Subject, Type, UserId) VALUES (?, ?, ?, ?);");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Notifications (Id, Subject, Type, User_Id) VALUES (?, ?, ?, ?);");
             statement.setString(1, notification.getId().toString());
             statement.setString(2, notification.getSubject());
             statement.setInt(3, (notification.getType()).getHashCode());
@@ -57,11 +57,11 @@ public class NotificationDAO {
     
     public boolean updateNotification(Notification notification){
         try {
-            PreparedStatement statement = _connection.prepareStatement("UPDATE Notification SET Subject = ?, Type = ?, UserId = ? WHERE Id = ?;");
-            statement.setString(1, notification.getId().toString());
-            statement.setString(2, notification.getSubject());
-            statement.setInt(3, (notification.getType()).getHashCode());
-            statement.setString(4, notification.getUserId().toString());
+            PreparedStatement statement = _connection.prepareStatement("UPDATE Notifications SET Subject = ?, Type = ?, User_Id = ? WHERE Id = ?;");
+            statement.setString(1, notification.getSubject());
+            statement.setInt(2, (notification.getType()).getHashCode());
+            statement.setString(3, notification.getUserId().toString());
+            statement.setString(4, notification.getId().toString());
             
             int result = statement.executeUpdate();
             statement.close();
@@ -75,7 +75,7 @@ public class NotificationDAO {
     
     public List<Notification> getAllNotifications(){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Notification;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Notifications;");
             
             ResultSet result = statement.executeQuery();
             
@@ -101,7 +101,7 @@ public class NotificationDAO {
     
     public Notification getNotificationById(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM notification WHERE Id=?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM notifications WHERE Id=?;");
             statement.setString(1, id.toString());
             
             ResultSet result = statement.executeQuery();
@@ -112,7 +112,7 @@ public class NotificationDAO {
                 notification = new Notification(UUID.fromString(result.getString("Id")));
                 notification.setSubject(result.getString("Subject"));
                 notification.setType(NotificationType.values()[result.getInt("Type")]);
-                notification.setUserId(UUID.fromString(result.getString("UserId")));
+                notification.setUserId(UUID.fromString(result.getString("User_Id")));
                    
             }
             

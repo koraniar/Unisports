@@ -6,12 +6,17 @@
 package com.unisports.test;
 
 import com.unisports.dao.EventDAO;
+import com.unisports.dao.NotificationDAO;
 import com.unisports.dao.SportDAO;
+import com.unisports.dao.TeamDAO;
 import com.unisports.dao.UserDAO;
 import com.unisports.entities.Event;
+import com.unisports.entities.Notification;
 import com.unisports.entities.Sport;
+import com.unisports.entities.Team;
 import com.unisports.entities.User;
 import com.unisports.enums.EventState;
+import com.unisports.enums.NotificationType;
 import com.unisports.enums.SportType;
 import java.sql.SQLException;
 import java.util.Date;
@@ -30,6 +35,8 @@ public class DatabaseTest {
         //thisTest.Sport();
         //thisTest.Event();
         //thisTest.User();
+        //thisTest.Notification();
+        thisTest.Team();
 
     }
     
@@ -163,4 +170,63 @@ public class DatabaseTest {
             System.out.println("\nNo there users by name");
         }
     }
+    
+    public void Notification(){
+    
+        NotificationDAO notificationDao = new NotificationDAO();
+        Notification notification = new Notification();
+        
+        //Create
+        notification.setSubject("Nuevo evento");        
+        notification.setType(NotificationType.Created);
+        notification.setUserId(UUID.fromString("5b302d9e-106c-4d6c-a2c7-640f64d1a15f"));
+        
+        System.out.println("Notification created: " + notificationDao.createNotification(notification));
+        
+        
+        //Get
+        Notification nt = notificationDao.getNotificationById(notification.getId());
+        if (nt != null) {
+            System.out.println("Notification Entity by ID ----\n" + nt.getId() + "\n" + nt.getSubject() + "\n" + nt.getType() + "\n------------");
+        }else{
+            System.out.println("none Notification get by ID");
+        }
+        
+//        //Update
+        nt.setSubject("updated n");
+        
+        System.out.println("Notification updated: " + notificationDao.updateNotification(nt));   
+}
+    
+    
+    
+    public void Team(){
+    
+        TeamDAO teamDao = new TeamDAO();
+        Team team = new Team();
+        
+        //Create
+        team.setName("Nuevo evento");        
+        team.setLogo("Logo1");
+        team.setMotto("Motto1");
+        team.setDescription("Description1");
+        team.setSportId(UUID.fromString("5d0c14fa-daf7-4ec1-8624-9121988a673a"));
+        
+        System.out.println("Team created: " + teamDao.createTeam(team));
+        
+        
+        //Get
+        Team tm = teamDao.getTeamById(team.getId());
+        if (tm != null) {
+            System.out.println("Notification Entity by ID ----\n" + tm.getId() + "\n" + tm.getName() + "\n" + tm.getLogo() + "\n" + tm.getMotto() + "\n" + tm.getDescription() + "\n------------");
+        }else{
+            System.out.println("none Notification get by ID");
+        }
+        
+//        //Update
+        tm.setName("updated n");
+        
+        System.out.println("Notification updated: " + teamDao.updateTeam(tm));   
+}
+    
 }
