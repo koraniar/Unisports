@@ -24,6 +24,10 @@ public class Notification {
         this.id = UUID.randomUUID();
     }
     
+    public Notification(UUID id){
+        this.id = id;
+    }
+    
     public UUID getId(){
         return this.id;
     }

@@ -6,9 +6,7 @@
 package com.unisports.dao;
 
 import com.unisports.database.context.Database;
-import com.unisports.entities.Event;
 import com.unisports.entities.Team;
-import com.unisports.enums.EventState;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,7 +60,7 @@ public class TeamDAO {
     
     public boolean updateTeam(Team team){
         try {
-            PreparedStatement statement = _connection.prepareStatement("UPDATE Team SET Name = ?, Logo = ?, Motto = ?, Description, Sport_Id = ? = ? WHERE Id = ?;");
+            PreparedStatement statement = _connection.prepareStatement("UPDATE Team SET Name = ?, Logo = ?, Motto = ?, Description = ?, Sport_Id = ? WHERE Id = ?;");
             statement.setString(1, team.getName());
             statement.setString(2, team.getLogo());
             statement.setString(3, team.getMotto());
@@ -140,7 +138,8 @@ public class TeamDAO {
     
      public List<Team> getTeamByPartOfName(String word){
        try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Team WHERE name = ?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Team WHERE LOWER(Name) LIKE ?;");
+            statement.setString(1, "%" + word.toLowerCase() + "%");
             
             ResultSet result = statement.executeQuery();
             
@@ -149,6 +148,10 @@ public class TeamDAO {
             while(result.next()){
                 Team team = new Team(UUID.fromString(result.getString("Id")));
                 team.setName(result.getString("Name"));
+                team.setLogo(result.getString("Logo"));
+                team.setMotto(result.getString("Motto"));
+                team.setDescription(result.getString("Description"));
+                team.setSportId(UUID.fromString(result.getString("Sport_Id")));
                 teams.add(team);
             }
             
@@ -156,12 +159,11 @@ public class TeamDAO {
             statement.close();
             //_database.Disconnect();
             return teams;
-          
-       } catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TeamDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }
+     }
     
      public boolean deleteTeam(UUID id){
         try {

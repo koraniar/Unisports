@@ -17,6 +17,10 @@ public class Relationship {
         this.userId = UUID.randomUUID();
     }
     
+    public Relationship(UUID id){
+        this.id = id;
+    }
+    
     public UUID getId()
     {
         return this.id;

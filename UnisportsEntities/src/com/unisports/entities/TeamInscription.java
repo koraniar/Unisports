@@ -14,8 +14,16 @@ public class TeamInscription {
         this.id = UUID.randomUUID();
     }
     
+    public TeamInscription(UUID id){
+        this.id = id;
+    }
+    
     public UUID getId(){
         return this.id;
+    }
+    
+    public int getPoints(){
+        return this.points;
     }
     
     public void setPoints (int points){
