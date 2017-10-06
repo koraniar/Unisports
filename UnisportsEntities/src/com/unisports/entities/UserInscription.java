@@ -13,7 +13,11 @@ public class UserInscription {
         this.id = UUID.randomUUID();
     }
     
-    public UUID getID(){
+    public UserInscription(UUID id){
+        this.id = id;
+    }
+    
+    public UUID getId(){
         return this.id;
     }
     
