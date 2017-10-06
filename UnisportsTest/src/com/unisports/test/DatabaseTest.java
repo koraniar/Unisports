@@ -8,13 +8,23 @@ package com.unisports.test;
 import com.unisports.dao.EventDAO;
 import com.unisports.dao.NotificationDAO;
 import com.unisports.dao.SportDAO;
+<<<<<<< HEAD
 import com.unisports.dao.TeamDAO;
+=======
+import com.unisports.dao.TeamInscriptionDAO;
+>>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 import com.unisports.dao.UserDAO;
+import com.unisports.dao.UserInscriptionDAO;
 import com.unisports.entities.Event;
 import com.unisports.entities.Notification;
 import com.unisports.entities.Sport;
+<<<<<<< HEAD
 import com.unisports.entities.Team;
+=======
+import com.unisports.entities.TeamInscription;
+>>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 import com.unisports.entities.User;
+import com.unisports.entities.UserInscription;
 import com.unisports.enums.EventState;
 import com.unisports.enums.NotificationType;
 import com.unisports.enums.SportType;
@@ -35,9 +45,15 @@ public class DatabaseTest {
         //thisTest.Sport();
         //thisTest.Event();
         //thisTest.User();
+<<<<<<< HEAD
         //thisTest.Notification();
         thisTest.Team();
 
+=======
+        //thisTest.TeamInscription();
+        //thisTest.UserInscription();
+        
+>>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
     }
     
     public void Sport(){
@@ -171,6 +187,7 @@ public class DatabaseTest {
         }
     }
     
+<<<<<<< HEAD
     public void Notification(){
     
         NotificationDAO notificationDao = new NotificationDAO();
@@ -229,4 +246,87 @@ public class DatabaseTest {
         System.out.println("Notification updated: " + teamDao.updateTeam(tm));   
 }
     
+=======
+    public void TeamInscription(){
+        TeamInscriptionDAO teamInsDAO = new TeamInscriptionDAO();
+        
+        TeamInscription teamIns = new TeamInscription();
+        teamIns.setPoints(4);
+        teamIns.setEventId(UUID.fromString("aca4defb-7a7e-48d0-a023-71808551b804"));
+        
+        System.out.println("TeamIns created: " + teamInsDAO.createTeamInscription(teamIns));
+        
+        TeamInscription tins = teamInsDAO.getTeamInscriptionById(teamIns.getId());
+        if (tins != null) {
+            System.out.println("Team Inscription Entity ---------\n" + tins.getId() + "\n" + tins.getPoints()+ "\n" + tins.getEventId());
+        }else{
+            System.out.println("No team inscription by ID");
+        }
+        
+        tins.setPoints(16);
+        
+        System.out.println("TeamIns updated: " + teamInsDAO.updateTeamInscription(tins));
+        
+        //System.out.println("TeamIns deleted: " + teamInsDAO.deleteTeamInscription(UUID.fromString("ca855017-112a-49b6-ba01-8a4a730902a0")));
+        
+        List<TeamInscription> teamInscriptions = teamInsDAO.getAllTeamInscriptions();
+        if (teamInscriptions != null && !teamInscriptions.isEmpty()) {
+            System.out.println("\nAll Team Inscriptions " + teamInscriptions.size());
+        } else {
+            System.out.println("\nNo there team inscriptions");
+        }
+        
+        List<TeamInscription> teamInscriptionsA = teamInsDAO.getAllTeamInscriptionsByEventId(UUID.fromString("aca4defb-7a7e-48d0-a023-71808551b804"));
+        if (teamInscriptionsA != null && !teamInscriptionsA.isEmpty()) {
+            System.out.println("\nAll Team Inscriptions by event " + teamInscriptionsA.size());
+        } else {
+            System.out.println("\nNo there team inscriptions by event");
+        }
+    }
+    
+    public void UserInscription(){
+        UserInscriptionDAO userInsDAO = new UserInscriptionDAO();
+        
+        UserInscription userIns = new UserInscription();
+        userIns.setConfirmed(false);
+        userIns.setTeamInscriptionId(UUID.fromString("23ecc70b-1cc6-4002-87fb-34bae3d20efa"));
+        userIns.setUserId(UUID.fromString("33712837-7ace-4f32-8c03-42b81415d98f"));
+        
+        System.out.println("User created: " + userInsDAO.createUserInscription(userIns));
+        
+        UserInscription usIns = userInsDAO.getUserInscriptionById(userIns.getId());
+        if (usIns != null) {
+            System.out.println("User inscription entity by Id --------\n" + usIns.getId() + "\n" + usIns.getConfirmed()+ "\n" + usIns.getTeamInscriptionId() + "\n" + usIns.getUserId());
+        } else {
+            System.out.println("No user inscription by ID");
+        }
+        
+        usIns.setConfirmed(true);
+        
+        System.out.println("User incription updated: " + userInsDAO.updateUserInscription(usIns));
+        
+        //System.out.println("User inscription deleted: " + userInsDAO.deleteUserInscription(UUID.fromString("")));
+        
+        List<UserInscription> userInscriptions = userInsDAO.getAllUserInscriptions();
+        if (userInscriptions != null && !userInscriptions.isEmpty()) {
+            System.out.println("\nAll User Inscriptions " + userInscriptions.size());
+        } else {
+            System.out.println("\nNo there user inscriptions");
+        }
+        
+        List<UserInscription> userInscriptionsA = userInsDAO.getAllUserInscriptionsByUserId(userIns.getUserId());
+        if (userInscriptionsA != null && !userInscriptionsA.isEmpty()) {
+            System.out.println("\nAll User Inscriptions by user " + userInscriptionsA.size());
+        } else {
+            System.out.println("\nNo there user inscriptions by user");
+        }
+        
+        List<UserInscription> userInscriptionsB = userInsDAO.getAllUserInscriptionsByTeamInscriptionId(userIns.getTeamInscriptionId());
+        if (userInscriptionsB != null && !userInscriptionsB.isEmpty()) {
+            System.out.println("\nAll User Inscriptions by team inscription " + userInscriptionsB.size());
+        } else {
+            System.out.println("\nNo there user inscriptions by team inscription");
+        }
+    }
+>>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 }

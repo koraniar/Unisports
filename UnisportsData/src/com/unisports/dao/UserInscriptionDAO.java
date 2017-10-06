@@ -52,7 +52,7 @@ public class UserInscriptionDAO {
         }
     }
     
-    public boolean updateTeamInscription(UserInscription inscription){
+    public boolean updateUserInscription(UserInscription inscription){
         try {
             PreparedStatement statement = _connection.prepareStatement("UPDATE UserInscription SET Confirmed = ?, Users_Id = ?, TeamInscription_Id = ? WHERE Id = ?;");
             statement.setBoolean(1, inscription.getConfirmed());
@@ -70,29 +70,18 @@ public class UserInscriptionDAO {
         }
     }
     
-    public List<UserInscription> getAllUserInscriptions(){
+    public boolean deleteUserInscription(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM UserInscription;");
+            PreparedStatement statement = _connection.prepareStatement("DELETE FROM UserInscription WHERE Id = ?;");
+            statement.setString(1, id.toString());
             
-            ResultSet result = statement.executeQuery();
-            
-            List<UserInscription> inscriptions = new ArrayList<UserInscription>();
-            
-            while(result.next()){
-                UserInscription uInscription = new UserInscription(UUID.fromString(result.getString("Id")));
-                uInscription.setConfirmed(result.getBoolean("Confirmed"));             
-                uInscription.setUserId(UUID.fromString(result.getString("Users_Id")));
-                uInscription.setTeamInscriptionId(UUID.fromString(result.getString("TeamInscription_Id")));
-                inscriptions.add(uInscription);
-            }
-            
-            result.close();
+            int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
-            return inscriptions;
+            return result > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(UserInscriptionDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            Logger.getLogger(TeamInscriptionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
     
@@ -116,6 +105,32 @@ public class UserInscriptionDAO {
             statement.close();
             //_database.Disconnect();
             return uInscription;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserInscriptionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public List<UserInscription> getAllUserInscriptions(){
+        try {
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM UserInscription;");
+            
+            ResultSet result = statement.executeQuery();
+            
+            List<UserInscription> inscriptions = new ArrayList<UserInscription>();
+            
+            while(result.next()){
+                UserInscription uInscription = new UserInscription(UUID.fromString(result.getString("Id")));
+                uInscription.setConfirmed(result.getBoolean("Confirmed"));             
+                uInscription.setUserId(UUID.fromString(result.getString("Users_Id")));
+                uInscription.setTeamInscriptionId(UUID.fromString(result.getString("TeamInscription_Id")));
+                inscriptions.add(uInscription);
+            }
+            
+            result.close();
+            statement.close();
+            //_database.Disconnect();
+            return inscriptions;
         } catch (SQLException ex) {
             Logger.getLogger(UserInscriptionDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
