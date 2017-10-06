@@ -5,6 +5,7 @@ import java.util.UUID;
 
 
 public class Team {
+    
     private UUID id;
     private String name;
     private String logo;
@@ -15,6 +16,10 @@ public class Team {
     
     public Team (){
         this.id = UUID.randomUUID();
+    }
+    
+    public Team(UUID id){
+        this.id = id;
     }
     
     public UUID getId(){

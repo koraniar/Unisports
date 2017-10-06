@@ -24,7 +24,7 @@ public class EventDAO {
         try {
             _connection = _database.connect();
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -52,7 +52,7 @@ public class EventDAO {
             //_database.Disconnect();
             return result > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -81,7 +81,7 @@ public class EventDAO {
             //_database.Disconnect();
             return result > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -96,7 +96,7 @@ public class EventDAO {
             //_database.Disconnect();
             return result > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -127,7 +127,7 @@ public class EventDAO {
             //_database.Disconnect();
             return event;
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -158,7 +158,7 @@ public class EventDAO {
             //_database.Disconnect();
             return events;
         } catch (SQLException ex) {
-            Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
