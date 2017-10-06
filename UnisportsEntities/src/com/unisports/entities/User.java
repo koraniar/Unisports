@@ -28,6 +28,10 @@ public class User{
     public User() {
         this.id = UUID.randomUUID();
     }
+    
+    public User(UUID id) {
+        this.id = id;
+    }
 
     public UUID getId() {
         return this.id;
