@@ -135,5 +135,32 @@ public class DatabaseTest {
         user.setcontactPhone("3123588923");
         
         System.out.println("User created: " + userDao.createUser(user));
+        
+        User us = userDao.getUserById(user.getId());
+        if (us != null) {
+            System.out.println("\nUser entity by Id --------\n" + user.getId() + "\n" + user.getName()+ "\n" + user.getLastName()+ "\n" + user.getEmail()+ "\n" + user.getcontactPhone() + 
+                    "\n" + user.getAddress()+ "\n" + user.getbornDate()+ "\n" + user.getPassword()+ "\n" + user.getOveralRate()+ "\n" + user.getExcellentAverage()+ 
+                    "\n" + user.getRegularAverage()+ "\n" + user.getBadAverage()+ "\n" + user.getNonAttendanceAverage());
+        }
+        
+        us.setName("real");
+        
+        System.out.println("\nUser updated: " + userDao.updateUser(us));
+        
+        //System.out.println("\nUser deleted: " + userDao.deleteUser(UUID.fromString("742bbd1a-4f66-43c3-b405-98ef451cec26")));
+
+        List<User> users = userDao.getAllUsers();
+        if (users != null && !users.isEmpty()) {
+            System.out.println("\nAll users " + users.size());
+        } else {
+            System.out.println("\nNo there users");
+        }
+        
+        List<User> usersp = userDao.getUserByPartOfName("re");
+        if (usersp != null && !usersp.isEmpty()) {
+            System.out.println("\nAll users " + usersp.size());
+        } else {
+            System.out.println("\nNo there users by name");
+        }
     }
 }
