@@ -90,8 +90,8 @@ public class DatabaseTest {
         event.setPositionY(86.2323);
         event.setState(EventState.Created);
         event.setCreatedDate(null);
-        event.setCreatorUserId(UUID.fromString("1763f9be-5e5a-4d97-854d-a542259a56cf"));
-        event.setSportId(UUID.fromString("ec4495a7-de5e-43e8-ac1b-ba6503f98b3b"));
+        event.setCreatorUserId(UUID.fromString("33712837-7ace-4f32-8c03-42b81415d98f"));
+        event.setSportId(UUID.fromString("0840ac4a-6ea7-41ce-9bf6-7ac6e0765cb4"));
         
         System.out.println("\nCreate Event: " + eventDao.createEvent(event));
         
