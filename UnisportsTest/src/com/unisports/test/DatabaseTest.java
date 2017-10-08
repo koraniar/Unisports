@@ -22,7 +22,6 @@ import com.unisports.entities.UserInscription;
 import com.unisports.enums.EventState;
 import com.unisports.enums.NotificationType;
 import com.unisports.enums.SportType;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -40,7 +39,7 @@ public class DatabaseTest {
         //thisTest.Event();
         //thisTest.User();
         //thisTest.Notification();
-        //thisTest.Team();
+        thisTest.Team();
         //thisTest.TeamInscription();
         //thisTest.UserInscription();
     }
@@ -211,13 +210,13 @@ public class DatabaseTest {
         Team team = new Team();
         
         //Create
-        team.setName("Nuevo evento");        
-        team.setLogo("Logo1");
-        team.setMotto("Motto1");
-        team.setDescription("Description1");
-        team.setSportId(UUID.fromString("5d0c14fa-daf7-4ec1-8624-9121988a673a"));
-        
-        System.out.println("Team created: " + teamDao.createTeam(team));
+//        team.setName("Nuevo evento");        
+//        team.setLogo("Logo1");
+//        team.setMotto("Motto1");
+//        team.setDescription("Description1");
+//        team.setSportId(UUID.fromString("5d0c14fa-daf7-4ec1-8624-9121988a673a"));
+//        
+//        System.out.println("Team created: " + teamDao.createTeam(team));
         
         
         //Get
@@ -229,10 +228,34 @@ public class DatabaseTest {
         }
         
 //        //Update
-        tm.setName("updated n");
+//        tm.setName("updated n");
         
-        System.out.println("Notification updated: " + teamDao.updateTeam(tm));   
+//        System.out.println("Notification updated: " + teamDao.updateTeam(tm)); 
+        
+        //Get all team
+        List<Team> teams = teamDao.getAllTeam();
+        if (teams != null && !teams.isEmpty()) {
+            System.out.println("\nAll teams " + teams.size());
+        } else {
+            System.out.println("\nNo there teams");
+        }
+        
+        //Get team by part of name
+        
+                List<Team> teamsp = teamDao.getTeamByPartOfName("da");
+        if (teamsp != null && !teamsp.isEmpty()) {
+            System.out.println("\nAll teams " + teamsp.size());
+        } else {
+            System.out.println("\nNo there teams by name");
+        }
+        
+        //Delete team
+        teamDao.deleteTeam(UUID.fromString("ed5f2435-aba4-4d40-92ec-fc8fad6035e1"));
+        
+//        System.out.println("\nTeam updated: " + teamDao.updateTeam(tm));
+        
 }
+    
     public void TeamInscription(){
         TeamInscriptionDAO teamInsDAO = new TeamInscriptionDAO();
         
