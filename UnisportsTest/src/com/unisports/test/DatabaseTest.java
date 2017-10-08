@@ -8,21 +8,15 @@ package com.unisports.test;
 import com.unisports.dao.EventDAO;
 import com.unisports.dao.NotificationDAO;
 import com.unisports.dao.SportDAO;
-<<<<<<< HEAD
 import com.unisports.dao.TeamDAO;
-=======
 import com.unisports.dao.TeamInscriptionDAO;
->>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 import com.unisports.dao.UserDAO;
 import com.unisports.dao.UserInscriptionDAO;
 import com.unisports.entities.Event;
 import com.unisports.entities.Notification;
 import com.unisports.entities.Sport;
-<<<<<<< HEAD
 import com.unisports.entities.Team;
-=======
 import com.unisports.entities.TeamInscription;
->>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 import com.unisports.entities.User;
 import com.unisports.entities.UserInscription;
 import com.unisports.enums.EventState;
@@ -45,15 +39,10 @@ public class DatabaseTest {
         //thisTest.Sport();
         //thisTest.Event();
         //thisTest.User();
-<<<<<<< HEAD
         //thisTest.Notification();
-        thisTest.Team();
-
-=======
+        //thisTest.Team();
         //thisTest.TeamInscription();
         //thisTest.UserInscription();
-        
->>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
     }
     
     public void Sport(){
@@ -186,8 +175,7 @@ public class DatabaseTest {
             System.out.println("\nNo there users by name");
         }
     }
-    
-<<<<<<< HEAD
+ 
     public void Notification(){
     
         NotificationDAO notificationDao = new NotificationDAO();
@@ -245,8 +233,6 @@ public class DatabaseTest {
         
         System.out.println("Notification updated: " + teamDao.updateTeam(tm));   
 }
-    
-=======
     public void TeamInscription(){
         TeamInscriptionDAO teamInsDAO = new TeamInscriptionDAO();
         
@@ -328,5 +314,4 @@ public class DatabaseTest {
             System.out.println("\nNo there user inscriptions by team inscription");
         }
     }
->>>>>>> 06497885576d13d9b477e9c951a47a24fb9dc60a
 }
