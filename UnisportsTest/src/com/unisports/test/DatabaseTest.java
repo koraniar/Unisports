@@ -38,8 +38,8 @@ public class DatabaseTest {
         //thisTest.Sport();
         //thisTest.Event();
         //thisTest.User();
-        //thisTest.Notification();
-        thisTest.Team();
+        thisTest.Notification();
+        //thisTest.Team();
         //thisTest.TeamInscription();
         //thisTest.UserInscription();
     }
@@ -51,7 +51,6 @@ public class DatabaseTest {
         //Create
         sport.setName("basquet a");        
         sport.setType(SportType.Futbol);
-        
         System.out.println("Sport created: " + sportDao.createSport(sport));
         
         
@@ -65,7 +64,6 @@ public class DatabaseTest {
         
         //Update
         sp.setName("updated n");
-        
         System.out.println("Sport updated: " + sportDao.updateSport(sp));        
         
         //System.out.println(sportDao.deleteSport(UUID.fromString("b8c3406b-7268-4f3d-bbe4-848017b90036")));
@@ -181,25 +179,41 @@ public class DatabaseTest {
         Notification notification = new Notification();
         
         //Create
-        notification.setSubject("Nuevo evento");        
-        notification.setType(NotificationType.Created);
-        notification.setUserId(UUID.fromString("5b302d9e-106c-4d6c-a2c7-640f64d1a15f"));
-        
-        System.out.println("Notification created: " + notificationDao.createNotification(notification));
+//        notification.setSubject("Nuevo evento");        
+//        notification.setType(NotificationType.Created);
+//        notification.setUserId(UUID.fromString("5b302d9e-106c-4d6c-a2c7-640f64d1a15f"));
+//        System.out.println("Notification created: " + notificationDao.createNotification(notification));
         
         
         //Get
-        Notification nt = notificationDao.getNotificationById(notification.getId());
-        if (nt != null) {
-            System.out.println("Notification Entity by ID ----\n" + nt.getId() + "\n" + nt.getSubject() + "\n" + nt.getType() + "\n------------");
-        }else{
-            System.out.println("none Notification get by ID");
+//        Notification nt = notificationDao.getNotificationById(notification.getId());
+//        if (nt != null) {
+//            System.out.println("Notification Entity by ID ----\n" + nt.getId() + "\n" + nt.getSubject() + "\n" + nt.getType() + "\n------------");
+//        }else{
+//            System.out.println("none Notification get by ID");
+//        }
+        
+        //Update
+//        nt.setSubject("update a"); 
+//        System.out.println("Notification updated: " + notificationDao.updateNotification(nt));  
+        
+        //Get all notifications
+        List<Notification> notifications = notificationDao.getAllNotifications();
+        if (notifications != null && !notifications.isEmpty()) {
+            System.out.println("\nAll notifications " + notifications.size());
+        } else {
+            System.out.println("\nNo there notifications");
         }
         
-//        //Update
-        nt.setSubject("updated n");
+        //Get notification by id
         
-        System.out.println("Notification updated: " + notificationDao.updateNotification(nt));   
+        List<Notification> notificationsA = notificationDao.getAllNotificationsByUserId(UUID.fromString("aca4defb-7a7e-48d0-a023-71808551b804"));
+        if (notificationsA != null && !notificationsA.isEmpty()) {
+            System.out.println("\nAll Notification by user " + notificationsA.size());
+        } else {
+            System.out.println("\nNo there Notification by user");
+        }
+        
 }
     
     

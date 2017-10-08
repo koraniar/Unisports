@@ -85,7 +85,7 @@ public class NotificationDAO {
                 Notification notification = new Notification(UUID.fromString(result.getString("Id")));
                 notification.setSubject(result.getString("Subject"));
                 notification.setType(NotificationType.values()[result.getInt("Type")]);
-                notification.setUserId(UUID.fromString(result.getString("UserId")));
+                notification.setUserId(UUID.fromString(result.getString("User_Id")));
                 notifications.add(notification);
             }
             
