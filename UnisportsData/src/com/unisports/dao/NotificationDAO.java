@@ -128,25 +128,26 @@ public class NotificationDAO {
     
     //Tengo duda sobre este metodo
     
-    public Notification getAllNotificationsByUserId(UUID Id){
+    public List<Notification> getAllNotificationsByUserId(UUID Id){
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Notification WHERE Id = ?;");
             
             ResultSet result = statement.executeQuery();
             
-            Notification notification = null;
+            List<Notification> notifications = new ArrayList<Notification>();
             
             while(result.next()){
-                notification = new Notification(UUID.fromString(result.getString("Id")));
+                Notification notification = new Notification(UUID.fromString(result.getString("Id")));
                 notification.setSubject(result.getString("Subject"));
                 notification.setType(NotificationType.values()[result.getInt("Type")]);
                 notification.setUserId(UUID.fromString(result.getString("UserId")));
+                notifications.add(notification);
             }
             
             result.close();
             statement.close();
             //_database.Disconnect();
-            return notification;
+            return notifications;
         } catch (SQLException ex) {
             Logger.getLogger(NotificationDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
