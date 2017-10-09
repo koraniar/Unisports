@@ -128,9 +128,10 @@ public class NotificationDAO {
     
     //Tengo duda sobre este metodo
     
-    public List<Notification> getAllNotificationsByUserId(UUID Id){
+    public List<Notification> getAllNotificationsByUserId(UUID UserId){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Notification WHERE Id = ?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM notifications WHERE User_Id = ?;");
+            statement.setString(1, UserId.toString());
             
             ResultSet result = statement.executeQuery();
             
@@ -140,7 +141,7 @@ public class NotificationDAO {
                 Notification notification = new Notification(UUID.fromString(result.getString("Id")));
                 notification.setSubject(result.getString("Subject"));
                 notification.setType(NotificationType.values()[result.getInt("Type")]);
-                notification.setUserId(UUID.fromString(result.getString("UserId")));
+                notification.setUserId(UUID.fromString(result.getString("User_Id")));
                 notifications.add(notification);
             }
             

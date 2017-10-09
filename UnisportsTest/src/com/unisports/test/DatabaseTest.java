@@ -207,7 +207,7 @@ public class DatabaseTest {
         
         //Get notification by id
         
-        List<Notification> notificationsA = notificationDao.getAllNotificationsByUserId(UUID.fromString("aca4defb-7a7e-48d0-a023-71808551b804"));
+        List<Notification> notificationsA = notificationDao.getAllNotificationsByUserId(UUID.fromString(name));
         if (notificationsA != null && !notificationsA.isEmpty()) {
             System.out.println("\nAll Notification by user " + notificationsA.size());
         } else {
