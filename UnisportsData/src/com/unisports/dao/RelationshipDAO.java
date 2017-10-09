@@ -56,9 +56,37 @@ public class RelationshipDAO {
         }
     }
     
+    public Relationship getRelationshipById(UUID id){
+        try {
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM relationship WHERE Id=?;");
+            statement.setString(1, id.toString());
+            
+            ResultSet result = statement.executeQuery();
+            
+            Relationship relationship = null;
+            
+            if(result.first()){
+                relationship = new Relationship(UUID.fromString(result.getString("Id")));
+                relationship.setConfirmedDate(result.getDate("ConfirmedDate"));
+                relationship.setState(RelationshipState.values()[result.getInt("State")]);
+                relationship.setUserId(UUID.fromString(result.getString("UserId")));
+                relationship.setUserRelatedId(UUID.fromString(result.getString("UserRelatedId")));
+                   
+            }
+            
+            result.close();
+            statement.close();
+            //_database.Disconnect();
+            return relationship;
+        } catch (SQLException ex) {
+            Logger.getLogger(NotificationDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public boolean createRelationship(Relationship relationship){
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Relationship (Id, ConfirmedDate, State, UserId, UserRelatedId) VALUES (?, ?, ?, ?, ?);");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO Relationship (Id, ConfirmedDate, State, Users_Id, UserRelatedId) VALUES (?, ?, ?, ?, ?);");
             statement.setString(1, relationship.getId().toString());
             statement.setTimestamp(2, new Timestamp(relationship.getConfirmedDate().getTime()));
             statement.setInt(3, (relationship.getState()).getHashCode());

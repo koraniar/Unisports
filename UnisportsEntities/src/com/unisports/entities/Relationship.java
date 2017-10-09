@@ -12,9 +12,9 @@ public class Relationship {
     private UUID userId;
     private UUID userRelatedId;
     
-    private Relationship()
+    public Relationship()
     {
-        this.userId = UUID.randomUUID();
+        this.id = UUID.randomUUID();
     }
     
     public Relationship(UUID id){
