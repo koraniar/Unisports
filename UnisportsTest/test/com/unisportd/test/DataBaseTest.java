@@ -5,6 +5,7 @@
  */
 package com.unisportd.test;
 
+import com.unisports.dao.TeamDAO;
 import com.unisports.entities.Team;
 import java.util.UUID;
 import org.junit.After;
@@ -20,7 +21,7 @@ import static org.junit.Assert.*;
  */
 public class DataBaseTest {
 
-    Team team = new Team();
+    
 
     public DataBaseTest() {
 
@@ -47,12 +48,23 @@ public class DataBaseTest {
 
     @Test
     public void createTeam() {
+        TeamDAO teamDao = new TeamDAO();
+        Team team = new Team();
+        
         team.setName("TeamOne");
         team.setName("Nuevo evento");
         team.setLogo("Logo1");
         team.setMotto("Motto1");
         team.setDescription("Description1");
-        team.setSportId(UUID.fromString("5d0c14fa-daf7-4ec1-8624-9121988a673a"));
+        team.setSportId(UUID.fromString("0840ac4a-6ea7-41ce-9bf6-7ac6e0765cb4"));
+        
+        boolean result = teamDao.createTeam(team);
+        
+        assertEquals(true, result);
+        
+        if (!result) {
+            fail("We cannot create the team");
+        }
     }
 
     // TODO add test methods here.
