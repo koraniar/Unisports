@@ -345,15 +345,7 @@ public class DatabaseTest {
         relationship.setState(RelationshipState.Accepted);
         relationship.setUserId(UUID.fromString("5b302d9e-106c-4d6c-a2c7-640f64d1a15f"));
         relationship.setUserRelatedId(UUID.fromString("ce159082-edc4-46af-a664-c9aa48e203cc"));
-        System.out.println("Relationship created: " + relationshipDao.createRelationship(relationship));
-
-        //Get
-        
-        //Update
-        Relationship rs = new
-        
-          setSubject("update a"); 
-          System.out.println("Notification updated: " + notificationDao.updateNotification(nt));  
+        System.out.println("Relationship created: " + relationshipDao.createRelationship(relationship)); 
         
     }
 }
