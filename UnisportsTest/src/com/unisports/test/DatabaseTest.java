@@ -45,7 +45,7 @@ public class DatabaseTest {
         //thisTest.Team();
         //thisTest.TeamInscription();
         //thisTest.UserInscription();
-        thisTest.Relationship();
+        //thisTest.Relationship();
     }
 
     public void Sport() {
