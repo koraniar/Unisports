@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.dao;
 
 import com.unisports.database.context.Database;
@@ -18,10 +13,7 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author danielmontana
- */
+
 public class UserDAO {
     private Database _database;
     private Connection _connection;
