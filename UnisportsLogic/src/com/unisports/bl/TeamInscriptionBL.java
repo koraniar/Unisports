@@ -5,6 +5,7 @@
  */
 package com.unisports.bl;
 
+import com.unisports.dao.TeamInscriptionDAO;
 import com.unisports.entities.TeamInscription;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,10 @@ import java.util.UUID;
  */
 public class TeamInscriptionBL {
     
+    TeamInscriptionDAO _teamInscriptionDao;
+    
     public TeamInscriptionBL(){
-        
+        _teamInscriptionDao = new TeamInscriptionDAO();
     }
     
     public boolean createInscription(UUID teamId, UUID eventId){
@@ -40,4 +43,13 @@ public class TeamInscriptionBL {
         return new ArrayList<TeamInscription>();
     }
     
+    public List<TeamInscription> getAllInscriptionsByUserId(UUID userId){
+        
+        return new ArrayList<TeamInscription>();
+    }
+    
+    public List<TeamInscription> getAllInscriptionsByEventId(UUID eventId){
+        
+        return new ArrayList<TeamInscription>();
+    }
 }
