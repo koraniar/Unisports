@@ -38,3 +38,5 @@ UnsiportsCross/nbdist/
 .nb-gradle/
 
 UnisportsTest/nbproject/private/private.properties
+/UnisportsRest/nbproject/private/
+/UnisportsRest/build/
