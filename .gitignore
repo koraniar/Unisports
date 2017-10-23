@@ -1,25 +1,25 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
 
-UnisportsData/nbproject/private/
-UnisportsDesktop/nbproject/private/
-UnisportsEntities/nbproject/private/
-UnisportsLogic/nbproject/private/
-UnisportsTest/nbproject/private/
-UnsiportsCross/nbproject/private/
+UnisportsData/nbproject/private/*
+UnisportsDesktop/nbproject/private/*
+UnisportsEntities/nbproject/private/*
+UnisportsLogic/nbproject/private/*
+UnisportsTest/nbproject/private/*
+UnsiportsCross/nbproject/private/*
 
-UnisportsData/build/
-UnisportsDesktop/build/
-UnisportsEntities/build/
-UnisportsLogic/build/
-UnisportsTest/build/
-UnsiportsCross/build/
+UnisportsData/build/*
+UnisportsDesktop/build/*
+UnisportsEntities/build/*
+UnisportsLogic/build/*
+UnisportsTest/build/*
+UnsiportsCross/build/*
 
-UnisportsData/nbbuild/
-UnisportsDesktop/nbbuild/
-UnisportsEntities/nbbuild/
-UnisportsLogic/nbbuild/
-UnisportsTest/nbbuild/
-UnsiportsCross/nbbuild/
+UnisportsData/nbbuild/*
+UnisportsDesktop/nbbuild/*
+UnisportsEntities/nbbuild/*
+UnisportsLogic/nbbuild/*
+UnisportsTest/nbbuild/*
+UnsiportsCross/nbbuild/*
 
 UnisportsData/dist/
 UnisportsDesktop/dist/
@@ -44,3 +44,5 @@ UnisportsLogic/nbproject/project.properties
 UnisportsLogic/nbproject/project.properties
 UnisportsLogic/nbproject/genfiles.properties
 UnisportsLogic/nbproject/build-impl.xml
+UnisportsFXTest/nbproject/private/private.xml
+UnisportsLogic/nbproject/private/private.properties
