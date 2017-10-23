@@ -6,6 +6,7 @@ UnisportsEntities/nbproject/private/*
 UnisportsLogic/nbproject/private/*
 UnisportsTest/nbproject/private/*
 UnsiportsCross/nbproject/private/*
+/UnisportsRest/nbproject/private/*
 
 UnisportsData/build/*
 UnisportsDesktop/build/*
@@ -38,6 +39,8 @@ UnsiportsCross/nbdist/
 .nb-gradle/
 
 UnisportsTest/nbproject/private/private.properties
+/UnisportsRest/nbproject/private/
+/UnisportsRest/build/
 *.properties
 UnisportsRest/nbproject/private/private.xml
 UnisportsLogic/nbproject/project.properties
@@ -46,3 +49,4 @@ UnisportsLogic/nbproject/genfiles.properties
 UnisportsLogic/nbproject/build-impl.xml
 UnisportsFXTest/nbproject/private/private.xml
 UnisportsLogic/nbproject/private/private.properties
+/UnisportsRest/target/

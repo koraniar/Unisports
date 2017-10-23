@@ -52,12 +52,10 @@ public class UserBL {
     }
     
     public boolean disableUser(UUID userId) {
-        
         return true;
     }
     
     public boolean sendEmailConfirmation(UUID userId) {
-        
         return true;
     }
     
