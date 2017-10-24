@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package unisportsdesktop;
+package com.unisports.desktop.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author danielmontana
+ * @author koraniar
  */
-public class RecoverPasswordController implements Initializable {
+public class EventController implements Initializable {
 
     /**
      * Initializes the controller class.
