@@ -50,3 +50,6 @@ UnisportsLogic/nbproject/build-impl.xml
 UnisportsFXTest/nbproject/private/private.xml
 UnisportsLogic/nbproject/private/private.properties
 /UnisportsRest/target/
+UnisportsDesktop/nbproject/private/private.properties
+UnisportsLogic/nbproject/private/private.properties
+UnsiportsCross/nbproject/private/private.properties
