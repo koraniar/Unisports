@@ -58,7 +58,7 @@
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="305.0" layoutY="160.0" style="-fx-background-color: #f4f4f4;" text="Agregar" textAlignment="CENTER">
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="305.0" layoutY="310.0" style="-fx-background-color: #f4f4f4;" text="Agregar" textAlignment="CENTER">
          <font>
             <Font name="Roboto Regular" size="18.0" />
          </font>

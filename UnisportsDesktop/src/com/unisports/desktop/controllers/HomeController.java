@@ -5,6 +5,8 @@
  */
 package com.unisports.desktop.controllers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPopup;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,8 +16,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 /**
@@ -25,6 +29,9 @@ import javafx.scene.text.Text;
  */
 public class HomeController implements Initializable {
 
+    //@FXML
+    private JFXPopup Popup;
+    
     @FXML
     private Pane ContentPane;
     
@@ -64,6 +71,8 @@ public class HomeController implements Initializable {
     
     @FXML
     public void onCreateEventAction(ActionEvent event){
+        Button db = (Button) event.getSource();
+        Popup.show(db, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
     }
     
     @FXML
@@ -103,6 +112,18 @@ public class HomeController implements Initializable {
         try {
             Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Event.fxml"));
             ContentPane.getChildren().add(root);
+            
+            //Account Information Actions
+            JFXButton bt = new JFXButton("hola 1");            
+            JFXButton bt2 = new JFXButton("hola 2");
+            JFXButton bt3 = new JFXButton("hola 3");
+            bt.setPadding(new Insets(10));            
+            bt2.setPadding(new Insets(10));
+            bt3.setPadding(new Insets(10));
+            VBox vb = new VBox(bt, bt2, bt3);
+            Popup = new JFXPopup();
+            Popup.setPopupContent(vb);
+            //--
         } catch (IOException ex) {
             Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
