@@ -16,20 +16,17 @@ import javafx.scene.control.Label;
  *
  * @author danielmontana
  */
-public class LoginController implements Initializable {
+public class AccountController implements Initializable {
     
-    @FXML
-    private Label label;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Hola");
+        //System.out.println("Hola");
     }    
     
 }
