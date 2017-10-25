@@ -8,41 +8,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
    <children>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="608.0" layoutY="672.0" style="-fx-background-color: #f4f4f4;" text="Siguiente">
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="606.0" layoutY="608.0" style="-fx-background-color: #f4f4f4;" text="Siguiente">
          <font>
             <Font name="Roboto Regular" size="18.0" />
          </font>
       </JFXButton>
-      <Text layoutX="286.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Evento">
+      <Text layoutX="284.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Evento">
          <font>
             <Font size="42.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="630.0" layoutY="253.0" prefHeight="27.0" prefWidth="261.0" />
-      <Text layoutX="424.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha y Hora">
+      <JFXTextField layoutX="628.0" layoutY="189.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="422.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha y Hora">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="424.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deporte">
+      <Text layoutX="422.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deporte">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="630.0" layoutY="294.0" prefHeight="27.0" prefWidth="261.0" />
-      <Text layoutX="424.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lineas">
+      <JFXComboBox layoutX="628.0" layoutY="230.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="422.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lineas">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="630.0" layoutY="336.0" prefHeight="27.0" prefWidth="261.0" />
-      <Text layoutX="424.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar">
+      <JFXTextField layoutX="628.0" layoutY="272.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="422.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <Pane layoutX="424.0" layoutY="424.0" prefHeight="228.0" prefWidth="469.0" style="-fx-background-color: #f4f4f4;" />
+      <Pane layoutX="422.0" layoutY="360.0" prefHeight="228.0" prefWidth="469.0" style="-fx-background-color: #f4f4f4;" />
    </children>
 </AnchorPane>

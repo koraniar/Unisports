@@ -11,21 +11,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.unisports.desktop.controllers.AccountController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
     <children>
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <JFXTextField layoutX="495.0" layoutY="328.0" prefHeight="0.0" prefWidth="400.0" />
-      <JFXTextField layoutX="493.0" layoutY="386.0" prefHeight="29.0" prefWidth="400.0" />
-      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="823.0" layoutY="435.0" onAction="#handleButtonAction" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar" />
-      <Text layoutX="402.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="416.279541015625">
+      <JFXTextField layoutX="494.0" layoutY="265.0" prefHeight="0.0" prefWidth="400.0" />
+      <JFXTextField layoutX="492.0" layoutY="323.0" prefHeight="29.0" prefWidth="400.0" />
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="822.0" layoutY="372.0" onAction="#handleButtonAction" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar" />
+      <Text layoutX="401.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="416.279541015625">
          <font>
             <Font size="29.0" />
          </font>
       </Text>
-      <Text layoutX="423.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
-      <Text layoutX="410.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constaseña:" />
-      <Line endX="320.0" layoutX="600.0" layoutY="486.0" startX="-220.0" strokeWidth="3.0" />
-      <Text layoutX="495.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
+      <Text layoutX="422.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+      <Text layoutX="409.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constaseña:" />
+      <Line endX="320.0" layoutX="599.0" layoutY="423.0" startX="-220.0" strokeWidth="3.0" />
+      <Text layoutX="494.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
          <font>
             <Font size="29.0" />
          </font>
