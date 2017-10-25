@@ -19,12 +19,10 @@ public class UnisportsDesktop extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/NavBar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/_Layout.fxml"));
 
         Scene scene = new Scene(root);
         
-        
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

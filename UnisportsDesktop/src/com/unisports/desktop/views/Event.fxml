@@ -11,7 +11,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
     <children>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="708.0" layoutY="634.0" style="-fx-background-color: #f4f4f4;" text="Eliminar Evento">
+      <JFXButton fx:id="deleteEventButton" buttonType="RAISED" focusTraversable="false" layoutX="708.0" layoutY="634.0" onAction="#onDeleteEvent" style="-fx-background-color: #f4f4f4;" text="Eliminar Evento">
+         <font>
+            <Font name="Roboto Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteEventButtonA" buttonType="RAISED" focusTraversable="false" layoutX="708.0" layoutY="634.0" onAction="#onDeleteEvent2" style="-fx-background-color: #f4f4f4;" text="Eliminar Evento 2">
          <font>
             <Font name="Roboto Regular" size="18.0" />
          </font>

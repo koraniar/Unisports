@@ -26,21 +26,14 @@ import javafx.scene.layout.Pane;
 public class AccountController implements Initializable {
     
     @FXML
-    private Pane ContentPane;
-    
-    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Event.fxml"));
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }    
     
 }
