@@ -5,12 +5,19 @@
  */
 package com.unisports.desktop.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -18,6 +25,8 @@ import javafx.scene.control.Label;
  */
 public class AccountController implements Initializable {
     
+    @FXML
+    private Pane ContentPane;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -26,7 +35,12 @@ public class AccountController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //System.out.println("Hola");
+        try {
+            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Event.fxml"));
+            ContentPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     
 }
