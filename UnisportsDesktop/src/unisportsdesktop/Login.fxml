@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
@@ -11,24 +12,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="unisportsdesktop.LoginController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unisportsdesktop.LoginController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <JFXTextField layoutX="495.0" layoutY="328.0" prefHeight="0.0" prefWidth="400.0" />
-      <JFXTextField layoutX="493.0" layoutY="386.0" prefHeight="29.0" prefWidth="400.0" />
-      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="823.0" layoutY="435.0" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar" />
-      <Text layoutX="402.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="416.279541015625">
+      <JFXTextField layoutX="470.0" layoutY="237.0" prefHeight="0.0" prefWidth="400.0" />
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="754.0" layoutY="330.0" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar">
          <font>
-            <Font size="29.0" />
+            <Font size="18.0" />
+         </font></JFXButton>
+      <Text layoutX="444.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="284.1038818359375">
+         <font>
+            <Font size="22.0" />
          </font>
       </Text>
-      <Text layoutX="423.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
-      <Text layoutX="410.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constaseña:" />
-      <Line endX="320.0" layoutX="600.0" layoutY="486.0" startX="-220.0" strokeWidth="3.0" />
-      <Text layoutX="495.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
+      <Text layoutX="373.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:">
          <font>
-            <Font size="29.0" />
+            <Font size="22.0" />
+         </font></Text>
+      <Text layoutX="331.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constaseña:">
+         <font>
+            <Font size="22.0" />
+         </font></Text>
+      <Line endX="320.0" layoutX="594.0" layoutY="387.0" startX="-220.0" strokeWidth="3.0" />
+      <Text layoutX="518.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
+         <font>
+            <Font size="22.0" />
          </font>
       </Text>
+      <JFXPasswordField layoutX="469.0" layoutY="287.0" prefHeight="27.0" prefWidth="403.0" />
     </children>
 </AnchorPane>
