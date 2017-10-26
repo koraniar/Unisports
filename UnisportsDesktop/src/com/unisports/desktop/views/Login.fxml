@@ -12,20 +12,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<<<<<<< HEAD:UnisportsDesktop/src/unisportsdesktop/Login.fxml
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unisportsdesktop.LoginController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <JFXTextField layoutX="470.0" layoutY="237.0" prefHeight="0.0" prefWidth="400.0" />
       <JFXButton buttonType="RAISED" cancelButton="true" layoutX="754.0" layoutY="330.0" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar">
-=======
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
-    <children>
-      <JFXTextField layoutX="494.0" layoutY="265.0" prefHeight="0.0" prefWidth="400.0" />
-      <JFXTextField layoutX="492.0" layoutY="323.0" prefHeight="29.0" prefWidth="400.0" />
-      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="822.0" layoutY="372.0" onAction="#handleButtonAction" prefHeight="47.0" prefWidth="87.0" ripplerFill="BLACK" text="Entrar" />
-      <Text layoutX="401.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="416.279541015625">
->>>>>>> f030899281db9cd09394bd9b04956d329c032b3c:UnisportsDesktop/src/com/unisports/desktop/views/Login.fxml
          <font>
             <Font size="18.0" />
          </font></JFXButton>
@@ -34,7 +25,6 @@
             <Font size="22.0" />
          </font>
       </Text>
-<<<<<<< HEAD:UnisportsDesktop/src/unisportsdesktop/Login.fxml
       <Text layoutX="373.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:">
          <font>
             <Font size="22.0" />
@@ -45,12 +35,6 @@
          </font></Text>
       <Line endX="320.0" layoutX="594.0" layoutY="387.0" startX="-220.0" strokeWidth="3.0" />
       <Text layoutX="518.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
-=======
-      <Text layoutX="422.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
-      <Text layoutX="409.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constaseña:" />
-      <Line endX="320.0" layoutX="599.0" layoutY="423.0" startX="-220.0" strokeWidth="3.0" />
-      <Text layoutX="494.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="416.279541015625">
->>>>>>> f030899281db9cd09394bd9b04956d329c032b3c:UnisportsDesktop/src/com/unisports/desktop/views/Login.fxml
          <font>
             <Font size="22.0" />
          </font>

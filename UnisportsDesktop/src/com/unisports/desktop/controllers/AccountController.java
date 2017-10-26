@@ -33,10 +33,7 @@ public class AccountController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-<<<<<<< HEAD:UnisportsDesktop/src/unisportsdesktop/LoginController.java
-=======
         
->>>>>>> f030899281db9cd09394bd9b04956d329c032b3c:UnisportsDesktop/src/com/unisports/desktop/controllers/AccountController.java
     }    
     
 }
