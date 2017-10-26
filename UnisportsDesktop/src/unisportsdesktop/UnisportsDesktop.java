@@ -23,6 +23,7 @@ public class UnisportsDesktop extends Application {
 
         Scene scene = new Scene(root);
         
+        stage.setTitle("Unisports");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

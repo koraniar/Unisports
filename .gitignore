@@ -66,3 +66,4 @@ UnisportsDesktop/nbproject/genfiles.properties
 UnisportsDesktop/nbproject/project.properties
 UnisportsDesktop/nbproject/project.xml
 UnisportsCross/nbproject/project.xml
+*.log

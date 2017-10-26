@@ -17,11 +17,6 @@
             <Font name="Roboto Regular" size="28.0" />
          </font>
       </Text>
-      <Text fx:id="accountInformationButton" disable="true" layoutX="1146.0" layoutY="40.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EG">
-         <font>
-            <Font name="Roboto Regular" size="32.0" />
-         </font>
-      </Text>
       <JFXButton fx:id="statisticsButton" focusTraversable="false" layoutX="256.0" layoutY="10.0" onAction="#onStatisticsAction" text="Estadisticas">
          <font>
             <Font size="22.0" />
@@ -45,6 +40,11 @@
       <JFXButton fx:id="registerButton" focusTraversable="false" layoutX="923.0" layoutY="9.0" onAction="#onRegiter" text="Registrarme">
          <font>
             <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="accountInformationButton" disable="true" focusTraversable="false" layoutX="1126.0" layoutY="2.0" onAction="#onAccountInformtionAction" opacity="0.0" text="EG">
+         <font>
+            <Font name="Roboto Regular" size="26.0" />
          </font>
       </JFXButton>
       <Line endX="1101.0" layoutX="98.0" layoutY="59.0" startX="-100.0" />
