@@ -43,10 +43,6 @@ UnisportsTest/nbproject/private/private.properties
 /UnisportsRest/build/
 *.properties
 UnisportsRest/nbproject/private/private.xml
-UnisportsLogic/nbproject/project.properties
-UnisportsLogic/nbproject/project.properties
-UnisportsLogic/nbproject/genfiles.properties
-UnisportsLogic/nbproject/build-impl.xml
 UnisportsFXTest/nbproject/private/private.xml
 UnisportsLogic/nbproject/private/private.properties
 /UnisportsRest/target/
@@ -56,14 +52,4 @@ UnsiportsCross/nbproject/private/private.properties
 /UnisportsCross/nbproject/private/
 /UnisportsCross/dist/
 /UnisportsCross/build/
-UnisportsCross/nbproject/build-impl.xml
-UnisportsDesktop/nbproject/build-impl.xml
-UnisportsDesktop/nbproject/genfiles.properties
-UnisportsDesktop/nbproject/project.properties
-UnisportsDesktop/nbproject/project.xml
-UnisportsDesktop/nbproject/build-impl.xml
-UnisportsDesktop/nbproject/genfiles.properties
-UnisportsDesktop/nbproject/project.properties
-UnisportsDesktop/nbproject/project.xml
-UnisportsCross/nbproject/project.xml
 *.log
