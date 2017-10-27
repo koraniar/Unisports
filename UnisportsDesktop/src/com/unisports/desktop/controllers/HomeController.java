@@ -105,7 +105,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Event.fxml"));
+            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/CreateTeam.fxml"));
             ContentPane.getChildren().add(root);
 
             initializePopup();

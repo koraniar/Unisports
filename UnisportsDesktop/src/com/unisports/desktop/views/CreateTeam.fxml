@@ -28,7 +28,7 @@
          </font>
       </Text>
       <Pane layoutX="540.0" layoutY="244.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
-      <JFXButton fx:id="AddUsetToTeamButton" buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
+      <JFXButton fx:id="AddUserToTeamButton" buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
          <font>
             <Font name="Roboto Regular" size="18.0" />
          </font>
