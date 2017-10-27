@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Text layoutX="53.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido Daniel Mauricio, en este espacio encontraras los eventos disponibles para que puedas participar, genera puntos y clasifica en la tabla de los mejores deportistas de la Universidad">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="588.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eventos disponibles">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="499.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXTextField layoutX="566.0" layoutY="210.0" prefHeight="27.0" prefWidth="472.0" />
+   </children>
+</AnchorPane>
