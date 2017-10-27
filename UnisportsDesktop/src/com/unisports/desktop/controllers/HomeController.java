@@ -52,7 +52,7 @@ public class HomeController implements Initializable {
 
     @FXML
     public void onHomeAction() {
-        
+
     }
 
     @FXML
@@ -105,7 +105,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/CreateTeam.fxml"));
+            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Profile.fxml"));
             ContentPane.getChildren().add(root);
 
             initializePopup();
@@ -176,6 +176,13 @@ public class HomeController implements Initializable {
                 signInButton.setDisable(false);
                 registerButton.setOpacity(1);
                 registerButton.setDisable(false);
+                Pane root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Home.fxml"));
+                } catch (IOException ex) {
+                    Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                ContentPane.getChildren().add(root);
             }
         });
 
