@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="53.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido Daniel Mauricio, en este espacio encontraras los eventos disponibles para que puedas participar, genera puntos y clasifica en la tabla de los mejores deportistas de la Universidad">
          <font>
@@ -27,5 +26,26 @@
          </font>
       </Text>
       <JFXTextField layoutX="566.0" layoutY="210.0" prefHeight="27.0" prefWidth="472.0" />
+      <Pane layoutX="80.0" layoutY="313.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: GRAY;" />
+      <Text layoutX="304.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deporte:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="307.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha y hora:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="310.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipos inscriptos:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="312.0" layoutY="475.0" text="Registrarme">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
