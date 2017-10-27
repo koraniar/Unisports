@@ -5,6 +5,7 @@
  */
 package com.unisports.bl;
 
+import com.unisports.dao.EventDAO;
 import com.unisports.entities.Event;
 import java.util.UUID;
 
@@ -13,6 +14,16 @@ import java.util.UUID;
  * @author danielmontana
  */
 public class EventBL {
+    
+    EventDAO eventdao;
+    
+    public EventBL(){
+        
+        eventdao = new EventDAO();
+        
+    };
+    
+    
 
     public boolean GetEventById(UUID id) {
         return true;
@@ -26,7 +37,10 @@ public class EventBL {
         return true;
     }
 
-    public boolean GetAllRecentEvent() {
+    public boolean GetAllRecentEvents() {
+        
+        eventdao.getAllEvents();
+        
         return true;
     }
 
