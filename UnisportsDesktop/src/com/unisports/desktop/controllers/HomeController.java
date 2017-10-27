@@ -132,7 +132,6 @@ public class HomeController implements Initializable {
         option1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                System.out.println("accepted");
                 Popup.hide();
             }
         });
@@ -140,7 +139,6 @@ public class HomeController implements Initializable {
         option2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                System.out.println("accepted");
                 Popup.hide();
             }
         });
@@ -148,7 +146,6 @@ public class HomeController implements Initializable {
         option3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                System.out.println("accepted");
                 Popup.hide();
             }
         });
@@ -156,7 +153,6 @@ public class HomeController implements Initializable {
         option4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                System.out.println("accepted");
                 Popup.hide();
             }
         });
@@ -164,7 +160,6 @@ public class HomeController implements Initializable {
         option5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                System.out.println("accepted");
                 Popup.hide();
                 accountInformationButton.setOpacity(0);
                 accountInformationButton.setDisable(true);

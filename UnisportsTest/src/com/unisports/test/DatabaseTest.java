@@ -126,7 +126,7 @@ public class DatabaseTest {
 
     public void User() {
         UserDAO userDao = new UserDAO();
-
+            
         User user = new User();
         user.setAddress("Calle 80");
         user.setBadAverage(0);
