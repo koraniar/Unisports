@@ -52,3 +52,7 @@ UnsiportsCross/nbproject/private/private.properties
 /UnisportsCross/dist/
 /UnisportsCross/build/
 *.log
+/UnisportRest/nbproject/private/
+/UnisportRest/build/
+/HelloWorld/nbproject/private/
+/HelloWorld/build/
