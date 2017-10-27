@@ -41,7 +41,6 @@ UnsiportsCross/nbdist/
 UnisportsTest/nbproject/private/private.properties
 /UnisportsRest/nbproject/private/
 /UnisportsRest/build/
-*.properties
 UnisportsRest/nbproject/private/private.xml
 UnisportsFXTest/nbproject/private/private.xml
 UnisportsLogic/nbproject/private/private.properties

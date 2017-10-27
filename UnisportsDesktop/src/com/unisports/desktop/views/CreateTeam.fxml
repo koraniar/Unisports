@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.TeamController">
-    
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.unisports.desktop.controllers.TeamController">
+    <children>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="532.0" layoutY="672.0" style="-fx-background-color: #f4f4f4;" text="Guardar Equipo">
+         <font>
+            <Font name="Roboto Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="284.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Equipo">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Text>
+      <JFXTextField layoutX="546.0" layoutY="190.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="422.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <Pane layoutX="540.0" layoutY="244.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
+      <JFXButton fx:id="AddUsetToTeamButton" buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
+         <font>
+            <Font name="Roboto Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="441.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <Line endX="500.0" layoutX="600.0" layoutY="658.0" startX="-500.0" />
+      <JFXTextField fx:id="UserSearchField" disable="true" layoutX="506.0" layoutY="612.0" opacity="0.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text fx:id="SearchText" disable="true" layoutX="412.0" layoutY="633.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="ConfirmAddButton" buttonType="RAISED" disable="true" focusTraversable="false" layoutX="786.0" layoutY="606.0" onAction="#confirmAddAction" opacity="0.0" style="-fx-background-color: #f4f4f4;" text="Agregar">
+         <font>
+            <Font name="Roboto Regular" size="18.0" />
+         </font>
+      </JFXButton>
+    </children>
 </AnchorPane>

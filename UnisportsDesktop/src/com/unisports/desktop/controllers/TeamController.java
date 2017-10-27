@@ -7,6 +7,8 @@ package com.unisports.desktop.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -16,9 +18,16 @@ import javafx.fxml.Initializable;
  */
 public class TeamController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    public void addUserToNewTeam(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void confirmAddAction(ActionEvent event){
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
