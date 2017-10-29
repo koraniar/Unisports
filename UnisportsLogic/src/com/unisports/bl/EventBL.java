@@ -7,6 +7,8 @@ package com.unisports.bl;
 
 import com.unisports.dao.EventDAO;
 import com.unisports.entities.Event;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -37,11 +39,18 @@ public class EventBL {
         return true;
     }
 
-    public boolean GetAllRecentEvents() {
+    public List<Event> GetAllRecentEvents() {
         
         eventdao.getAllEvents();
         
-        return true;
+        List<Event> Events = eventdao.getAllEvents();
+        if (Events != null && !Events.isEmpty()) {
+            System.out.println("\nAll Team Inscriptions " + Events.size());
+        } else {
+            System.out.println("\nNo there team inscriptions");
+        }
+        
+        return Events;
     }
 
     public boolean DisableOrDeleteEvent(UUID id) {
