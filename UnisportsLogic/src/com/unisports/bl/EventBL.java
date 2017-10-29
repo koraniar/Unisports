@@ -7,7 +7,6 @@ package com.unisports.bl;
 
 import com.unisports.dao.EventDAO;
 import com.unisports.entities.Event;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,19 +15,25 @@ import java.util.UUID;
  * @author danielmontana
  */
 public class EventBL {
-    
+
     EventDAO eventdao;
-    
-    public EventBL(){
-        
+
+    public EventBL() {
+
         eventdao = new EventDAO();
-        
-    };
-    
+    }
     
 
-    public boolean GetEventById(UUID id) {
-        return true;
+    public Event GetEventById(UUID id) {
+
+        Event event = new Event();
+
+        Event ev = eventdao.getEventById(event.getId());
+        if (ev != null) {
+            return ev;
+        } else {
+            return null;
+        }
     }
 
     public boolean SaveEvent(Event event) {
@@ -40,17 +45,13 @@ public class EventBL {
     }
 
     public List<Event> GetAllRecentEvents() {
-        
-        eventdao.getAllEvents();
-        
+
         List<Event> Events = eventdao.getAllEvents();
         if (Events != null && !Events.isEmpty()) {
-            System.out.println("\nAll Team Inscriptions " + Events.size());
+            return Events;
         } else {
-            System.out.println("\nNo there team inscriptions");
+            return null;
         }
-        
-        return Events;
     }
 
     public boolean DisableOrDeleteEvent(UUID id) {
