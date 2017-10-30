@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -18,9 +19,20 @@ import javafx.fxml.Initializable;
 public class AccountController implements Initializable {
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        
+    private TextField registerEmail;
+    
+    @FXML
+    private TextField registerPassword;
+    
+    @FXML
+    private TextField registerConfirmPassword;
+    
+    @FXML
+    private void onRegister(ActionEvent event) {
+        System.out.println(registerEmail.getText());        
+        System.out.println(registerPassword.getText());
+        System.out.println(registerConfirmPassword.getText());
+
     }
     
     @Override

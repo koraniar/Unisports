@@ -9,41 +9,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
    <children>
       <Text layoutX="512.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
          <font>
             <Font size="46.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="433.0" layoutY="261.0" prefHeight="27.0" prefWidth="443.0" />
+      <JFXTextField fx:id="registerEmail" layoutX="430.0" layoutY="259.0" prefHeight="27.0" prefWidth="443.0">
+         <font>
+            <Font size="20.0" />
+         </font></JFXTextField>
       <Text layoutX="214.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo institucional:">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <JFXButton layoutX="699.0" layoutY="424.0" text="Registrarme">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </JFXButton>
       <Text layoutX="289.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="430.0" layoutY="320.0" prefHeight="27.0" prefWidth="443.0" />
-      <JFXTextField layoutX="430.0" layoutY="380.0" prefHeight="27.0" prefWidth="443.0" />
       <Text layoutX="186.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar contraseña:">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
       <Line endX="250.0" layoutX="650.0" layoutY="467.0" startX="-250.0" />
-      <Text layoutX="522.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Ya tienes una cuenta?" underline="true" textOrigin="CENTER">
+      <Text layoutX="522.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Ya tienes una cuenta?" textOrigin="CENTER" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+      <JFXPasswordField fx:id="registerPassword" layoutX="430.0" layoutY="321.0" prefHeight="27.0" prefWidth="443.0" />
+      <JFXPasswordField fx:id="registerConfirmPassword" layoutX="432.0" layoutY="378.0" prefHeight="27.0" prefWidth="443.0" />
+      <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="423.0" onAction="#onRegister" style="-fx-background-color: #f4f4f4;" text="Registrarme">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
