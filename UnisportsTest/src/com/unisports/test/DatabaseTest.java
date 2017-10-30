@@ -40,7 +40,7 @@ public class DatabaseTest {
         DatabaseTest thisTest = new DatabaseTest();
         //thisTest.Sport();
         //thisTest.Event();
-        //thisTest.User();
+        thisTest.User();
         //thisTest.Notification();
         //thisTest.Team();
         //thisTest.TeamInscription();

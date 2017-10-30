@@ -11,6 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
    <children>
+      
       <Text layoutX="512.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
          <font>
             <Font size="46.0" />
@@ -48,5 +49,6 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
+      <StackPane fx:id="registerDialogContent" disable="true" layoutX="11.0" layoutY="10.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

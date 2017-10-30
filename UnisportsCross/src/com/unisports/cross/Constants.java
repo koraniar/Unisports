@@ -9,6 +9,6 @@ package com.unisports.cross;
  *
  * @author koraniar
  */
-public class Constants {
-    public static final String height = "800.0";
+public class Constants { 
+    public static final int passwordMinLength = 8;
 }
