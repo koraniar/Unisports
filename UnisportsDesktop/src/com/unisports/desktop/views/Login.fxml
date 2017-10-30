@@ -15,7 +15,7 @@
 <AnchorPane id="AnchorPane" fx:id="root" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <JFXTextField layoutX="471.0" layoutY="231.0" prefHeight="0.0" prefWidth="400.0">
+      <JFXTextField fx:id="signInEmail" layoutX="471.0" layoutY="231.0" prefHeight="0.0" prefWidth="400.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -24,7 +24,7 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Text layoutX="373.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:">
+      <Text layoutX="382.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:">
          <font>
             <Font size="22.0" />
          </font></Text>
@@ -38,11 +38,12 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <JFXPasswordField layoutX="469.0" layoutY="287.0" prefHeight="27.0" prefWidth="403.0" />
+      <JFXPasswordField fx:id="signInPassword" layoutX="469.0" layoutY="287.0" prefHeight="27.0" prefWidth="403.0" />
       <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="336.0" onAction="#onSignIn" style="-fx-background-color: #f4f4f4;" text="Entrar">
          <font>
             <Font size="18.0" />
          </font>
       </JFXButton>
+      <StackPane fx:id="signInDialogContent" disable="true" layoutX="331.0" layoutY="120.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>

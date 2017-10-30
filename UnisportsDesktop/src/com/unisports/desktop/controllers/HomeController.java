@@ -135,6 +135,18 @@ public class HomeController implements Initializable {
             Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void changeScreen(String screenName) {
+        System.out.println(screenName);
+        try {
+            String screenPath = "com/unisports/desktop/views/" + screenName + ".fxml";
+            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource(screenPath));
+            ContentPane.getChildren().remove(0);
+            ContentPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     private void initializePopup() {
         JFXButton option1 = new JFXButton("Notificaciones");

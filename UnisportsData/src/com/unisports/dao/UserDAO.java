@@ -238,4 +238,39 @@ public class UserDAO {
             return null;
         }
     }
+    
+    public User getUserByEmail(String email){
+        try {
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM User WHERE Email=?;");
+            statement.setString(1, email);
+            
+            ResultSet result = statement.executeQuery();
+            
+            User user = null;
+            
+            if(result.first()){
+                user = new User(UUID.fromString(result.getString("Id")));
+                user.setName(result.getString("Name"));
+                user.setLastName(result.getString("LastName"));
+                user.setEmail(result.getString("Email"));
+                user.setcontactPhone(result.getString("ContactPhone"));
+                user.setAddress(result.getString("Address"));
+                user.setbornDate(result.getDate("BornDate"));
+                user.setPassword(result.getString("Password"));
+                user.setOveralRate(result.getDouble("OverallRate"));
+                user.setExcellentAverage(result.getDouble("ExcellentAverage"));
+                user.setRegularAverage(result.getDouble("RegularAverage"));
+                user.setBadAverage(result.getDouble("BadAverage"));
+                user.setNonAttendanceAverage(result.getDouble("NonAttendanceAverage"));
+            }
+            
+            result.close();
+            statement.close();
+            //_database.Disconnect();
+            return user;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

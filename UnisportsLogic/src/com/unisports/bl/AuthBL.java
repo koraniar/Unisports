@@ -2,6 +2,7 @@ package com.unisports.bl;
 
 import com.unisports.dao.UserDAO;
 import com.unisports.entities.User;
+import javafx.util.Pair;
 
 
 public class AuthBL {
@@ -12,9 +13,15 @@ public class AuthBL {
         _userDao = new UserDAO();
     }
     
-    public boolean validateCredentials(String email, String password){
-        
-        return true;
+    public Pair<Boolean, String> validateCredentials(String email, String password){
+        User user = _userDao.getUserByEmail(email);
+        if (user == null) {
+            return new Pair<>(false, "El usuario no existe");
+        }
+        if (!user.getPassword().equals(password)) {
+            return new Pair<>(false, "La conbinacion de usuario y contraseña no es valida");
+        }
+        return new Pair<>(true, createToken(user));
     }
     
     public User getUserFromToken(String token){
@@ -22,8 +29,8 @@ public class AuthBL {
         return new User();
     }
     
-    private boolean createToken(User user){
+    private String createToken(User user){
         
-        return true;
+        return "Token";
     }
 }
