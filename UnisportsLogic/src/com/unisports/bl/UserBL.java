@@ -24,7 +24,7 @@ public class UserBL {
         if (email.trim().isEmpty() || !email.contains("@") || !email.contains(".")) {
             return new Pair<>(false, "El correo no es valido");
         }
-        if (password.trim().isEmpty() || password.length() < Constants.passwordMinLength) {
+        if (password.length() < Constants.passwordMinLength) {
             return new Pair<>(false, "La contraseña debe contener minimo " + Constants.passwordMinLength + " caracteres");
         }
         if (passwordConfirmation.trim().isEmpty() || !passwordConfirmation.equals(password)) {
@@ -42,12 +42,10 @@ public class UserBL {
         user.setOveralRate(0);
         user.setRegularAverage(0);
         
-        UserDAO userDao = new UserDAO();
-        
-        if (userDao.createUser(user)) {
+        if (_userDao.createUser(user)) {
             return new Pair<>(true, "El usuario fue creado");
         }
-        return new Pair<>(true, "Error inesperado, no se pudo guardar el nuevo usuario");
+        return new Pair<>(false, "Error inesperado, no se pudo guardar el nuevo usuario");
     }
 
     public User getUserById(UUID userId) {
