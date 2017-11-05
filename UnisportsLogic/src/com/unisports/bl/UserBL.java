@@ -12,40 +12,28 @@ import javafx.util.Pair;
 
 public class UserBL {
     
-    UserDAO _userDao;
-    NotificationDAO _notificationDao;
+    //UserDAO _userDao;
+    //NotificationDAO _notificationDao;
     
     public UserBL(){
-        _userDao = new UserDAO();
-        _notificationDao = new NotificationDAO();
+        //_userDao = new UserDAO();
+        //_notificationDao = new NotificationDAO();
     }
     
-    public Pair<Boolean, String> createUser(String email, String password, String passwordConfirmation){
-        if (email.trim().isEmpty() || !email.contains("@") || !email.contains(".")) {
+    public Pair<Boolean, String> registerUser(User user){
+        if (user.getEmail().trim().isEmpty() || !user.getEmail().contains("@") || !user.getEmail().contains(".")) {
             return new Pair<>(false, "El correo no es valido");
         }
-        if (password.length() < Constants.passwordMinLength) {
+        if (user.getPassword().length() < Constants.passwordMinLength) {
             return new Pair<>(false, "La contraseña debe contener minimo " + Constants.passwordMinLength + " caracteres");
         }
-        if (passwordConfirmation.trim().isEmpty() || !passwordConfirmation.equals(password)) {
-            return new Pair<>(false, "Las contraseñas no coinciden");
-        }
         
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setBadAverage(0);
-        user.setExcellentAverage(0);
-        user.setLastName("");
-        user.setName("");
-        user.setNonAttendanceAverage(0);
-        user.setOveralRate(0);
-        user.setRegularAverage(0);
+        UserDAO userDao = new UserDAO();
         
-        if (_userDao.createUser(user)) {
+        if (userDao.createUser(user)) {
             return new Pair<>(true, "El usuario fue creado");
         }
-        return new Pair<>(false, "Error inesperado, no se pudo guardar el nuevo usuario");
+        return new Pair<>(false, "Error inesperado, no se pudo crear la cuenta");
     }
 
     public User getUserById(UUID userId) {
