@@ -14,7 +14,7 @@ public class AuthBL {
     }
     
     public Pair<Boolean, String> validateCredentials(String email, String password){
-        User user = _userDao.getUserByEmail(email);
+        User user = email.isEmpty() ? null : _userDao.getUserByEmail(email);
         if (user == null) {
             return new Pair<>(false, "El usuario no existe");
         }

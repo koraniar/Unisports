@@ -22,11 +22,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.codehaus.jackson.map.ObjectMapper;
 import unisportsdesktop.Request;
 
@@ -35,6 +30,9 @@ import unisportsdesktop.Request;
  * @author danielmontana
  */
 public class AccountController implements Initializable {
+
+    private LayoutController mainController;
+    private String _token;
 
     @FXML
     private StackPane registerDialogContent;
@@ -57,9 +55,13 @@ public class AccountController implements Initializable {
     @FXML
     private TextField signInPassword;
 
+    public void setLayoutController(LayoutController controller, String token) {
+        mainController = controller;
+        _token = token;
+    }
+
     @FXML
     private void onRegister(ActionEvent event) {
-
         Pair<Boolean, String> result = new Pair<>(true, "");
         String email = registerEmail.getText().trim();
         String password = registerPassword.getText().trim();
@@ -89,10 +91,10 @@ public class AccountController implements Initializable {
 
             try {
                 String body = mapper.writeValueAsString(user);
-                
+
                 Request request = new Request();
                 result = request.post(body, "Account/Register");
-                
+
             } catch (IOException ex) {
                 result = new Pair<>(false, "Unexpected error");
             }
@@ -125,39 +127,18 @@ public class AccountController implements Initializable {
     }
 
     @FXML
-    public void onSignIn(ActionEvent event) {
+    private void onSignIn(ActionEvent event) {
+        String email = signInEmail.getText().trim();
+        String password = signInPassword.getText().trim();
+        Pair<Boolean, String> result = new Pair<>(false, "");
 
-        //AuthBL authService = new AuthBL();
-
-        //Pair<Boolean, String> result = authService.validateCredentials(signInEmail.getText(), signInPassword.getText());
-        
-        Pair<Boolean, String> result = new Pair<>(false, "no service");
+        if (!email.isEmpty() && !password.isEmpty()) {
+            Request request = new Request();
+            result = request.post("", "Auth/Login?email=" + email + "&password=" + password);
+        }
 
         if (result.getKey()) {
-            JFXDialogLayout dialogContent = new JFXDialogLayout();
-            Text textHeading = new Text("Unisports");
-            textHeading.setFont(Font.font("Roboto", 22));
-            dialogContent.setHeading(textHeading);
-            Text textBody = new Text("Has entrado");
-            textBody.setFont(Font.font("Roboto", 20));
-            dialogContent.setBody(textBody);
-
-            JFXDialog dialog = new JFXDialog(signInDialogContent, dialogContent, JFXDialog.DialogTransition.CENTER);
-
-            JFXButton acceptButton = new JFXButton("Aceptar");
-            acceptButton.setStyle("-fx-font: 18 Roboto;");
-            acceptButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    signInDialogContent.setDisable(true);
-                    dialog.close();
-                }
-            });
-
-            dialogContent.setActions(acceptButton);
-
-            signInDialogContent.setDisable(false);
-            dialog.show();
+            mainController.onEnterValidCredentials(result.getValue());
         } else {
             JFXDialogLayout dialogContent = new JFXDialogLayout();
             Text textHeading = new Text("Error");

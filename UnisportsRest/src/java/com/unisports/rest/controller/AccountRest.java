@@ -10,12 +10,9 @@ import com.unisports.entities.User;
 import java.io.IOException;
 import javafx.util.Pair;
 import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ObjectNode;
@@ -34,7 +31,7 @@ public class AccountRest {
     @POST
     @Path("/Register")
     //@Consumes(MediaType.APPLICATION_JSON)
-    public String postJson(String content) {
+    public String regiter(String content) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode response = mapper.createObjectNode();
 

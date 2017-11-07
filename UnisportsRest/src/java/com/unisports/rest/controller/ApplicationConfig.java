@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.unisports.rest.controller.AccountRest.class);
+        resources.add(com.unisports.rest.controller.AuthRest.class);
         resources.add(com.unisports.rest.controller.TestsResource.class);
     }
     
