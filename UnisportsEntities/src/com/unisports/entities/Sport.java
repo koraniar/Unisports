@@ -1,26 +1,27 @@
 package com.unisports.entities;
 
 import com.unisports.enums.SportType;
+import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.*;
 
 
 @Entity
-public class Sport {
+public class Sport implements Serializable {
     @Id
-    private UUID id;
+    private String id;
     private String name;
     private SportType type;
     
     public Sport(){
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
     }
     
     public Sport(UUID id){
-        this.id = id;
+        this.id = id.toString();
     }
     
-    public UUID getId(){
+    public String getId(){
         return this.id;
     }
     

@@ -39,8 +39,8 @@ public class DatabaseTest {
 
         DatabaseTest thisTest = new DatabaseTest();
         //thisTest.Sport();
-        //thisTest.Event();
-        thisTest.User();
+        thisTest.Event();
+        //thisTest.User();
         //thisTest.Notification();
         //thisTest.Team();
         //thisTest.TeamInscription();
@@ -58,16 +58,16 @@ public class DatabaseTest {
         System.out.println("Sport created: " + sportDao.createSport(sport));
 
         //Get
-        Sport sp = sportDao.getSportById(sport.getId());
-        if (sp != null) {
-            System.out.println("Sport Entity by ID ----\n" + sp.getId() + "\n" + sp.getName() + "\n" + sp.getType() + "\n------------");
-        } else {
-            System.out.println("none Sport get by ID");
-        }
+//        Sport sp = sportDao.getSportById(sport.getId());
+//        if (sp != null) {
+//            System.out.println("Sport Entity by ID ----\n" + sp.getId() + "\n" + sp.getName() + "\n" + sp.getType() + "\n------------");
+//        } else {
+//            System.out.println("none Sport get by ID");
+//        }
 
         //Update
-        sp.setName("updated n");
-        System.out.println("Sport updated: " + sportDao.updateSport(sp));
+//        sp.setName("updated n");
+//        System.out.println("Sport updated: " + sportDao.updateSport(sp));
 
         //System.out.println(sportDao.deleteSport(UUID.fromString("b8c3406b-7268-4f3d-bbe4-848017b90036")));
         //GetAllSports
@@ -92,19 +92,19 @@ public class DatabaseTest {
     public void Event() {
         EventDAO eventDao = new EventDAO();
 
-        Event event = new Event();
-        event.setDate(new Date(System.currentTimeMillis()));
-        event.setDescription("This is a description");
-        event.setPositionX(4.3672);
-        event.setPositionY(86.2323);
-        event.setState(EventState.Created);
-        event.setCreatedDate(null);
-        event.setCreatorUserId(UUID.fromString("33712837-7ace-4f32-8c03-42b81415d98f"));
-        event.setSportId(UUID.fromString("0840ac4a-6ea7-41ce-9bf6-7ac6e0765cb4"));
+//        Event event = new Event();
+//        event.setDate(new Date(System.currentTimeMillis()));
+//        event.setDescription("This is a description");
+//        event.setPositionX(4.3672);
+//        event.setPositionY(86.2323);
+//        event.setState(EventState.Created);
+//        event.setCreatedDate(null);
+//        event.setCreatorUserId(UUID.fromString("33712837-7ace-4f32-8c03-42b81415d98f"));
+//        event.setSportId(UUID.fromString("0840ac4a-6ea7-41ce-9bf6-7ac6e0765cb4"));
+//
+//        System.out.println("\nCreate Event: " + eventDao.createEvent(event));
 
-        System.out.println("\nCreate Event: " + eventDao.createEvent(event));
-
-        Event ev = eventDao.getEventById(event.getId());
+        Event ev = eventDao.getEventById(UUID.fromString("aca4defb-7a7e-48d0-a023-71808551b804"));
         if (ev != null) {
             System.out.println("\nEvent by ID -------\n" + ev.getId() + "\n" + ev.getDescription() + "\n" + ev.getDate() + "\n" + ev.getPositionX() + "\n" + ev.getPositionY() + "\n"
                     + ev.getState() + "\n" + ev.getCreatedDate() + "\n" + ev.getCreatorUserId() + "\n" + ev.getSportId() + "\n--------------");
@@ -112,16 +112,16 @@ public class DatabaseTest {
             System.out.println("\nNo event by Id");
         }
 
-        ev.setState(EventState.Canceled);
-
-        //eventDao.deleteEvent(UUID.fromString("275d5ac1-33ac-4574-8733-91989094e7c6"));
-        //System.out.println("\nEvent updated: " + eventDao.updateEvent(ev));
-        List<Event> events = eventDao.getAllEvents();
-        if (events != null && !events.isEmpty()) {
-            System.out.println("\nAll Events " + events.size());
-        } else {
-            System.out.println("\nNo there events");
-        }
+//        ev.setState(EventState.Canceled);
+//
+//        //eventDao.deleteEvent(UUID.fromString("275d5ac1-33ac-4574-8733-91989094e7c6"));
+//        //System.out.println("\nEvent updated: " + eventDao.updateEvent(ev));
+//        List<Event> events = eventDao.getAllEvents();
+//        if (events != null && !events.isEmpty()) {
+//            System.out.println("\nAll Events " + events.size());
+//        } else {
+//            System.out.println("\nNo there events");
+//        }
     }
 
     public void User() {
