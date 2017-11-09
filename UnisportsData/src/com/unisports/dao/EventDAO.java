@@ -108,8 +108,11 @@ public class EventDAO {
     }
 
     public Event getEventById(UUID id) {
-        Event e = _em.find(Event.class, id.toString());
-        return e;
+        try {
+            return _em.find(Event.class, id.toString());
+        } catch (Exception ex) {
+            return null;
+        }
 //        try {
 //            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Event WHERE Id=?;");
 //            statement.setString(1, id.toString());
