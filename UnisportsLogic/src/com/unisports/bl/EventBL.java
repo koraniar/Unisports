@@ -28,7 +28,7 @@ public class EventBL {
 
         Event event = new Event();
 
-        Event ev = eventdao.getEventById(event.getId());
+        Event ev = eventdao.getEventById(UUID.fromString(event.getId()));
         if (ev != null) {
             return ev;
         } else {
