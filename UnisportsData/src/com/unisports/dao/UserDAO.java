@@ -29,7 +29,8 @@ public class UserDAO {
     
     public boolean createUser(User user){
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO User (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
+            System.out.println("create user");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO [User] (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
                     " ExcellentAverage, RegularAverage, BadAverage, NonAttendanceAverage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             statement.setString(1, user.getId().toString());
             statement.setString(2, user.getName());
@@ -39,19 +40,19 @@ public class UserDAO {
             if (user.getcontactPhone()!= null) {
                 statement.setString(5, user.getcontactPhone());
             }else{
-                statement.setNull(5, java.sql.Types.INTEGER);
+                statement.setNull(5, java.sql.Types.VARCHAR);
             }
             
             if (user.getAddress()!= null) {
                 statement.setString(6, user.getAddress());
             }else{
-                statement.setNull(6, java.sql.Types.INTEGER);
+                statement.setNull(6, java.sql.Types.VARCHAR);
             }
             
             if (user.getbornDate()!= null) {
                 statement.setTimestamp(7, new Timestamp(user.getbornDate().getTime()));
             }else{
-                statement.setNull(7, java.sql.Types.INTEGER);
+                statement.setNull(7, java.sql.Types.DATE);
             }
             
             statement.setString(8, user.getPassword());
@@ -74,7 +75,7 @@ public class UserDAO {
     
     public boolean updateUser(User user){
         try {
-            PreparedStatement statement = _connection.prepareStatement("UPDATE User SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?," + 
+            PreparedStatement statement = _connection.prepareStatement("UPDATE [User] SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?," + 
                     " Password = ?, OverallRate = ?, ExcellentAverage = ?, RegularAverage = ?, BadAverage = ?, NonAttendanceAverage = ? WHERE Id = ?");
             
             statement.setString(1, user.getName());
@@ -84,19 +85,19 @@ public class UserDAO {
             if (user.getcontactPhone()!= null) {
                 statement.setString(4, user.getcontactPhone());
             }else{
-                statement.setNull(4, java.sql.Types.INTEGER);
+                statement.setNull(4, java.sql.Types.VARCHAR);
             }
             
             if (user.getAddress()!= null) {
                 statement.setString(5, user.getAddress());
             }else{
-                statement.setNull(5, java.sql.Types.INTEGER);
+                statement.setNull(5, java.sql.Types.VARCHAR);
             }
             
             if (user.getbornDate()!= null) {
                 statement.setTimestamp(6, new Timestamp(user.getbornDate().getTime()));
             }else{
-                statement.setNull(6, java.sql.Types.INTEGER);
+                statement.setNull(6, java.sql.Types.DATE);
             }
             
             statement.setString(7, user.getPassword());
@@ -120,7 +121,7 @@ public class UserDAO {
     
     public boolean deleteUser(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("DELETE FROM User WHERE Id = ?;");
+            PreparedStatement statement = _connection.prepareStatement("DELETE FROM [User] WHERE Id = ?;");
             statement.setString(1, id.toString());
             
             int result = statement.executeUpdate();
@@ -135,7 +136,7 @@ public class UserDAO {
     
     public User getUserById(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM User WHERE Id=?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE Id=?;");
             statement.setString(1, id.toString());
             
             ResultSet result = statement.executeQuery();
@@ -170,7 +171,7 @@ public class UserDAO {
     
     public List<User> getAllUsers(){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM User;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User];");
             
             ResultSet result = statement.executeQuery();
             
@@ -205,7 +206,7 @@ public class UserDAO {
     
     public List<User> getUserByPartOfName(String word){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM User WHERE LOWER(Name) LIKE ?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE LOWER(Name) LIKE ?;");
             statement.setString(1, "%" + word.toLowerCase() + "%");
             
             ResultSet result = statement.executeQuery();
@@ -241,7 +242,7 @@ public class UserDAO {
     
     public User getUserByEmail(String email){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM User WHERE Email=?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE Email=?;");
             statement.setString(1, email);
             
             ResultSet result = statement.executeQuery();

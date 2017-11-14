@@ -41,7 +41,7 @@ public class EventDAO {
             if (event.getCreatedDate() != null) {
                 statement.setTimestamp(7, new Timestamp(event.getCreatedDate().getTime()));
             }else{
-                statement.setNull(7, java.sql.Types.INTEGER);
+                statement.setNull(7, java.sql.Types.DATE);
             }
             statement.setString(8, event.getCreatorUserId().toString());
             statement.setString(9, event.getSportId().toString());
@@ -69,7 +69,7 @@ public class EventDAO {
             if (event.getCreatedDate() != null) {
                 statement.setTimestamp(6, new Timestamp(event.getCreatedDate().getTime()));
             }else{
-                statement.setNull(6, java.sql.Types.INTEGER);
+                statement.setNull(6, java.sql.Types.DATE);
             }
             statement.setString(7, event.getCreatorUserId().toString());
             statement.setString(8, event.getSportId().toString());
