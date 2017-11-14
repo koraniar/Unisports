@@ -1,0 +1,89 @@
+--Delete the unisports database if it exists.  
+--IF EXISTS(SELECT * from sys.databases WHERE name='unisports')  
+--BEGIN  
+--    DROP DATABASE unisports;  
+--END  
+
+--Create a new database called unisports.  
+CREATE DATABASE unisports; 
+GO
+
+USE unisports;
+GO
+
+CREATE TABLE [User] (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  Name VARCHAR(45) NOT NULL,
+  LastName VARCHAR(45) NOT NULL,
+  Email VARCHAR(45) NOT NULL,
+  ContactPhone VARCHAR(45) NULL,
+  Address VARCHAR(45) NULL,
+  BornDate DATE NULL,
+  Password VARCHAR(45) NOT NULL,
+  OverallRate FLOAT NOT NULL,
+  ExcellentAverage FLOAT NOT NULL,
+  RegularAverage FLOAT NOT NULL,
+  BadAverage FLOAT NOT NULL,
+  NonAttendanceAverage FLOAT NOT NULL)
+GO
+
+CREATE TABLE Sport (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  Name VARCHAR(45) NOT NULL,
+  Type INT NOT NULL)
+GO
+
+CREATE TABLE Team (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  Name VARCHAR(45) NOT NULL,
+  Logo VARCHAR(45) NULL,
+  Motto VARCHAR(45) NULL,
+  Description VARCHAR(250) NULL,
+  Sport_Id VARCHAR(36) FOREIGN KEY REFERENCES Sport(Id))
+GO
+
+CREATE TABLE Event (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  Date DATETIME NOT NULL,
+  Description VARCHAR(250) NULL,
+  PositionX FLOAT NOT NULL,
+  PositionY FLOAT NOT NULL,
+  State INT NOT NULL,
+  CreatedDate DATETIME NULL,
+  CreatorUserId VARCHAR(36) NOT NULL,
+  Sport_Id VARCHAR(36) FOREIGN KEY REFERENCES Sport(Id))
+GO
+
+CREATE TABLE Users_has_Team (
+  Users_Id VARCHAR(36) FOREIGN KEY REFERENCES [User](Id),
+  Team_Id VARCHAR(36) FOREIGN KEY REFERENCES Team(Id))
+GO
+
+CREATE TABLE Relationship (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  UserRelatedId VARCHAR(36) NOT NULL,
+  State INT NOT NULL,
+  ConfirmedDate DATETIME NULL,
+  Users_Id VARCHAR(36) FOREIGN KEY REFERENCES [User](Id))
+GO
+
+CREATE TABLE TeamInscription (
+  Id VARCHAR(36) PRIMARY KEY NOT NULL,
+  Points INT NOT NULL,
+  Event_Id VARCHAR(36) FOREIGN KEY REFERENCES Event(Id))
+GO
+
+CREATE TABLE UserInscription (
+  Id VARCHAR(36) NOT NULL,
+  Confirmed BIT NOT NULL,
+  Users_Id VARCHAR(36) FOREIGN KEY REFERENCES [User](Id),
+  TeamInscription_Id VARCHAR(36) FOREIGN KEY REFERENCES TeamInscription(Id))
+GO
+
+CREATE TABLE Notifications (
+  Id VARCHAR(36) NOT NULL,
+  Subject VARCHAR(250) NOT NULL,
+  Type INT NOT NULL,
+  User_Id VARCHAR(36) FOREIGN KEY REFERENCES [User](Id))
+GO
+
