@@ -110,7 +110,7 @@ public class EventDAO {
             
             Event event = null;
             
-            if(result.first()){
+            if(result.next()){
                 event = new Event(UUID.fromString(result.getString("Id")));
                 event.setDate(result.getDate("Date"));
                 event.setDescription(result.getString("Description"));

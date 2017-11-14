@@ -65,7 +65,7 @@ public class RelationshipDAO {
             
             Relationship relationship = null;
             
-            if(result.first()){
+            if(result.next()){
                 relationship = new Relationship(UUID.fromString(result.getString("Id")));
                 relationship.setConfirmedDate(result.getDate("ConfirmedDate"));
                 relationship.setState(RelationshipState.values()[result.getInt("State")]);

@@ -70,7 +70,7 @@ public class SportDAO {
             
             Sport sport = null;
             
-            if(result.first()){
+            if(result.next()){
                 sport = new Sport(UUID.fromString(result.getString("Id")));
                 sport.setName(result.getString("Name"));             
                 sport.setType(SportType.values()[result.getInt("Type")]);

@@ -87,7 +87,7 @@ public class TeamDAO {
             
             Team team = null;
             
-            if(result.first()){
+            if(result.next()){
                 team = new Team(UUID.fromString(result.getString("Id")));
                 team.setName(result.getString("Name"));
                 team.setLogo(result.getString("Logo"));

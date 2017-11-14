@@ -92,7 +92,7 @@ public class TeamInscriptionDAO {
             
             TeamInscription tInscription = null;
             
-            if(result.first()){
+            if(result.next()){
                 tInscription = new TeamInscription(UUID.fromString(result.getString("Id")));
                 tInscription.setPoints(result.getInt("Points"));             
                 tInscription.setEventId(UUID.fromString(result.getString("Event_Id")));

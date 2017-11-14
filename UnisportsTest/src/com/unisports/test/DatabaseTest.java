@@ -38,9 +38,9 @@ public class DatabaseTest {
     public static void main(String[] args) {
 
         DatabaseTest thisTest = new DatabaseTest();
-        //thisTest.Sport();
+        thisTest.Sport();
         //thisTest.Event();
-        thisTest.User();
+        //thisTest.User();
         //thisTest.Notification();
         //thisTest.Team();
         //thisTest.TeamInscription();

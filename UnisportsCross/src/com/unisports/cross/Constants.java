@@ -13,4 +13,5 @@ public class Constants {
     public static final int passwordMinLength = 8;    
     public static final String environmentHost = "http://localhost:8080";
     public static final String environmentRest = "UnisportsRest/rest";
+    public static final boolean release = true;
 }

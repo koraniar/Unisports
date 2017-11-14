@@ -94,7 +94,7 @@ public class UserInscriptionDAO {
             
             UserInscription uInscription = null;
             
-            if(result.first()){
+            if(result.next()){
                 uInscription = new UserInscription(UUID.fromString(result.getString("Id")));
                 uInscription.setConfirmed(result.getBoolean("Confirmed"));             
                 uInscription.setUserId(UUID.fromString(result.getString("Users_Id")));

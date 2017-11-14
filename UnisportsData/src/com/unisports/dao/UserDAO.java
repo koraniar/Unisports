@@ -142,7 +142,7 @@ public class UserDAO {
             
             User user = null;
             
-            if(result.first()){
+            if(result.next()){
                 user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
@@ -248,7 +248,7 @@ public class UserDAO {
             
             User user = null;
             
-            if(result.first()){
+            if(result.next()){
                 user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
