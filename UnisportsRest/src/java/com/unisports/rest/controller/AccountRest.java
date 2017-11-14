@@ -31,7 +31,6 @@ public class AccountRest {
 
     @POST
     @Path("/Register")
-    //@Consumes(MediaType.APPLICATION_JSON)
     public String regiter(String content) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode response = mapper.createObjectNode();
