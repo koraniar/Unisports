@@ -10,6 +10,7 @@ import com.unisports.entities.User;
 import java.io.IOException;
 import javafx.util.Pair;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
@@ -54,6 +55,18 @@ public class AccountRest {
             response.put("message", "Error inesperado, por favor intente de nuevo mas tarde");
             return response.toString();
         }
+    }
+    
+    @GET
+    @Path("/ping")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public String ping(String content) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode response = mapper.createObjectNode();
+        
+                response.put("result", true);
+                response.put("message", "Ok");
+                return response.toString();
     }
 
 }
