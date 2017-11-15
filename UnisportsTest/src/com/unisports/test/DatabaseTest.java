@@ -38,9 +38,9 @@ public class DatabaseTest {
     public static void main(String[] args) {
 
         DatabaseTest thisTest = new DatabaseTest();
-        thisTest.Sport();
+        //thisTest.Sport();
         //thisTest.Event();
-        //thisTest.User();
+        thisTest.User();
         //thisTest.Notification();
         //thisTest.Team();
         //thisTest.TeamInscription();
@@ -133,7 +133,7 @@ public class DatabaseTest {
         user.setEmail("admin@unisports.com");
         user.setExcellentAverage(0);
         user.setLastName("Last");
-        user.setName("Namhe");
+        user.setName("Name");
         user.setNonAttendanceAverage(0);
         user.setOveralRate(0);
         user.setPassword("password");
@@ -143,31 +143,31 @@ public class DatabaseTest {
 
         System.out.println("User created: " + userDao.createUser(user));
 
-        User us = userDao.getUserById(user.getId());
-        if (us != null) {
-            System.out.println("\nUser entity by Id --------\n" + user.getId() + "\n" + user.getName() + "\n" + user.getLastName() + "\n" + user.getEmail() + "\n" + user.getcontactPhone()
-                    + "\n" + user.getAddress() + "\n" + user.getbornDate() + "\n" + user.getPassword() + "\n" + user.getOveralRate() + "\n" + user.getExcellentAverage()
-                    + "\n" + user.getRegularAverage() + "\n" + user.getBadAverage() + "\n" + user.getNonAttendanceAverage());
-        }
-
-        us.setName("real");
-
-        System.out.println("\nUser updated: " + userDao.updateUser(us));
-
-        //System.out.println("\nUser deleted: " + userDao.deleteUser(UUID.fromString("742bbd1a-4f66-43c3-b405-98ef451cec26")));
-        List<User> users = userDao.getAllUsers();
-        if (users != null && !users.isEmpty()) {
-            System.out.println("\nAll users " + users.size());
-        } else {
-            System.out.println("\nNo there users");
-        }
-
-        List<User> usersp = userDao.getUserByPartOfName("re");
-        if (usersp != null && !usersp.isEmpty()) {
-            System.out.println("\nAll users " + usersp.size());
-        } else {
-            System.out.println("\nNo there users by name");
-        }
+//        User us = userDao.getUserById(user.getId());
+//        if (us != null) {
+//            System.out.println("\nUser entity by Id --------\n" + user.getId() + "\n" + user.getName() + "\n" + user.getLastName() + "\n" + user.getEmail() + "\n" + user.getcontactPhone()
+//                    + "\n" + user.getAddress() + "\n" + user.getbornDate() + "\n" + user.getPassword() + "\n" + user.getOveralRate() + "\n" + user.getExcellentAverage()
+//                    + "\n" + user.getRegularAverage() + "\n" + user.getBadAverage() + "\n" + user.getNonAttendanceAverage());
+//        }
+//
+//        us.setName("real");
+//
+//        System.out.println("\nUser updated: " + userDao.updateUser(us));
+//
+//        //System.out.println("\nUser deleted: " + userDao.deleteUser(UUID.fromString("742bbd1a-4f66-43c3-b405-98ef451cec26")));
+//        List<User> users = userDao.getAllUsers();
+//        if (users != null && !users.isEmpty()) {
+//            System.out.println("\nAll users " + users.size());
+//        } else {
+//            System.out.println("\nNo there users");
+//        }
+//
+//        List<User> usersp = userDao.getUserByPartOfName("re");
+//        if (usersp != null && !usersp.isEmpty()) {
+//            System.out.println("\nAll users " + usersp.size());
+//        } else {
+//            System.out.println("\nNo there users by name");
+//        }
     }
 
     public void Notification() {

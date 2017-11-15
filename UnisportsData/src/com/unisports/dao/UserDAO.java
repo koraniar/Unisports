@@ -1,5 +1,6 @@
 package com.unisports.dao;
 
+import com.unisports.cross.Constants;
 import com.unisports.database.context.Database;
 import com.unisports.entities.User;
 import java.sql.Connection;
@@ -17,8 +18,10 @@ import java.util.logging.Logger;
 public class UserDAO {
     private Database _database;
     private Connection _connection;
+    private String tableName;
     
     public UserDAO(){
+        tableName = Constants.microsoft ? "[User]" : "User";
         _database = new Database();
         try {
             _connection = _database.connect();
@@ -30,7 +33,7 @@ public class UserDAO {
     public boolean createUser(User user){
         try {
             System.out.println("create user");
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO [User] (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO " + tableName + " (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
                     " ExcellentAverage, RegularAverage, BadAverage, NonAttendanceAverage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             statement.setString(1, user.getId().toString());
             statement.setString(2, user.getName());
@@ -75,7 +78,7 @@ public class UserDAO {
     
     public boolean updateUser(User user){
         try {
-            PreparedStatement statement = _connection.prepareStatement("UPDATE [User] SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?," + 
+            PreparedStatement statement = _connection.prepareStatement("UPDATE " + tableName + " SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?," + 
                     " Password = ?, OverallRate = ?, ExcellentAverage = ?, RegularAverage = ?, BadAverage = ?, NonAttendanceAverage = ? WHERE Id = ?");
             
             statement.setString(1, user.getName());
@@ -121,7 +124,7 @@ public class UserDAO {
     
     public boolean deleteUser(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("DELETE FROM [User] WHERE Id = ?;");
+            PreparedStatement statement = _connection.prepareStatement("DELETE FROM " + tableName + " WHERE Id = ?;");
             statement.setString(1, id.toString());
             
             int result = statement.executeUpdate();
@@ -136,7 +139,7 @@ public class UserDAO {
     
     public User getUserById(UUID id){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE Id=?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE Id=?;");
             statement.setString(1, id.toString());
             
             ResultSet result = statement.executeQuery();
@@ -171,7 +174,7 @@ public class UserDAO {
     
     public List<User> getAllUsers(){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User];");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + ";");
             
             ResultSet result = statement.executeQuery();
             
@@ -206,7 +209,7 @@ public class UserDAO {
     
     public List<User> getUserByPartOfName(String word){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE LOWER(Name) LIKE ?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE LOWER(Name) LIKE ?;");
             statement.setString(1, "%" + word.toLowerCase() + "%");
             
             ResultSet result = statement.executeQuery();
@@ -242,7 +245,7 @@ public class UserDAO {
     
     public User getUserByEmail(String email){
         try {
-            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM [User] WHERE Email=?;");
+            PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE Email=?;");
             statement.setString(1, email);
             
             ResultSet result = statement.executeQuery();
