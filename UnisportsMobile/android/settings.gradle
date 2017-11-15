@@ -1,0 +1,3 @@
+rootProject.name = 'UnisportsMobile'
+
+include ':app'
