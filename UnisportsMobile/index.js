@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Unisports from './App';
 
-AppRegistry.registerComponent('UnisportsMobile', () => App);
+AppRegistry.registerComponent('UnisportsMobile', () => Unisports);
