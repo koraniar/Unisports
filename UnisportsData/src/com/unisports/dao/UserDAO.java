@@ -32,7 +32,6 @@ public class UserDAO {
     
     public boolean createUser(User user){
         try {
-            System.out.println("create user");
             PreparedStatement statement = _connection.prepareStatement("INSERT INTO " + tableName + " (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
                     " ExcellentAverage, RegularAverage, BadAverage, NonAttendanceAverage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             statement.setString(1, user.getId().toString());

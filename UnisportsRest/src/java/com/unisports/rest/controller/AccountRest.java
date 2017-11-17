@@ -8,6 +8,7 @@ package com.unisports.rest.controller;
 import com.unisports.bl.UserBL;
 import com.unisports.entities.User;
 import java.io.IOException;
+import java.util.UUID;
 import javafx.util.Pair;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
@@ -37,8 +38,9 @@ public class AccountRest {
 
         try {
             User user = mapper.readValue(content, User.class);
-
+            
             if (user != null) {
+                user.setId(UUID.randomUUID());
                 UserBL userService = new UserBL();
                 Pair<Boolean, String> result = userService.registerUser(user);
 

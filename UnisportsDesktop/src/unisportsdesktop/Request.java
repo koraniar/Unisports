@@ -27,7 +27,10 @@ public class Request {
     public Pair<Boolean, String> post(String content, String urlDest) {
         try {
             String url = String.format("%s/%s/%s", Constants.environmentHost, Constants.environmentRest, urlDest);
+            System.out.println(content);            
+            System.out.println(url);
 
+            
             boolean result = false;
             String message = "Unexpected error";
             try (CloseableHttpClient client = HttpClients.createDefault()) {

@@ -31,8 +31,8 @@ class Loading extends React.Component {
                     onRequestClose={() => {}}>
                     <Animated.View style={styles.loadingModalContainer}>
                         <View style={styles.loadingModalContent}>
-                            <ActivityIndicator style={{ alignItems: 'center', justifyContent: 'center' }} color="#fb8c00" size={60} />
-                            <Text style={{ fontSize: 17 }}>Loading</Text>
+                            <ActivityIndicator style={{ alignItems: 'center', justifyContent: 'center' }} color="#fb8c00" size={1} />
+                            <Text style={{ fontSize: 17, marginTop: 30 }}>Loading</Text>
                         </View>
                     </Animated.View>
                 </Modal>

@@ -11,7 +11,7 @@ package com.unisports.cross;
  */
 public class Constants { 
     public static final int passwordMinLength = 8;    
-    public static final String environmentHost = "http://localhost:8080";
+    public static final String environmentHost = "http://unisports.azurewebsites.net";
     public static final String environmentRest = "UnisportsRest/rest";
-    public static final boolean microsoft = false;
+    public static final boolean microsoft = true;
 }
