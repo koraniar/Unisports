@@ -31,6 +31,6 @@ public class AuthBL {
     
     private String createToken(User user){
         
-        return "Token";
+        return user.getId().toString();
     }
 }

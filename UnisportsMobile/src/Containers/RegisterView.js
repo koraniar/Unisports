@@ -48,7 +48,7 @@ class RegisterView extends React.Component {
         let url = 'http://unisports.azurewebsites.net/UnisportsRest/rest/Account/Register';
 
         var User = {
-            id: '1934bf06-bb1f-40f0-8c77-453201d7fc68',
+            id: '',
             name: '',
             lastName: '',
             email: '',

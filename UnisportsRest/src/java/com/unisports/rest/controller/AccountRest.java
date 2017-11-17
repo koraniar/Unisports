@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.rest.controller;
 
 import com.unisports.bl.UserBL;
@@ -19,10 +14,7 @@ import javax.ws.rs.core.UriInfo;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ObjectNode;
 
-/**
- *
- * @author koraniar
- */
+
 @Path("/Account")
 @RequestScoped
 public class AccountRest {

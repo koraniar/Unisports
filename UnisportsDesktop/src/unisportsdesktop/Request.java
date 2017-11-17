@@ -6,10 +6,13 @@
 package unisportsdesktop;
 
 import com.unisports.cross.Constants;
+import com.unisports.entities.Sport;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import javafx.util.Pair;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -27,10 +30,7 @@ public class Request {
     public Pair<Boolean, String> post(String content, String urlDest) {
         try {
             String url = String.format("%s/%s/%s", Constants.environmentHost, Constants.environmentRest, urlDest);
-            System.out.println(content);            
-            System.out.println(url);
 
-            
             boolean result = false;
             String message = "Unexpected error";
             try (CloseableHttpClient client = HttpClients.createDefault()) {
@@ -46,6 +46,41 @@ public class Request {
                     case 200:
                         result = nodeResponse.get("result").asBoolean();
                         message = nodeResponse.get("message").asText();
+                        break;
+                    case 400:
+                        message = "Error enviando los datos, por favor intenta de nuevo mas tarde";
+                        break;
+                    case 404:
+                        message = "Error contactando a nuestros servidores, por favor intenta de nuevo mas tarde";
+                        break;
+                    case 500:
+                        message = "Error, por favor intenta de nuevo mas tarde";
+                        break;
+                }
+            }
+            return new Pair<>(result, message);
+        } catch (UnsupportedEncodingException ex) {
+            return new Pair<>(false, "Error al intentar enviar los datos, por favor intenta de nuevo mas tarde");
+        } catch (IOException ex) {
+            return new Pair<>(false, "Error inesperado, por favor intenta de nuevo mas tarde");
+        }
+    }
+    
+    public Pair<Boolean, String> get(String urlDest) {
+        try {
+            String url = String.format("%s/%s/%s", Constants.environmentHost, Constants.environmentRest, urlDest);
+
+            boolean result = false;
+            String message = "Unexpected error";
+            try (CloseableHttpClient client = HttpClients.createDefault()) {
+                HttpGet get = new HttpGet(url);
+                get.setHeader("Accept", "application/json");
+                HttpResponse response = client.execute(get);
+
+                switch (response.getStatusLine().getStatusCode()) {
+                    case 200:
+                        result = true;
+                        message = EntityUtils.toString(response.getEntity());
                         break;
                     case 400:
                         message = "Error enviando los datos, por favor intenta de nuevo mas tarde";

@@ -33,6 +33,9 @@ import unisportsdesktop.Request;
  */
 public class TeamController implements Initializable {
 
+    private LayoutController mainController;
+    private String _token;
+    
     @FXML
     private Button ConfirmAddButton;
     
@@ -50,6 +53,11 @@ public class TeamController implements Initializable {
     
     @FXML
     private TextField createName;
+    
+    public void setLayoutController(LayoutController controller, String token) {
+        mainController = controller;
+        _token = token;
+    }
     
     @FXML
     public void addUserToNewTeam(ActionEvent event){
@@ -87,7 +95,7 @@ public class TeamController implements Initializable {
         String name = createName.getText().trim();
     
         if (name.isEmpty()) {
-            result = new Pair<>(false, "Campo vasio");
+            result = new Pair<>(false, "Campo vacio");
         }
         
         if (result.getKey()) {
