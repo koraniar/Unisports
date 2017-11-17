@@ -29,8 +29,6 @@ public class AuthRest {
         ObjectNode response = mapper.createObjectNode();
         response.put("result", result.getKey());
         response.put("message", result.getValue());
-
-        System.out.println(response.toString());
         
         return response.toString();
     }

@@ -40,7 +40,14 @@ public class Request {
                 post.setEntity(body);
                 HttpResponse response = client.execute(post);
                 ObjectMapper mapper = new ObjectMapper();
-                JsonNode nodeResponse = mapper.readTree(EntityUtils.toString(response.getEntity()));
+                
+                String responseJson = EntityUtils.toString(response.getEntity());
+                System.out.println("--------post--------");                
+                System.out.println(url);                
+                System.out.println(content);
+                System.out.println(responseJson);
+
+                JsonNode nodeResponse = mapper.readTree(responseJson);
 
                 switch (response.getStatusLine().getStatusCode()) {
                     case 200:
@@ -76,11 +83,16 @@ public class Request {
                 HttpGet get = new HttpGet(url);
                 get.setHeader("Accept", "application/json");
                 HttpResponse response = client.execute(get);
+                
+                String responseJson = EntityUtils.toString(response.getEntity());
+                System.out.println("--------get--------");
+                System.out.println(url);
+                System.out.println(responseJson);
 
                 switch (response.getStatusLine().getStatusCode()) {
                     case 200:
                         result = true;
-                        message = EntityUtils.toString(response.getEntity());
+                        message = responseJson;
                         break;
                     case 400:
                         message = "Error enviando los datos, por favor intenta de nuevo mas tarde";

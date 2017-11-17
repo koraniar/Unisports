@@ -6,6 +6,7 @@
 package com.unisports.desktop.controllers;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.unisports.entities.Sport;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.util.Pair;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -31,29 +33,42 @@ import unisportsdesktop.Request;
  * @author koraniar
  */
 public class EventController implements Initializable {
-    
+
     private LayoutController mainController;
     private String _token;
-    
+
     @FXML
     private JFXComboBox createEventSport;
-    
+
     @FXML
     private Button deleteEventButton;
-    
+
     @FXML
     private Button deleteEventButtonA;
     
+    @FXML
+    private JFXTextField createEventDateTime;
+    
+    @FXML
+    private JFXTextField createEventLines;
+    
+
     public void setLayoutController(LayoutController controller, String token) {
         mainController = controller;
         _token = token;
     }
-    
+
     @FXML
     private void onCreateEvent(ActionEvent event) {
-        //save event
+        String date = createEventDateTime.getText().trim();        
+        String sport = createEventSport.getValue().toString();
+        String lines = createEventLines.getText().trim();
+
+        System.out.println(sport);
+        
+        //mainController.goToEventControllerView("Event");
     }
-    
+
     @FXML
     private void onDeleteEvent(ActionEvent event) {
         System.out.println("works");
@@ -64,7 +79,7 @@ public class EventController implements Initializable {
         deleteEventButtonA.setDisable(false);
         deleteEventButtonA.setOpacity(1);
     }
-    
+
     @FXML
     private void onDeleteEvent2(ActionEvent event) {
         System.out.println("works 2");
@@ -73,34 +88,38 @@ public class EventController implements Initializable {
         deleteEventButtonA.setDisable(true);
         deleteEventButtonA.setOpacity(0);
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ObservableList<String> list = FXCollections.observableArrayList();
-        Request request = new Request();
-        
-        Pair<Boolean, String> result = request.get("Sport/GetAll");
-        if (result.getKey()) {
-            ObjectMapper mapper = new ObjectMapper();
-        List<Sport> sports = null;
-            
-            try {
-                sports = mapper.readValue(result.getValue(), mapper.getTypeFactory().constructCollectionType(List.class, Sport.class));
-            } catch (IOException ex) {
-                Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (sports != null && sports.size() > 0) {
-                for (Iterator<Sport> i = sports.iterator(); i.hasNext();) {
-                    Sport item = i.next();
-                    list.add(item.getName());
+
+        if (createEventSport != null) {
+            ObservableList<String> list = FXCollections.observableArrayList();
+            Request request = new Request();
+
+            Pair<Boolean, String> result = request.get("Sport/GetAll");
+            if (result.getKey()) {
+                ObjectMapper mapper = new ObjectMapper();
+                List<Sport> sports = null;
+
+                try {
+                    sports = mapper.readValue(result.getValue(), mapper.getTypeFactory().constructCollectionType(List.class, Sport.class));
+                } catch (IOException ex) {
+                    Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (sports != null && sports.size() > 0) {
+                    for (Iterator<Sport> i = sports.iterator(); i.hasNext();) {
+                        Sport item = i.next();
+                        list.add(item.getName());
+                    }
                 }
             }
+
+            if (list.size() < 1) {
+                list.add("None to select");
+            }
+            createEventSport.setItems(list);
         }
-        
-        
-        
-        createEventSport.setItems(list);
-    }    
-    
+    }
+
 }
