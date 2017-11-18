@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
    <children>
       <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="606.0" layoutY="649.0" onAction="#onCreateEvent" style="-fx-background-color: #f4f4f4;" text="Siguiente">
          <font>
@@ -26,29 +28,27 @@
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <!--<JFXTextField fx:id="createEventDateTime1" layoutX="551.0" layoutY="189.0" prefHeight="27.0" prefWidth="339.0" />-->
-      <JFXDatePicker fx:id="createEventDateTime1" layoutX="551.0" layoutY="189.0" prefHeight="27.0" prefWidth="339.0" defaultColor="#4059a9"></JFXDatePicker>
-      <!--<JFXTextField fx:id="createEventDateTime" layoutX="550.0" layoutY="230.0" prefHeight="27.0" prefWidth="339.0" />-->
-      <JFXDatePicker fx:id="createEventDateTime2" layoutX="550.0" layoutY="230.0" prefHeight="27.0" prefWidth="339.0"></JFXDatePicker>
+      <JFXDatePicker fx:id="createEventDate" defaultColor="#4059a9" layoutX="551.0" layoutY="189.0" prefHeight="28.0" prefWidth="339.0" promptText="Fecha" />
       <Text layoutX="422.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
+      <JFXTimePicker fx:id="createEventTime" defaultColor="#4059a9" layoutX="553.0" layoutY="227.0" prefHeight="31.0" prefWidth="339.0" />
       <Text layoutX="422.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deporte">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="createEventSport" layoutX="550.0" layoutY="271.0" prefHeight="27.0" prefWidth="339.0" />
+      <JFXComboBox fx:id="createEventSport" labelFloat="true" layoutX="550.0" layoutY="271.0" prefHeight="27.0" prefWidth="339.0" promptText="Deporte" />
       <Text layoutX="422.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lineas">
          <font>
             <Font name="Roboto Regular" size="22.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="createEventLines" labelFloat="true" layoutX="550.0" layoutY="313.0" prefHeight="27.0" prefWidth="339.0" promptText="hola" text="hila">
+      <JFXTextField fx:id="createEventLines" labelFloat="true" layoutX="550.0" layoutY="313.0" prefHeight="27.0" prefWidth="339.0">
          <font>
-            <Font size="22.0" />
+            <Font size="20.0" />
          </font></JFXTextField>
       
       <Text layoutX="422.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar">
@@ -57,5 +57,6 @@
          </font>
       </Text>
       <Pane layoutX="422.0" layoutY="401.0" prefHeight="228.0" prefWidth="469.0" style="-fx-background-color: #f4f4f4;" />
+      <StackPane fx:id="dialogLayoutContent" disable="true" layoutX="331.0" layoutY="120.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

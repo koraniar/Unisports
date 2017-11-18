@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.rest.controller;
 
 import com.unisports.bl.AuthBL;
@@ -22,14 +17,14 @@ public class AuthRest {
     @Path("/Login")
     public String login(@QueryParam("email") String email, @QueryParam("password") String password) {
         AuthBL authService = new AuthBL();
-        
+
         Pair<Boolean, String> result = authService.validateCredentials(email, password);
 
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode response = mapper.createObjectNode();
         response.put("result", result.getKey());
         response.put("message", result.getValue());
-        
+
         return response.toString();
     }
 }

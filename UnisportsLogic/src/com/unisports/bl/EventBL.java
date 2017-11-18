@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.bl;
 
 import com.unisports.dao.EventDAO;
 import com.unisports.entities.Event;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import javafx.util.Pair;
 
-/**
- *
- * @author danielmontana
- */
 public class EventBL {
 
     EventDAO eventdao;
@@ -25,19 +18,25 @@ public class EventBL {
     
 
     public Event GetEventById(UUID id) {
-
         Event event = new Event();
-
-        Event ev = eventdao.getEventById(event.getId());
-        if (ev != null) {
-            return ev;
-        } else {
-            return null;
-        }
+        return eventdao.getEventById(event.getId());
     }
 
-    public boolean SaveEvent(Event event) {
-        return true;
+    public Pair<Boolean, String> SaveEvent(Event event) {
+        if (event.getDate().before(new Date())) {
+            return new Pair<>(false, "La fecha no puede ser anterior a este momento");
+        }
+        if (event.getCreatorUserId() == null) {
+            return new Pair<>(false, "Error asociando el evento");
+        }
+        if (event.getSportId() == null) {
+            return new Pair<>(false, "El deporte no es valido");
+        }
+        
+        if (eventdao.createEvent(event)) {
+            return new Pair<>(true, "El evento fue creado");
+        }
+        return new Pair<>(false, "Error creando el evento");
     }
 
     public boolean UpdateEvent(Event event) {

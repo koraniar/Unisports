@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.desktop.controllers;
 
 import com.jfoenix.controls.JFXButton;
@@ -25,10 +20,7 @@ import javafx.util.Pair;
 import org.codehaus.jackson.map.ObjectMapper;
 import unisportsdesktop.Request;
 
-/**
- *
- * @author danielmontana
- */
+
 public class AccountController implements Initializable {
 
     private LayoutController mainController;

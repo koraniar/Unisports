@@ -21,16 +21,23 @@ public class Event {
     public Event(UUID id)
     {
         this.id = id;
+        this.createdDate = new Date();
     }
     
     public Event()
     {
         this.id = UUID.randomUUID();
+        this.createdDate = new Date();
     }
     
     public UUID getId()
     {
         return this.id;
+    }
+    
+    public void setId(UUID id)
+    {
+        this.id = id;
     }
     
     public void setDate(Date date)

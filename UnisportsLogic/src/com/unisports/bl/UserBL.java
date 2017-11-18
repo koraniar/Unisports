@@ -12,12 +12,12 @@ import javafx.util.Pair;
 
 public class UserBL {
     
-    //UserDAO _userDao;
-    //NotificationDAO _notificationDao;
+    UserDAO _userDao;
+    NotificationDAO _notificationDao;
     
     public UserBL(){
-        //_userDao = new UserDAO();
-        //_notificationDao = new NotificationDAO();
+        _userDao = new UserDAO();
+        _notificationDao = new NotificationDAO();
     }
     
     public Pair<Boolean, String> registerUser(User user){
@@ -28,9 +28,9 @@ public class UserBL {
             return new Pair<>(false, "La contraseña debe contener minimo " + Constants.passwordMinLength + " caracteres");
         }
         
-        UserDAO userDao = new UserDAO();
+        //UserDAO userDao = new UserDAO();
         
-        if (userDao.createUser(user)) {
+        if (_userDao.createUser(user)) {
             return new Pair<>(true, "El usuario fue creado");
         }
         return new Pair<>(false, "Error inesperado, no se pudo crear la cuenta");
