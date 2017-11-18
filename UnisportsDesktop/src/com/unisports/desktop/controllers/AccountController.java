@@ -51,6 +51,22 @@ public class AccountController implements Initializable {
         mainController = controller;
         _token = token;
     }
+    
+    @FXML
+    private void goToResetPassword(ActionEvent event){
+        System.out.println("reset");
+        mainController.goToAccountControllerView("ChangePassword");
+    }
+    
+    @FXML
+    private void goToCreateAccount(ActionEvent event){
+        mainController.goToAccountControllerView("Register");
+    }
+    
+    @FXML
+    private void goToLogin(ActionEvent event){
+        mainController.goToAccountControllerView("Login");
+    }
 
     @FXML
     private void onRegister(ActionEvent event) {

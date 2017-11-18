@@ -271,6 +271,7 @@ public class LayoutController implements Initializable {
     
     public void goToAccountControllerView(String viewName){
         try {
+            System.out.println(viewName);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
             Pane root = loader.load();

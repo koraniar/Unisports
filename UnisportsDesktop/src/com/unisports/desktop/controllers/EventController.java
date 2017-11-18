@@ -138,9 +138,12 @@ public class EventController implements Initializable {
 
             JFXButton acceptButton = new JFXButton("Aceptar");
             acceptButton.setStyle("-fx-font: 18 Roboto;");
-            acceptButton.setOnAction((ActionEvent e) -> {
-                dialogLayoutContent.setDisable(true);
-                dialog.close();
+            acceptButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent e) {
+                    dialogLayoutContent.setDisable(true);
+                    dialog.close();
+                }
             });
 
             dialogContent.setActions(acceptButton);
