@@ -46,8 +46,8 @@ public class EventController implements Initializable {
     @FXML
     private Button deleteEventButtonA;
     
-    @FXML
-    private JFXTextField createEventDateTime;
+    //@FXML
+    //private JFXTextField createEventDateTime;
     
     @FXML
     private JFXTextField createEventLines;
@@ -60,7 +60,7 @@ public class EventController implements Initializable {
 
     @FXML
     private void onCreateEvent(ActionEvent event) {
-        String date = createEventDateTime.getText().trim();        
+        //String date = createEventDateTime.getText().trim();        
         String sport = createEventSport.getValue().toString();
         String lines = createEventLines.getText().trim();
 
