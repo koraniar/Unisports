@@ -11,39 +11,30 @@
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
    <children>
       
-      <Text layoutX="512.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
+      <Text layoutX="509.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
          <font>
             <Font size="46.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="registerEmail" layoutX="430.0" layoutY="259.0" prefHeight="27.0" prefWidth="443.0">
+      <JFXTextField fx:id="registerEmail" labelFloat="true" layoutX="362.0" layoutY="239.0" prefHeight="40.0" prefWidth="476.0" promptText="Correo Institucional">
          <font>
-            <Font size="20.0" />
+            <Font name="Roboto Regular" size="20.0" />
          </font></JFXTextField>
-      <Text layoutX="214.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo institucional:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <Text layoutX="289.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <Text layoutX="186.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar contraseña:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <Line endX="250.0" layoutX="650.0" layoutY="467.0" startX="-250.0" />
-      <Text layoutX="522.0" layoutY="495.0" onMouseClicked="#goToLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Ya tienes una cuenta?" textOrigin="CENTER" underline="true">
+      <Line endX="250.0" layoutX="600.0" layoutY="486.0" startX="-250.0" />
+      <Text layoutX="502.0" layoutY="512.0" onMouseClicked="#goToLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Ya tienes una cuenta?" textOrigin="CENTER" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <JFXPasswordField fx:id="registerPassword" layoutX="430.0" layoutY="321.0" prefHeight="27.0" prefWidth="443.0" />
-      <JFXPasswordField fx:id="registerConfirmPassword" layoutX="432.0" layoutY="378.0" prefHeight="27.0" prefWidth="443.0" />
-      <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="423.0" onAction="#onRegister" style="-fx-background-color: #f4f4f4;" text="Registrarme">
+      <JFXPasswordField fx:id="registerPassword" labelFloat="true" layoutX="362.0" layoutY="308.0" prefHeight="27.0" prefWidth="476.0" promptText="Contraseña">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font></JFXPasswordField>
+      <JFXPasswordField fx:id="registerConfirmPassword" labelFloat="true" layoutX="362.0" layoutY="380.0" prefHeight="27.0" prefWidth="476.0" promptText="Confirmar Contraseña">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font></JFXPasswordField>
+      <JFXButton buttonType="RAISED" layoutX="677.0" layoutY="442.0" onAction="#onRegister" style="-fx-background-color: #f4f4f4;" text="Registrarme">
          <font>
             <Font size="18.0" />
          </font>

@@ -22,6 +22,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 /**
  * FXML Controller class
@@ -100,7 +102,12 @@ public class LayoutController implements Initializable {
         option3.setPadding(new Insets(10));
         option4.setPadding(new Insets(10));
         option5.setPadding(new Insets(10));
-        //option2.setStyle("width: 100px;");
+        
+        option1.setFont(Font.font("Roboto Regular", 16));        
+        option2.setFont(Font.font("Roboto Regular", 16));
+        option3.setFont(Font.font("Roboto Regular", 16));
+        option4.setFont(Font.font("Roboto Regular", 16));
+        option5.setFont(Font.font("Roboto Regular", 16));
 
         option1.setOnAction(new EventHandler<ActionEvent>() {
             @Override

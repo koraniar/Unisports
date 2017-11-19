@@ -51,22 +51,16 @@ public class EventController implements Initializable {
 
     @FXML
     private StackPane dialogLayoutContent;
-
     @FXML
     private JFXComboBox createEventSport;
-
     @FXML
     private Button deleteEventButton;
-
     @FXML
     private Button deleteEventButtonA;
-
     @FXML
     private JFXDatePicker createEventDate;
-
     @FXML
     private JFXTimePicker createEventTime;
-
     @FXML
     private JFXTextField createEventLines;
 
@@ -92,11 +86,9 @@ public class EventController implements Initializable {
 
         if (date == null) {
             result = new Pair<>(false, "La fecha y hora no son validas");
-        }
-        if (sportSelected == null) {
+        } else if (sportSelected == null) {
             result = new Pair<>(false, "Debe seleccionar un deporte");
-        }
-        if (lines.isEmpty()) {
+        } else if (lines.isEmpty()) {
             result = new Pair<>(false, "Debe seleccionar la cantidad de lineas");
         }
 
@@ -128,16 +120,16 @@ public class EventController implements Initializable {
         } else {
             JFXDialogLayout dialogContent = new JFXDialogLayout();
             Text textHeading = new Text(result.getKey() ? "Unisports" : "Error");
-            textHeading.setFont(Font.font("Roboto", 22));
+            textHeading.setFont(Font.font("Roboto Regular", 22));
             dialogContent.setHeading(textHeading);
             Text textBody = new Text(result.getValue());
-            textBody.setFont(Font.font("Roboto", 20));
+            textBody.setFont(Font.font("Roboto Regular", 20));
             dialogContent.setBody(textBody);
 
             JFXDialog dialog = new JFXDialog(dialogLayoutContent, dialogContent, JFXDialog.DialogTransition.CENTER);
 
             JFXButton acceptButton = new JFXButton("Aceptar");
-            acceptButton.setStyle("-fx-font: 18 Roboto;");
+            acceptButton.setStyle("-fx-font: 18 Roboto Regular;");
             acceptButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
@@ -175,7 +167,6 @@ public class EventController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
 
         if (createEventSport != null) {
             ObservableList<ComboBoxItem> list = FXCollections.observableArrayList();
@@ -199,9 +190,6 @@ public class EventController implements Initializable {
                 }
             }
 
-//            if (list.size() < 1) {
-//                list.add("None to select");
-//            }
             createEventSport.setItems(list);
         }
     }

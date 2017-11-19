@@ -22,6 +22,7 @@ public class UnisportsDesktop extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/_Layout.fxml"));
 
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("com/unisports/desktop/styles/application.css");
         
         stage.setTitle("Unisports");
         stage.setScene(scene);

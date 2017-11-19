@@ -13,50 +13,40 @@
 
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1280.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.EventController">
    <children>
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="606.0" layoutY="649.0" onAction="#onCreateEvent" style="-fx-background-color: #f4f4f4;" text="Siguiente">
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="551.0" layoutY="653.0" onAction="#onCreateEvent" style="-fx-background-color: #f4f4f4;" text="Siguiente">
          <font>
             <Font name="Roboto Regular" size="18.0" />
          </font>
       </JFXButton>
-      <Text layoutX="284.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Evento">
+      <Text layoutX="284.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Evento">
          <font>
-            <Font size="42.0" />
+            <Font name="Roboto Regular" size="42.0" />
          </font>
       </Text>
-      <Text layoutX="423.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXDatePicker fx:id="createEventDate" defaultColor="#4059a9" layoutX="551.0" layoutY="189.0" prefHeight="28.0" prefWidth="339.0" promptText="Fecha" />
-      <Text layoutX="422.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXTimePicker fx:id="createEventTime" defaultColor="#4059a9" layoutX="553.0" layoutY="227.0" prefHeight="31.0" prefWidth="339.0" />
-      <Text layoutX="422.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deporte">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXComboBox fx:id="createEventSport" labelFloat="true" layoutX="550.0" layoutY="271.0" prefHeight="27.0" prefWidth="339.0" promptText="Deporte" />
-      <Text layoutX="422.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lineas">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXTextField fx:id="createEventLines" labelFloat="true" layoutX="550.0" layoutY="313.0" prefHeight="27.0" prefWidth="339.0">
+      <JFXDatePicker fx:id="createEventDate" defaultColor="#4059a9" layoutX="365.0" layoutY="112.0" prefHeight="40.0" prefWidth="477.0" />
+      <JFXTimePicker fx:id="createEventTime" defaultColor="#4059a9" layoutX="365.0" layoutY="177.0" prefHeight="40.0" prefWidth="477.0" />
+      <JFXComboBox fx:id="createEventSport" labelFloat="true" layoutX="365.0" layoutY="248.0" prefHeight="40.0" prefWidth="470.0" promptText="Deporte" />
+      <JFXTextField fx:id="createEventLines" labelFloat="true" layoutX="365.0" layoutY="313.0" prefHeight="40.0" prefWidth="470.0" promptText="Lineas">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
       
-      <Text layoutX="422.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar">
+      <Text fill="#363636" layoutX="364.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar">
          <font>
-            <Font name="Roboto Regular" size="22.0" />
+            <Font name="Roboto Regular" size="17.0" />
          </font>
       </Text>
-      <Pane layoutX="422.0" layoutY="401.0" prefHeight="228.0" prefWidth="469.0" style="-fx-background-color: #f4f4f4;" />
+      <Pane layoutX="367.0" layoutY="403.0" prefHeight="228.0" prefWidth="469.0" style="-fx-background-color: #f4f4f4;" />
+      <Text fill="#363636" layoutX="364.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="#363636" layoutX="364.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
       <StackPane fx:id="dialogLayoutContent" disable="true" layoutX="331.0" layoutY="120.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

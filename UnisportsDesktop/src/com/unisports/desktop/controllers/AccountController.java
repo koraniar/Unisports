@@ -151,16 +151,16 @@ public class AccountController implements Initializable {
 
         JFXDialogLayout dialogContent = new JFXDialogLayout();
         Text textHeading = new Text(result.getKey() ? "Unisports" : "Error");
-        textHeading.setFont(Font.font("Roboto", 22));
+        textHeading.setFont(Font.font("Roboto Regular", 22));
         dialogContent.setHeading(textHeading);
         Text textBody = new Text(result.getValue());
-        textBody.setFont(Font.font("Roboto", 20));
+        textBody.setFont(Font.font("Roboto Regular", 20));
         dialogContent.setBody(textBody);
 
         JFXDialog dialog = new JFXDialog(dialogLayoutContent, dialogContent, JFXDialog.DialogTransition.CENTER);
 
         JFXButton acceptButton = new JFXButton("Aceptar");
-        acceptButton.setStyle("-fx-font: 18 Roboto;");
+        acceptButton.setStyle("-fx-font: 18 Roboto Regular;");
         acceptButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -179,35 +179,45 @@ public class AccountController implements Initializable {
     public void onSignIn(ActionEvent event) {
         String email = signInEmail.getText().trim();
         String password = signInPassword.getText().trim();
-        Pair<Boolean, String> result = new Pair<>(false, "");
+        Pair<Boolean, String> result = new Pair<>(false, "Los datos no son válidos");
+        String initials = "";
+        boolean complete = false;
 
         if (!email.isEmpty() && !password.isEmpty()) {
             Request request = new Request();
             result = request.get("Auth/Login?email=" + email + "&password=" + password);
+
+            if (result.getKey()) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    JsonNode nodeResponse = mapper.readTree(result.getValue());
+                    result = new Pair<>(nodeResponse.get("result").asBoolean(), nodeResponse.get("message").asText());
+                    if (result.getKey()) {
+                        initials = nodeResponse.get("initials").asText();
+                        complete = nodeResponse.get("complete").asBoolean();
+                    }
+                } catch (IOException ex) {
+                    result = new Pair<>(false, "Error durante el envio de datos");
+                }
+            }
         }
 
         if (result.getKey()) {
-            ObjectMapper mapper = new ObjectMapper();
-            try {
-                JsonNode nodeResponse = mapper.readTree(result.getValue());
-                mainController.onEnterValidCredentials(nodeResponse.get("message").asText(), nodeResponse.get("complete").asBoolean());
-                mainController.changeInitialsAndComplete(nodeResponse.get("initials").asText(), _isComplete);
-            } catch (IOException ex) {
-                //Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            mainController.onEnterValidCredentials(result.getValue(), complete);
+            mainController.changeInitialsAndComplete(initials, complete);
         } else {
             JFXDialogLayout dialogContent = new JFXDialogLayout();
             Text textHeading = new Text("Error");
-            textHeading.setFont(Font.font("Roboto", 22));
+            textHeading.setFont(Font.font("Roboto Regular", 22));
             dialogContent.setHeading(textHeading);
             Text textBody = new Text(result.getValue());
-            textBody.setFont(Font.font("Roboto", 20));
+            textBody.setFont(Font.font("Roboto Regular", 20));
             dialogContent.setBody(textBody);
 
             JFXDialog dialog = new JFXDialog(dialogLayoutContent, dialogContent, JFXDialog.DialogTransition.CENTER);
 
             JFXButton acceptButton = new JFXButton("Aceptar");
-            acceptButton.setStyle("-fx-font: 18 Roboto;");
+            acceptButton.setStyle("-fx-font: 18 Roboto Regular;");
             acceptButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
@@ -240,11 +250,9 @@ public class AccountController implements Initializable {
 
         if (name.isEmpty()) {
             result = new Pair<>(false, "El Nombre es requerido");
-        }
-        if (lastName.isEmpty()) {
+        } else if (lastName.isEmpty()) {
             result = new Pair<>(false, "El Apellido es requerido");
-        }
-        if (phone.isEmpty()) {
+        } else if (phone.isEmpty()) {
             result = new Pair<>(false, "El Telefono es requerido");
         }
 
@@ -261,40 +269,41 @@ public class AccountController implements Initializable {
 
                 Request request = new Request();
                 result = request.post(content, "Account/EditUser");
-
-                if (result.getKey()) {
-                    mainController.changeInitialsAndComplete(name.substring(0, 1) + lastName.substring(0, 1), true);
-                    mainController.goToHomeControllerView("Home");
-                } else {
-                    JFXDialogLayout dialogContent = new JFXDialogLayout();
-                    Text textHeading = new Text("Error");
-                    textHeading.setFont(Font.font("Roboto", 22));
-                    dialogContent.setHeading(textHeading);
-                    Text textBody = new Text(result.getValue());
-                    textBody.setFont(Font.font("Roboto", 20));
-                    dialogContent.setBody(textBody);
-
-                    JFXDialog dialog = new JFXDialog(dialogLayoutContent, dialogContent, JFXDialog.DialogTransition.CENTER);
-
-                    JFXButton acceptButton = new JFXButton("Aceptar");
-                    acceptButton.setStyle("-fx-font: 18 Roboto;");
-                    acceptButton.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent e) {
-                            dialogLayoutContent.setDisable(true);
-                            dialog.close();
-                        }
-                    });
-
-                    dialogContent.setActions(acceptButton);
-
-                    dialogLayoutContent.setDisable(false);
-                    dialog.show();
-                }
             } catch (IOException ex) {
                 Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
+        if (result.getKey()) {
+            mainController.changeInitialsAndComplete(name.substring(0, 1) + lastName.substring(0, 1), true);
+            mainController.goToHomeControllerView("Home");
+        } else {
+            JFXDialogLayout dialogContent = new JFXDialogLayout();
+            Text textHeading = new Text("Error");
+            textHeading.setFont(Font.font("Roboto Regular", 22));
+            dialogContent.setHeading(textHeading);
+            Text textBody = new Text(result.getValue());
+            textBody.setFont(Font.font("Roboto Regular", 20));
+            dialogContent.setBody(textBody);
+
+            JFXDialog dialog = new JFXDialog(dialogLayoutContent, dialogContent, JFXDialog.DialogTransition.CENTER);
+
+            JFXButton acceptButton = new JFXButton("Aceptar");
+            acceptButton.setStyle("-fx-font: 18 Roboto Regular;");
+            acceptButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent e) {
+                    dialogLayoutContent.setDisable(true);
+                    dialog.close();
+                }
+            });
+
+            dialogContent.setActions(acceptButton);
+
+            dialogLayoutContent.setDisable(false);
+            dialog.show();
+        }
+
     }
 
     @Override

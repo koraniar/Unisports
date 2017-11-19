@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -16,16 +15,16 @@
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <JFXTextField fx:id="editProfileName" labelFloat="true" layoutX="386.0" layoutY="103.0" prefHeight="42.0" prefWidth="428.0" promptText="Nombres">
+        <JFXTextField fx:id="editProfileName" labelFloat="true" layoutX="386.0" layoutY="103.0" prefHeight="42.0" prefWidth="428.0" promptText="Nombres" text="hola">
          <font>
             <Font name="Roboto Regular" size="20.0" />
          </font></JFXTextField>
-        <Text layoutX="285.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil">
+        <Text layoutX="285.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil 2">
             <font>
-                <Font name="Roboto Regular" size="42.0" />
+                <Font size="42.0" />
             </font>
         </Text>
-      <JFXTextField fx:id="editProfileLastName" labelFloat="true" layoutX="386.0" layoutY="174.0" prefHeight="27.0" prefWidth="428.0" promptText="Apellidos">
+      <JFXTextField fx:id="editProfileLastName" labelFloat="true" layoutX="386.0" layoutY="174.0" prefHeight="27.0" prefWidth="428.0" promptText="Apellidos" text="hola">
          <font>
             <Font name="Roboto Regular" size="20.0" />
          </font></JFXTextField>
@@ -38,12 +37,11 @@
             <Font name="Roboto Regular" size="20.0" />
          </font></JFXTextField>
       <Pane layoutX="497.0" layoutY="445.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4f4f4;" />
-      <JFXDatePicker fx:id="editProfileDate" defaultColor="#4059a9" layoutX="386.0" layoutY="388.0" prefHeight="42.0" prefWidth="428.0" style="-jfx-label-float: true;" />
+      <JFXDatePicker fx:id="editProfileDate" defaultColor="#4059a9" layoutX="386.0" layoutY="388.0" prefHeight="42.0" prefWidth="428.0" />
       <Text fill="#363636" layoutX="386.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento">
          <font>
             <Font name="Roboto Regular" size="17.0" />
          </font>
       </Text>
-      <StackPane fx:id="dialogLayoutContent" disable="true" layoutX="11.0" layoutY="10.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>
