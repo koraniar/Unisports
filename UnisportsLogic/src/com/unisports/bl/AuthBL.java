@@ -13,15 +13,15 @@ public class AuthBL {
         _userDao = new UserDAO();
     }
     
-    public Pair<Boolean, String> validateCredentials(String email, String password){
+    public Pair<User, String> validateCredentials(String email, String password){
         User user = email.isEmpty() ? null : _userDao.getUserByEmail(email);
         if (user == null) {
-            return new Pair<>(false, "El usuario no existe");
+            return new Pair<>(null, "El usuario no existe");
         }
         if (!user.getPassword().equals(password)) {
-            return new Pair<>(false, "La conbinacion de usuario y contraseña no es valida");
+            return new Pair<>(null, "La conbinacion de usuario y contraseña no es valida");
         }
-        return new Pair<>(true, createToken(user));
+        return new Pair<>(user, createToken(user));
     }
     
     public User getUserFromToken(String token){

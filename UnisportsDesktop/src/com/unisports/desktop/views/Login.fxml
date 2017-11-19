@@ -16,7 +16,7 @@
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
-      <Text fx:id="goToResetPassword" layoutX="447.0" layoutY="376.0" onMouseClicked="#goToResetPassword" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="284.1038818359375">
+      <Text layoutX="447.0" layoutY="376.0" onMouseClicked="#goToResetPassword" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidaste tu contraseña?" underline="true" wrappingWidth="284.1038818359375">
          <font>
             <Font size="22.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font size="22.0" />
          </font></Text>
       <Line endX="320.0" layoutX="597.0" layoutY="401.0" startX="-220.0" strokeWidth="3.0" />
-      <Text fx:id="goToCreateAccount" layoutX="527.0" layoutY="437.0" onMouseClicked="#goToCreateAccount" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="240.279541015625">
+      <Text layoutX="527.0" layoutY="437.0" onMouseClicked="#goToCreateAccount" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta?" underline="true" wrappingWidth="240.279541015625">
          <font>
             <Font size="22.0" />
          </font>
@@ -44,6 +44,6 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <StackPane fx:id="signInDialogContent" disable="true" layoutX="331.0" layoutY="120.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <StackPane fx:id="dialogLayoutContent" disable="true" layoutX="331.0" layoutY="120.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>

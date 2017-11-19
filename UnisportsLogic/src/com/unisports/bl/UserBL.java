@@ -37,13 +37,7 @@ public class UserBL {
     }
 
     public User getUserById(UUID userId) {
-
-        return new User();
-    }
-
-    public boolean saveUser(User user) {
-
-        return true;
+        return _userDao.getUserById(userId);
     }
 
     public boolean restorePassword(String email) {
@@ -57,7 +51,7 @@ public class UserBL {
     }
     
     public boolean updateUser(User user) {
-        return true;
+        return _userDao.updateUser(user);
     }
     
     public boolean updateUserPhoto(String photo) {

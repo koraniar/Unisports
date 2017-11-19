@@ -76,7 +76,7 @@ public class EventController implements Initializable {
     }
 
     @FXML
-    private void onCreateEvent(ActionEvent eventCall) {
+    public void onCreateEvent(ActionEvent eventCall) {
         Pair<Boolean, String> result = new Pair<>(true, "");
         LocalDate localDate = createEventDate.getValue();
         LocalTime localTime = createEventTime.getValue();
@@ -154,7 +154,7 @@ public class EventController implements Initializable {
     }
 
     @FXML
-    private void onDeleteEvent(ActionEvent event) {
+    public void onDeleteEvent(ActionEvent event) {
         System.out.println("works");
         //Button db = (Button) event.getSource();
         //db.setText("hola");
@@ -165,7 +165,7 @@ public class EventController implements Initializable {
     }
 
     @FXML
-    private void onDeleteEvent2(ActionEvent event) {
+    public void onDeleteEvent2(ActionEvent event) {
         System.out.println("works 2");
         deleteEventButton.setDisable(false);
         deleteEventButton.setOpacity(1);

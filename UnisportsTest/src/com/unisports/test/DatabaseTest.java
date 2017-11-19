@@ -138,8 +138,8 @@ public class DatabaseTest {
         user.setOveralRate(0);
         user.setPassword("password");
         user.setRegularAverage(0);
-        user.setbornDate(new Date());
-        user.setcontactPhone("3123588923");
+        user.setBornDate(new Date());
+        user.setContactPhone("3123588923");
 
         System.out.println("User created: " + userDao.createUser(user));
 

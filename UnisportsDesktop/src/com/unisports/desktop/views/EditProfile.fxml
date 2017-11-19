@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
+    <children>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="538.0" layoutY="645.0" onAction="#onEditProfile" style="-fx-background-color: #f4f4f4;" text="Guardar Datos">
+            <font>
+                <Font name="Roboto Regular" size="18.0" />
+            </font>
+        </JFXButton>
+        <JFXTextField fx:id="editProfileName" layoutX="591.0" layoutY="187.0" prefHeight="27.0" prefWidth="261.0" />
+        <Text layoutX="284.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil">
+            <font>
+                <Font size="42.0" />
+            </font>
+        </Text>
+        <Text layoutX="349.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombres:">
+            <font>
+                <Font name="Roboto Regular" size="22.0" />
+            </font>
+        </Text>
+      <Text layoutX="349.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="editProfileLastName" layoutX="591.0" layoutY="227.0" prefHeight="27.0" prefWidth="261.0" />
+      <JFXTextField fx:id="editProfileAddress" layoutX="591.0" layoutY="266.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="349.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="349.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="editProfilePhone" layoutX="591.0" layoutY="305.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="349.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Naciemiento:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <Pane layoutX="507.0" layoutY="410.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4f4f4;" />
+      <JFXDatePicker fx:id="editProfileDate" defaultColor="#4059a9" layoutX="592.0" layoutY="343.0" prefHeight="31.0" prefWidth="269.0" />
+      <StackPane fx:id="dialogLayoutContent" disable="true" layoutX="11.0" layoutY="10.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    </children>
+</AnchorPane>

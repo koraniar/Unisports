@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -40,7 +41,61 @@ public class AccountRest {
                 return response.toString();
             }
             response.put("result", false);
-            response.put("message", "Error, los datos no son validos");
+            response.put("message", "Error, los datos no son válidos");
+            return response.toString();
+        } catch (IOException ex) {
+            response.put("result", false);
+            response.put("message", "Error inesperado, por favor intente de nuevo más tarde");
+            response.put("exception", ex.getMessage());
+            return response.toString();
+        }
+    }
+    
+    @POST
+    @Path("/EditUser")
+    public String editUser(String content) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode response = mapper.createObjectNode();
+
+        try {
+            User user = mapper.readValue(content, User.class);
+
+            if (user != null) {
+                UserBL userService = new UserBL();
+                boolean result = userService.updateUser(user);
+
+                response.put("result", result);
+                response.put("message", result ? "" : "No se pudo actualizar la información por favor intente de nuevo más tarde");
+                return response.toString();
+            }
+            response.put("result", false);
+            response.put("message", "Error, los datos no son válidos");
+            return response.toString();
+        } catch (IOException ex) {
+            response.put("result", false);
+            response.put("message", "Error inesperado, por favor intente de nuevo más tarde");
+            response.put("exception", ex.getMessage());
+            return response.toString();
+        }
+    }
+
+    @GET
+    @Path("/GetUser")
+    public String getUser(@QueryParam("id") UUID id) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode response = mapper.createObjectNode();
+
+        try {
+            UserBL userService = new UserBL();
+            User user = userService.getUserById(id);
+
+            if (user != null) {
+                response.put("result", true);
+                response.put("user", mapper.writeValueAsString(user));
+                return response.toString();
+            }
+            response.put("result", false);
+            response.put("message", "El usuario no existe");
             return response.toString();
         } catch (IOException ex) {
             response.put("result", false);

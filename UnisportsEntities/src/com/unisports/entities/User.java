@@ -65,11 +65,11 @@ public class User{
         return this.email;
     }
 
-    public void setcontactPhone(String contactPhone) {
+    public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
     }
 
-    public String getcontactPhone() {
+    public String getContactPhone() {
         return this.contactPhone;
     }
 
@@ -81,11 +81,11 @@ public class User{
         return this.address;
     }
 
-    public void setbornDate(Date bornDate) {
+    public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
 
-    public Date getbornDate() {
+    public Date getBornDate() {
         return this.bornDate;
     }
 
@@ -177,7 +177,7 @@ public class User{
     this.notificationList.add(notification);
     }
 
-    public void deleteItemFromNotificationList(UUID notification) {
+    public void deleteItemFromNotificationList(Notification notification) {
         this.notificationList.remove(notification);
     }
 

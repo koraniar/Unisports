@@ -39,8 +39,8 @@ public class UserDAO {
             statement.setString(3, user.getLastName());  
             statement.setString(4, user.getEmail()); 
             
-            if (user.getcontactPhone()!= null) {
-                statement.setString(5, user.getcontactPhone());
+            if (user.getContactPhone()!= null) {
+                statement.setString(5, user.getContactPhone());
             }else{
                 statement.setNull(5, java.sql.Types.VARCHAR);
             }
@@ -51,8 +51,8 @@ public class UserDAO {
                 statement.setNull(6, java.sql.Types.VARCHAR);
             }
             
-            if (user.getbornDate()!= null) {
-                statement.setTimestamp(7, new Timestamp(user.getbornDate().getTime()));
+            if (user.getBornDate()!= null) {
+                statement.setTimestamp(7, new Timestamp(user.getBornDate().getTime()));
             }else{
                 statement.setNull(7, java.sql.Types.DATE);
             }
@@ -84,8 +84,8 @@ public class UserDAO {
             statement.setString(2, user.getLastName());  
             statement.setString(3, user.getEmail()); 
             
-            if (user.getcontactPhone()!= null) {
-                statement.setString(4, user.getcontactPhone());
+            if (user.getContactPhone()!= null) {
+                statement.setString(4, user.getContactPhone());
             }else{
                 statement.setNull(4, java.sql.Types.VARCHAR);
             }
@@ -96,8 +96,8 @@ public class UserDAO {
                 statement.setNull(5, java.sql.Types.VARCHAR);
             }
             
-            if (user.getbornDate()!= null) {
-                statement.setTimestamp(6, new Timestamp(user.getbornDate().getTime()));
+            if (user.getBornDate()!= null) {
+                statement.setTimestamp(6, new Timestamp(user.getBornDate().getTime()));
             }else{
                 statement.setNull(6, java.sql.Types.DATE);
             }
@@ -150,9 +150,9 @@ public class UserDAO {
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
-                user.setcontactPhone(result.getString("ContactPhone"));
+                user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setbornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getDate("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -184,9 +184,9 @@ public class UserDAO {
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
-                user.setcontactPhone(result.getString("ContactPhone"));
+                user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setbornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getDate("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -220,9 +220,9 @@ public class UserDAO {
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
-                user.setcontactPhone(result.getString("ContactPhone"));
+                user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setbornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getDate("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -256,9 +256,9 @@ public class UserDAO {
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
-                user.setcontactPhone(result.getString("ContactPhone"));
+                user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setbornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getDate("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));

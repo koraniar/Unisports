@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -30,7 +31,8 @@ import javafx.scene.layout.VBox;
 public class LayoutController implements Initializable {
 
     private String userToken = null;
-    private JFXPopup profilePopuo;
+    private boolean userIsComplete = false;
+    private JFXPopup profilePopup;
 
     @FXML
     private Pane ContentPane;
@@ -52,92 +54,38 @@ public class LayoutController implements Initializable {
 
     @FXML
     public void onHomeAction() {
-        try {
-            Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/Home.fxml"));
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        goToHomeControllerView("Home");
     }
 
     @FXML
     public void onAccountInformtionAction(ActionEvent event) {
         Button db = (Button) event.getSource();
-        profilePopuo.show(db, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+        profilePopup.show(db, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
     }
 
     @FXML
     public void onStatisticsAction(ActionEvent event) {
-        
+
     }
 
     @FXML
     public void onCreateEventAction(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/CreateEvent.fxml"));
-            Pane root = loader.load();
-
-            EventController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        goToEventControllerView("CreateEvent");
     }
 
     @FXML
     public void onCreateTeam(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/CreateTeam.fxml"));
-            Pane root = loader.load();
-
-            TeamController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        goToTeamControllerView("CreateTeam");
     }
 
     @FXML
     public void onSignIn(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/Login.fxml"));
-            Pane root = loader.load();
-
-            AccountController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        goToAccountControllerView("Login");
     }
 
     @FXML
     public void onRegiter(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/Register.fxml"));
-            Pane root = loader.load();
-
-            AccountController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        goToAccountControllerView("Register");
     }
 
     private void initializeProfilePopup(LayoutController thisController) {
@@ -157,54 +105,30 @@ public class LayoutController implements Initializable {
         option1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                profilePopuo.hide();
+                profilePopup.hide();
             }
         });
 
         option2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                profilePopuo.hide();
-                try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/Profile.fxml"));
-                    Pane root = loader.load();
-
-                    AccountController controller = loader.getController();
-                    controller.setLayoutController(thisController, userToken);
-
-                    ContentPane.getChildren().remove(0);
-                    ContentPane.getChildren().add(root);
-                } catch (IOException ex) {
-                    Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                profilePopup.hide();
+                goToAccountControllerView("Profile");
             }
         });
 
         option3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                profilePopuo.hide();
-                try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/MyTeams.fxml"));
-                    Pane root = loader.load();
-
-                    TeamController controller = loader.getController();
-                    controller.setLayoutController(thisController, userToken);
-
-                    ContentPane.getChildren().remove(0);
-                    ContentPane.getChildren().add(root);
-                } catch (IOException ex) {
-                    Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                profilePopup.hide();
+                goToTeamControllerView("MyTeams");
             }
         });
 
         option4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                profilePopuo.hide();
+                profilePopup.hide();
             }
         });
 
@@ -212,9 +136,11 @@ public class LayoutController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 userToken = null;
-                profilePopuo.hide();
+                userIsComplete = false;
+                profilePopup.hide();
                 accountInformationButton.setOpacity(0);
                 accountInformationButton.setDisable(true);
+                accountInformationButton.setText("UN");
                 createEventButton.setOpacity(0);
                 createEventButton.setDisable(true);
                 createTeamButton.setOpacity(0);
@@ -234,8 +160,13 @@ public class LayoutController implements Initializable {
         });
 
         VBox vb = new VBox(option1, option2, option3, option4, option5);
-        profilePopuo = new JFXPopup();
-        profilePopuo.setPopupContent(vb);
+        profilePopup = new JFXPopup();
+        profilePopup.setPopupContent(vb);
+    }
+
+    public void changeInitialsAndComplete(String initials, boolean complete) {
+        userIsComplete = complete;
+        accountInformationButton.setText(initials.toUpperCase().substring(0, 2));
     }
 
     @Override
@@ -250,62 +181,87 @@ public class LayoutController implements Initializable {
             Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //go to views
-    
-    public void goToEventControllerView(String viewName){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
-            Pane root = loader.load();
-
-            EventController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-            
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+    public void goToHomeControllerView(String viewName) {
+        if (!userIsComplete && userToken != null) {
+            onEnterValidCredentials(userToken, userIsComplete);
+        } else {
+            try {
+                Pane root = FXMLLoader.load(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
+                ContentPane.getChildren().remove(0);
+                ContentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
-    public void goToAccountControllerView(String viewName){
-        try {
-            System.out.println(viewName);
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
-            Pane root = loader.load();
+    public void goToEventControllerView(String viewName) {
+        if (!userIsComplete && userToken != null) {
+            onEnterValidCredentials(userToken, userIsComplete);
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
+                Pane root = loader.load();
 
-            AccountController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-            
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public void goToTeamControllerView(String viewName){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
-            Pane root = loader.load();
+                EventController controller = loader.getController();
+                controller.setLayoutController(this, userToken);
 
-            TeamController controller = loader.getController();
-            controller.setLayoutController(this, userToken);
-            
-            ContentPane.getChildren().remove(0);
-            ContentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                ContentPane.getChildren().remove(0);
+                ContentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
-    public void onEnterValidCredentials(String token) {
+    public void goToAccountControllerView(String viewName) {
+        if (!userIsComplete && userToken != null) {
+            onEnterValidCredentials(userToken, userIsComplete);
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
+                Pane root = loader.load();
+
+                AccountController controller = loader.getController();
+                controller.setLayoutController(this, userToken, userIsComplete);
+
+                ContentPane.getChildren().remove(0);
+                ContentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public void goToTeamControllerView(String viewName) {
+        if (!userIsComplete && userToken != null) {
+            onEnterValidCredentials(userToken, userIsComplete);
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
+                Pane root = loader.load();
+
+                TeamController controller = loader.getController();
+                controller.setLayoutController(this, userToken);
+
+                ContentPane.getChildren().remove(0);
+                ContentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public void onEnterValidCredentials(String token, boolean isComplete) {
         userToken = token;
+        userIsComplete = isComplete;
         try {
-            if (!userToken.trim().isEmpty() && userToken != null) {
+            if (userToken != null && !userToken.trim().isEmpty()) {
                 accountInformationButton.setOpacity(1);
                 accountInformationButton.setDisable(false);
                 createEventButton.setOpacity(1);
@@ -318,12 +274,21 @@ public class LayoutController implements Initializable {
                 registerButton.setDisable(true);
             }
 
+//            Node a = ContentPane.getChildren().get(0);
+//            System.out.println(a.getClass().geti());            
+//            System.out.println(a.getClass().getSuperclass().getSimpleName());
+//            System.out.println(a.getClass().getPackage().getName());
+
+                    
+            
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/Home.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + (userIsComplete ? "Home" : "EditProfile") + ".fxml"));
             Pane root = loader.load();
 
-            //AccountController controller = loader.getController();
-            //controller.setLayoutController(this, userToken);
+            if (!userIsComplete) {
+                AccountController controller = loader.getController();
+                controller.setLayoutController(this, userToken, userIsComplete);
+            }
             ContentPane.getChildren().remove(0);
             ContentPane.getChildren().add(root);
         } catch (IOException ex) {
