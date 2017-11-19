@@ -16,24 +16,24 @@
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <Text layoutX="284.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Equipo">
+        <Text layoutX="112.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Equipo">
             <font>
                 <Font size="42.0" />
             </font>
         </Text>
-        <JFXTextField layoutX="546.0" layoutY="190.0" prefHeight="27.0" prefWidth="261.0" />
-        <Text layoutX="422.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+        <JFXTextField layoutX="450.0" layoutY="276.0" prefHeight="27.0" prefWidth="261.0" />
+        <Text layoutX="300.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
             <font>
                 <Font name="Roboto Regular" size="22.0" />
             </font>
         </Text>
-        <Pane layoutX="540.0" layoutY="370.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
+        <Pane layoutX="469.0" layoutY="98.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
         <JFXButton fx:id="AddUserToTeamButton" buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
             <font>
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <Text layoutX="441.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes">
+        <Text layoutX="300.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes">
             <font>
                 <Font name="Roboto Regular" size="22.0" />
             </font>
@@ -50,5 +50,17 @@
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
+      <Text layoutX="300.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lema:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <JFXTextField layoutX="450.0" layoutY="326.0" prefHeight="27.0" prefWidth="261.0" />
+      <Text layoutX="300.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:">
+         <font>
+            <Font name="Roboto Regular" size="22.0" />
+         </font>
+      </Text>
+      <JFXTextArea layoutX="450.0" layoutY="385.0" prefHeight="114.0" prefWidth="506.0" />
     </children>
 </AnchorPane>
