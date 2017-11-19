@@ -40,7 +40,7 @@ public class TeamController implements Initializable {
     private Button ConfirmAddButton;
     
     @FXML
-    private StackPane registerDialogContent;
+    private StackPane teamDialogContent;
     
     @FXML
     private Text SearchText;
@@ -53,6 +53,12 @@ public class TeamController implements Initializable {
     
     @FXML
     private TextField createName;
+    
+    @FXML
+    private TextField createMotto;
+    
+    @FXML
+    private TextField createDescription;
     
     public void setLayoutController(LayoutController controller, String token) {
         mainController = controller;
@@ -93,6 +99,9 @@ public class TeamController implements Initializable {
     public void createTeam(ActionEvent event){
         Pair<Boolean, String> result = new Pair<>(true, "");
         String name = createName.getText().trim();
+        String motto = createMotto.getText().trim();
+        String description = createDescription.getText().trim();
+       
     
         if (name.isEmpty()) {
             result = new Pair<>(false, "Campo vacio");
@@ -101,10 +110,9 @@ public class TeamController implements Initializable {
         if (result.getKey()) {
             Team team = new Team();
             team.setName(name);
-            team.setLogo(name);
-            team.setMotto(name);
-            team.setDescription(name);
-            //team.setSportId(sportId);
+            team.setMotto(motto);
+            team.setDescription(description);
+            
            
 
             ObjectMapper mapper = new ObjectMapper();
@@ -128,21 +136,21 @@ public class TeamController implements Initializable {
         textBody.setFont(Font.font("Roboto", 20));
         dialogContent.setBody(textBody);
 
-        JFXDialog dialog = new JFXDialog(registerDialogContent, dialogContent, JFXDialog.DialogTransition.CENTER);
+        JFXDialog dialog = new JFXDialog(teamDialogContent, dialogContent, JFXDialog.DialogTransition.CENTER);
 
         JFXButton acceptButton = new JFXButton("Aceptar");
         acceptButton.setStyle("-fx-font: 18 Roboto;");
         acceptButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                registerDialogContent.setDisable(true);
+                teamDialogContent.setDisable(true);
                 dialog.close();
             }
         });
 
         dialogContent.setActions(acceptButton);
 
-        registerDialogContent.setDisable(false);
+        teamDialogContent.setDisable(false);
         dialog.show();
     }
     }
