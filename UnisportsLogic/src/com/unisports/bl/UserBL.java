@@ -63,6 +63,10 @@ public class UserBL {
         return new ArrayList<User>();
     }
     
+    public List<User> getAllUsers() {
+        return _userDao.getAllUsers();
+    }
+    
     public boolean disableUser(UUID userId) {
         return true;
     }
