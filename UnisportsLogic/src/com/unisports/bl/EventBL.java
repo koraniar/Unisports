@@ -12,7 +12,6 @@ public class EventBL {
     EventDAO eventdao;
 
     public EventBL() {
-
         eventdao = new EventDAO();
     }
     

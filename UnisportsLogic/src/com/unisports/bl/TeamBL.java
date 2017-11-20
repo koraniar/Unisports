@@ -7,27 +7,25 @@ import java.util.UUID;
 import javafx.util.Pair;
 
 public class TeamBL {
-    
+
     TeamDAO _teamDao;
-    
-    
-    public TeamBL(){
+
+    public TeamBL() {
         _teamDao = new TeamDAO();
     }
 
     public Team GetTeamById(UUID id) {
         Team team = new Team();
-        return  _teamDao.getTeamById(team.getId());
+        return _teamDao.getTeamById(team.getId());
     }
 
-   
     public Pair<Boolean, String> SaveTeam(Team team) {
         if (team.getName().isEmpty()) {
             return new Pair<>(false, "El nombre es requerido");
-        } else if (team.getSportId() == null){
+        } else if (team.getSportId() == null) {
             return new Pair<>(false, "El deporte es requerido");
         }
-        
+
         if (_teamDao.createTeam(team)) {
             return new Pair<>(true, "");
         }
