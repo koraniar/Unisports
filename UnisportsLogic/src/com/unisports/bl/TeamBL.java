@@ -7,6 +7,7 @@ package com.unisports.bl;
 
 import com.unisports.dao.TeamDAO;
 import com.unisports.entities.Team;
+import java.util.List;
 import java.util.UUID;
 import javafx.util.Pair;
 
@@ -37,8 +38,15 @@ public class TeamBL {
         return true;
     }
 
-    public boolean GetAllTeamsByUserId(UUID id) {
-        return true;
+    public List<Team> GetAllTeamsByUserId(UUID id) {
+        List<Team> Teams = _teamDao.getAllTeam();
+         if (Teams != null && !Teams.isEmpty()) {
+            return Teams;
+        } else {
+            return null;
+        }
+                
+        
     }
 
     public boolean GetTeamsByName(String word) {
