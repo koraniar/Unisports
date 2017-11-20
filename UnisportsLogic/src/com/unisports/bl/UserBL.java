@@ -1,4 +1,4 @@
-package com.unisports.bl;
+ package com.unisports.bl;
 
 import com.unisports.cross.Constants;
 import com.unisports.dao.NotificationDAO;
@@ -61,6 +61,10 @@ public class UserBL {
     
     public List<User> getUsersByName(String name) {
         return new ArrayList<User>();
+    }
+    
+    public List<User> getAllUsers() {
+        return _userDao.getAllUsers();
     }
     
     public boolean disableUser(UUID userId) {

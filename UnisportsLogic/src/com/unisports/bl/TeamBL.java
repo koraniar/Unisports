@@ -5,19 +5,30 @@
  */
 package com.unisports.bl;
 
+import com.unisports.dao.TeamDAO;
 import com.unisports.entities.Team;
 import java.util.UUID;
+import javafx.util.Pair;
 
 /**
  *
  * @author danielmontana
  */
 public class TeamBL {
-
-    public Team GetTeamById(UUID id) {
-        return new Team();
+    
+    TeamDAO _teamDao;
+    
+    
+    public TeamBL(){
+        _teamDao = new TeamDAO();
     }
 
+    public Team GetTeamById(UUID id) {
+        Team team = new Team();
+        return  _teamDao.getTeamById(team.getId());
+    }
+
+   
     public boolean SaveTeam(Team team) {
         return true;
     }

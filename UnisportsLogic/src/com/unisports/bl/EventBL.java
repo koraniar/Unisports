@@ -26,6 +26,7 @@ public class EventBL {
         if (event.getDate().before(new Date())) {
             return new Pair<>(false, "La fecha no puede ser anterior a este momento");
         }
+        
         if (event.getCreatorUserId() == null) {
             return new Pair<>(false, "Error asociando el evento");
         }
