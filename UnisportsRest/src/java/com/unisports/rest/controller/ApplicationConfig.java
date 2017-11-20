@@ -33,6 +33,7 @@ public class ApplicationConfig extends Application {
         resources.add(com.unisports.rest.controller.AuthRest.class);
         resources.add(com.unisports.rest.controller.EventRest.class);
         resources.add(com.unisports.rest.controller.SportRest.class);
+        resources.add(com.unisports.rest.controller.TeamRest.class);
         resources.add(com.unisports.rest.controller.TestsResource.class);
     }
     

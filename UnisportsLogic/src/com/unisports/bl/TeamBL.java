@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.bl;
 
 import com.unisports.dao.TeamDAO;
@@ -11,10 +6,6 @@ import java.util.List;
 import java.util.UUID;
 import javafx.util.Pair;
 
-/**
- *
- * @author danielmontana
- */
 public class TeamBL {
     
     TeamDAO _teamDao;
@@ -30,8 +21,17 @@ public class TeamBL {
     }
 
    
-    public boolean SaveTeam(Team team) {
-        return true;
+    public Pair<Boolean, String> SaveTeam(Team team) {
+        if (team.getName().isEmpty()) {
+            return new Pair<>(false, "El nombre es requerido");
+        } else if (team.getSportId() == null){
+            return new Pair<>(false, "El deporte es requerido");
+        }
+        
+        if (_teamDao.createTeam(team)) {
+            return new Pair<>(true, "");
+        }
+        return new Pair<>(false, "Error guardando el equipo");
     }
 
     public boolean UpdateTeam(Team team) {
@@ -39,14 +39,7 @@ public class TeamBL {
     }
 
     public List<Team> GetAllTeamsByUserId(UUID id) {
-        List<Team> Teams = _teamDao.getAllTeam();
-         if (Teams != null && !Teams.isEmpty()) {
-            return Teams;
-        } else {
-            return null;
-        }
-                
-        
+        return _teamDao.getAllTeam();
     }
 
     public boolean GetTeamsByName(String word) {

@@ -50,7 +50,7 @@ public class LayoutController implements Initializable {
 
     @FXML
     public void onStatisticsAction(ActionEvent event) {
-
+        goToStatisticsControllerView("Statistics");
     }
 
     @FXML
@@ -238,6 +238,26 @@ public class LayoutController implements Initializable {
                 Pane root = loader.load();
 
                 TeamController controller = loader.getController();
+                controller.setLayoutController(this, userToken);
+
+                ContentPane.getChildren().remove(0);
+                ContentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void goToStatisticsControllerView(String viewName) {
+        if (!userIsComplete && userToken != null) {
+            onEnterValidCredentials(userToken, userIsComplete);
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + viewName + ".fxml"));
+                Pane root = loader.load();
+
+                StatisticsController controller = loader.getController();
                 controller.setLayoutController(this, userToken);
 
                 ContentPane.getChildren().remove(0);

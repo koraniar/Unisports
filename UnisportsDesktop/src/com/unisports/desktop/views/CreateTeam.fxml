@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.TeamController">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.TeamController">
     <children>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="543.0" layoutY="673.0" style="-fx-background-color: #f4f4f4;" text="Crear Equipo">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="543.0" layoutY="640.0" onAction="#createTeam" style="-fx-background-color: #f4f4f4;" text="Crear Equipo">
             <font>
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <Text layoutX="112.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Equipo">
+        <Text layoutX="218.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Equipo">
             <font>
-                <Font size="42.0" />
+                <Font name="Roboto Regular" size="42.0" />
             </font>
         </Text>
-        <JFXTextField layoutX="450.0" layoutY="276.0" prefHeight="27.0" prefWidth="261.0" />
-        <Text layoutX="300.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+        <JFXTextField fx:id="createName" labelFloat="true" layoutX="382.0" layoutY="282.0" prefHeight="42.0" prefWidth="450.0" promptText="Nombre">
             <font>
-                <Font name="Roboto Regular" size="22.0" />
+                <Font name="Roboto Regular" size="20.0" />
             </font>
-        </Text>
-        <Pane layoutX="469.0" layoutY="98.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
-        <JFXButton fx:id="AddUserToTeamButton" buttonType="RAISED" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
+        </JFXTextField>
+        <Pane layoutX="540.0" layoutY="123.0" prefHeight="133.0" prefWidth="133.0" style="-fx-background-color: #f4f4f4;" />
+        <JFXButton fx:id="AddUserToTeamButton" buttonType="RAISED" disable="true" focusTraversable="false" layoutX="519.0" layoutY="606.0" onAction="#addUserToNewTeam" opacity="0.0" style="-fx-background-color: #f4f4f4;" text="Agregar Integrante">
             <font>
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <Text layoutX="300.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes">
+        <Text layoutX="300.0" layoutY="581.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrantes">
             <font>
                 <Font name="Roboto Regular" size="22.0" />
             </font>
         </Text>
-        <Line endX="500.0" layoutX="600.0" layoutY="658.0" startX="-500.0" />
+        <Line endX="500.0" layoutX="600.0" layoutY="658.0" opacity="0.0" startX="-500.0" />
         <JFXTextField fx:id="UserSearchField" disable="true" layoutX="506.0" layoutY="612.0" opacity="0.0" prefHeight="27.0" prefWidth="261.0" />
         <Text fx:id="SearchText" disable="true" layoutX="412.0" layoutY="633.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar:">
             <font>
@@ -50,18 +49,17 @@
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-      <Text layoutX="300.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lema:">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXTextField layoutX="450.0" layoutY="326.0" prefHeight="27.0" prefWidth="261.0" />
-      <Text layoutX="300.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:">
-         <font>
-            <Font name="Roboto Regular" size="22.0" />
-         </font>
-      </Text>
-      <JFXTextArea layoutX="450.0" layoutY="385.0" prefHeight="114.0" prefWidth="506.0" />
-      <StackPane fx:id="teamDialogContent" disable="true" layoutX="11.0" layoutY="10.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <JFXTextField fx:id="createMotto" labelFloat="true" layoutX="382.0" layoutY="349.0" prefHeight="27.0" prefWidth="450.0" promptText="Lema">
+            <font>
+                <Font name="Roboto Regular" size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXComboBox fx:id="createSport" labelFloat="true" layoutX="382.0" layoutY="417.0" prefHeight="42.0" prefWidth="450.0" promptText="Deporte" />
+        <JFXTextArea labelFloat="true" fx:id="createDescription" layoutX="382.0" layoutY="491.0" prefHeight="74.0" prefWidth="450.0" promptText="Descripción" wrapText="true">
+            <font>
+                <Font name="Roboto Regular" size="20.0" />
+            </font>
+        </JFXTextArea>
+        <StackPane fx:id="teamDialogContent" disable="true" layoutX="11.0" layoutY="10.0" prefHeight="740.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     </children>
 </AnchorPane>

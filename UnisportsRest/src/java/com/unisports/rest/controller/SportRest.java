@@ -1,16 +1,11 @@
 package com.unisports.rest.controller;
 
-import com.unisports.bl.UserBL;
 import com.unisports.dao.SportDAO;
 import com.unisports.entities.Sport;
-import com.unisports.entities.User;
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
-import javafx.util.Pair;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
