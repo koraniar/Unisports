@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unisportsdesktop;
 
 import com.unisports.cross.Constants;
-import com.unisports.entities.Sport;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 import javafx.util.Pair;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -21,10 +14,6 @@ import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 
-/**
- *
- * @author koraniar
- */
 public class Request {
 
     public Pair<Boolean, String> post(String content, String urlDest) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.desktop.controllers;
 
 import com.jfoenix.controls.JFXButton;
@@ -18,18 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
-/**
- * FXML Controller class
- *
- * @author koraniar
- */
 public class LayoutController implements Initializable {
 
     private String userToken = null;
@@ -108,6 +96,7 @@ public class LayoutController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 profilePopup.hide();
+                goToAccountControllerView("Notifications");
             }
         });
 
@@ -275,13 +264,6 @@ public class LayoutController implements Initializable {
                 registerButton.setOpacity(0);
                 registerButton.setDisable(true);
             }
-
-//            Node a = ContentPane.getChildren().get(0);
-//            System.out.println(a.getClass().geti());            
-//            System.out.println(a.getClass().getSuperclass().getSimpleName());
-//            System.out.println(a.getClass().getPackage().getName());
-
-                    
             
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("com/unisports/desktop/views/" + (userIsComplete ? "Home" : "EditProfile") + ".fxml"));

@@ -8,7 +8,6 @@ import com.unisports.cross.Constants;
 import com.unisports.entities.User;
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -264,7 +263,7 @@ public class AccountController implements Initializable {
             mainController.changeInitialsAndComplete(name.substring(0, 1) + lastName.substring(0, 1), true);
             if (_isComplete) {
                 mainController.goToAccountControllerView("Profile");
-            }else{
+            } else {
                 mainController.goToHomeControllerView("Home");
             }
         } else {

@@ -39,11 +39,6 @@ import javafx.util.Pair;
 import org.codehaus.jackson.map.ObjectMapper;
 import unisportsdesktop.Request;
 
-/**
- * FXML Controller class
- *
- * @author koraniar
- */
 public class EventController implements Initializable {
 
     private LayoutController mainController;
@@ -148,8 +143,6 @@ public class EventController implements Initializable {
     @FXML
     public void onDeleteEvent(ActionEvent event) {
         System.out.println("works");
-        //Button db = (Button) event.getSource();
-        //db.setText("hola");
         deleteEventButton.setDisable(true);
         deleteEventButton.setOpacity(0);
         deleteEventButtonA.setDisable(false);
