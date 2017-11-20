@@ -3,7 +3,6 @@ package com.unisports.entities;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import com.unisports.entities.Notification;
 
 public class User{
 

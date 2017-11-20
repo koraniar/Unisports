@@ -17,10 +17,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Table</title>
     </head>
-     <body>
+    <body>
         <h1>The User Database Table</h1>
 
-        <% 
+        <%
             UserBL userService = new UserBL();
             List<User> users = userService.getAllUsers();
         %>
@@ -28,15 +28,26 @@
         <table BORDER="1">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Name</th>                
+                <th>Last Name</th>
+                <th>Born Date</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Address</th>
+                <th>Actions</th>
             </tr>
-            <% for (Iterator<User> i = users.iterator(); i.hasNext();) { 
-            User item = i.next(); %>
+            <% for (Iterator<User> i = users.iterator(); i.hasNext();) {
+                    User item = i.next();%>
             <tr>
-                <td> <%= item.getId() %></td>
-                <td> <%= item.getName() %></td>
+                <td> <%= item.getId()%></td>
+                <td> <%= item.getName()%></td>                
+                <td> <%= item.getLastName()%></td>
+                <td> <%= item.getBornDate()%></td>
+                <td> <%= item.getEmail()%></td>
+                <td> <%= item.getPassword()%></td>
+                <td> <%= item.getAddress()%></td>
             </tr>
-            <% } %>
+            <% }%>
         </table>
     </body>
 </html>

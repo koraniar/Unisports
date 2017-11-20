@@ -62,4 +62,7 @@ public class TeamBL {
         return true;
     }
 
+    public List<Team> GetAllTeams() {
+        return _teamDao.getAllTeam();
+    }
 }

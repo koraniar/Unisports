@@ -45,13 +45,7 @@ public class EventBL {
     }
 
     public List<Event> GetAllRecentEvents() {
-
-        List<Event> Events = eventdao.getAllEvents();
-        if (Events != null && !Events.isEmpty()) {
-            return Events;
-        } else {
-            return null;
-        }
+        return eventdao.getAllEvents();
     }
 
     public boolean DisableOrDeleteEvent(UUID id) {

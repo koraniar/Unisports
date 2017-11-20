@@ -22,7 +22,13 @@
 
 
         <form action = "UserDB.jsp">
-            <input type="submit" value="open other jsp">
+            <input type="submit" value="Go to User DB">
+        </form>
+        <form action = "EventDB.jsp">
+            <input type="submit" value="Go to Event DB">
+        </form>
+        <form action = "TeamDB.jsp">
+            <input type="submit" value="Go to Team DB">
         </form>
     </body>
 </html>
