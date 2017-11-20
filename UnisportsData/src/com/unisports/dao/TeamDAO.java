@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unisports.dao;
 
 import com.unisports.database.context.Database;
@@ -17,27 +12,23 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author danielmontana
- */
 public class TeamDAO {
-    
+
     private Database _database;
-    private Connection _connection; 
-    
-    public TeamDAO(){
+    private Connection _connection;
+
+    public TeamDAO() {
         _database = new Database();
-        
+
         try {
             _connection = _database.connect();
         } catch (SQLException ex) {
             Logger.getLogger(TeamDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean createTeam(Team team){
-        
+
+    public boolean createTeam(Team team) {
+
         try {
             PreparedStatement statement = _connection.prepareStatement("INSERT INTO Team (Id, Name, Logo, Motto, Description, Sport_Id) VALUES (?, ?, ?, ?, ?, ?);");
             statement.setString(1, team.getId().toString());
@@ -46,7 +37,7 @@ public class TeamDAO {
             statement.setString(4, team.getMotto());
             statement.setString(5, team.getDescription());
             statement.setString(6, team.getSportId().toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -55,10 +46,10 @@ public class TeamDAO {
             Logger.getLogger(TeamDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        
+
     }
-    
-    public boolean updateTeam(Team team){
+
+    public boolean updateTeam(Team team) {
         try {
             PreparedStatement statement = _connection.prepareStatement("UPDATE Team SET Name = ?, Logo = ?, Motto = ?, Description = ?, Sport_Id = ? WHERE Id = ?;");
             statement.setString(1, team.getName());
@@ -67,7 +58,7 @@ public class TeamDAO {
             statement.setString(4, team.getDescription());
             statement.setString(5, team.getSportId().toString());
             statement.setString(6, team.getId().toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -77,26 +68,26 @@ public class TeamDAO {
             return false;
         }
     }
-    
-    public Team getTeamById(UUID id){
+
+    public Team getTeamById(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM team WHERE Id=?;");
             statement.setString(1, id.toString());
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             Team team = null;
-            
-            if(result.next()){
+
+            if (result.next()) {
                 team = new Team(UUID.fromString(result.getString("Id")));
                 team.setName(result.getString("Name"));
                 team.setLogo(result.getString("Logo"));
                 team.setMotto(result.getString("Motto"));
                 team.setDescription(result.getString("Description"));
                 team.setSportId(UUID.fromString(result.getString("Sport_Id")));
-                   
+
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -106,16 +97,16 @@ public class TeamDAO {
             return null;
         }
     }
-   
-    public List<Team> getAllTeam(){
+
+    public List<Team> getAllTeam() {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Team;");
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<Team> teams = new ArrayList<Team>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 Team team = new Team(UUID.fromString(result.getString("Id")));
                 team.setName(result.getString("Name"));
                 team.setLogo(result.getString("Logo"));
@@ -124,7 +115,7 @@ public class TeamDAO {
                 team.setSportId(UUID.fromString(result.getString("Sport_Id")));
                 teams.add(team);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -133,19 +124,19 @@ public class TeamDAO {
             Logger.getLogger(TeamDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    
+
     }
-    
-     public List<Team> getTeamByPartOfName(String word){
-       try {
+
+    public List<Team> getTeamByPartOfName(String word) {
+        try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Team WHERE LOWER(Name) LIKE ?;");
             statement.setString(1, "%" + word.toLowerCase() + "%");
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<Team> teams = new ArrayList<Team>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 Team team = new Team(UUID.fromString(result.getString("Id")));
                 team.setName(result.getString("Name"));
                 team.setLogo(result.getString("Logo"));
@@ -154,7 +145,7 @@ public class TeamDAO {
                 team.setSportId(UUID.fromString(result.getString("Sport_Id")));
                 teams.add(team);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -163,13 +154,13 @@ public class TeamDAO {
             Logger.getLogger(TeamDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-     }
-    
-     public boolean deleteTeam(UUID id){
+    }
+
+    public boolean deleteTeam(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("DELETE FROM Team WHERE Id = ?;");
             statement.setString(1, id.toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();

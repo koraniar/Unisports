@@ -13,11 +13,11 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class SportDAO {
+
     private Database _database;
     private Connection _connection;
-    
+
     public SportDAO() {
         _database = new Database();
         try {
@@ -26,14 +26,14 @@ public class SportDAO {
             Logger.getLogger(SportDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public boolean createSport(Sport sport) {
         try {
             PreparedStatement statement = _connection.prepareStatement("INSERT INTO Sport (Id, Name, Type) VALUES (?, ?, ?);");
             statement.setString(1, sport.getId().toString());
             statement.setString(2, sport.getName());
             statement.setInt(3, (sport.getType()).getHashCode());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -43,14 +43,14 @@ public class SportDAO {
             return false;
         }
     }
-    
-    public boolean updateSport(Sport sport){
+
+    public boolean updateSport(Sport sport) {
         try {
             PreparedStatement statement = _connection.prepareStatement("UPDATE Sport SET Name = ?, Type = ? WHERE Id = ?;");
             statement.setString(1, sport.getName());
             statement.setInt(2, (sport.getType()).getHashCode());
             statement.setString(3, sport.getId().toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -60,22 +60,22 @@ public class SportDAO {
             return false;
         }
     }
-    
-    public Sport getSportById(UUID id){
+
+    public Sport getSportById(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Sport WHERE Id=?;");
             statement.setString(1, id.toString());
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             Sport sport = null;
-            
-            if(result.next()){
+
+            if (result.next()) {
                 sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));             
+                sport.setName(result.getString("Name"));
                 sport.setType(SportType.values()[result.getInt("Type")]);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -85,22 +85,22 @@ public class SportDAO {
             return null;
         }
     }
-    
-    public List<Sport> getAllSports(){
+
+    public List<Sport> getAllSports() {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Sport;");
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<Sport> sports = new ArrayList<Sport>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 Sport sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));           
+                sport.setName(result.getString("Name"));
                 sport.setType(SportType.values()[result.getInt("Type")]);
                 sports.add(sport);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -110,12 +110,12 @@ public class SportDAO {
             return null;
         }
     }
-    
-    public boolean deleteSport(UUID id){
+
+    public boolean deleteSport(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("DELETE FROM Sport WHERE Id = ?;");
             statement.setString(1, id.toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -125,23 +125,23 @@ public class SportDAO {
             return false;
         }
     }
-    
-    public List<Sport> getSportsByType(SportType type){
+
+    public List<Sport> getSportsByType(SportType type) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM Sport WHERE Type = ?;");
             statement.setInt(1, type.getHashCode());
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<Sport> sports = new ArrayList<Sport>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 Sport sport = new Sport(UUID.fromString(result.getString("Id")));
-                sport.setName(result.getString("Name"));               
+                sport.setName(result.getString("Name"));
                 sport.setType(SportType.values()[result.getInt("Type")]);
                 sports.add(sport);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();

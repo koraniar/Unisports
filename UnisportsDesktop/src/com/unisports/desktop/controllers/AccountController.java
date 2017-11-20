@@ -57,41 +57,23 @@ public class AccountController implements Initializable {
     private TextField editProfilePhone;
     @FXML
     private JFXDatePicker editProfileDate;
+    @FXML
+    private Text profileValueName;
+    @FXML
+    private Text profileValueLastName;
+    @FXML
+    private Text profileValueDirecction;
+    @FXML
+    private Text profileValuePhone;
+    @FXML
+    private Text profileValueDate;
 
     public void setLayoutController(LayoutController controller, String token, boolean isComplete) {
         mainController = controller;
         _token = token;
         _isComplete = isComplete;
 
-        if (editProfileName != null) {
-            Request request = new Request();
-            Pair<Boolean, String> result = request.get("Account/GetUser?id=" + _token);
-
-            if (result.getKey()) {
-                ObjectMapper mapper = new ObjectMapper();
-                try {
-                    JsonNode nodeResponse = mapper.readTree(result.getValue());
-                    _user = mapper.readValue(nodeResponse.get("user").asText(), User.class);
-
-                    if (_user.getName() != null && !_user.getName().isEmpty()) {
-                        editProfileName.setText(_user.getName());
-                    }
-                    if (_user.getLastName() != null && !_user.getLastName().isEmpty()) {
-                        editProfileLastName.setText(_user.getLastName());
-                    }
-                    if (_user.getAddress() != null && !_user.getAddress().isEmpty()) {
-                        editProfileAddress.setText(_user.getAddress());
-                    }
-                    if (_user.getContactPhone() != null && !_user.getContactPhone().isEmpty()) {
-                        editProfilePhone.setText(_user.getContactPhone());
-                    }
-                } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                mainController.goToAccountControllerView("Login");
-            }
-        }
+        afterInitialize();
     }
 
     @FXML
@@ -235,6 +217,11 @@ public class AccountController implements Initializable {
 
     @FXML
     public void onEditProfile(ActionEvent event) {
+        mainController.goToAccountControllerView("EditProfile");
+    }
+
+    @FXML
+    public void onSaveEditProfile(ActionEvent event) {
         Pair<Boolean, String> result = new Pair<>(true, "");
         String name = editProfileName.getText().trim();
         String lastName = editProfileLastName.getText().trim();
@@ -244,8 +231,7 @@ public class AccountController implements Initializable {
         Date date = null;
 
         if (localDate != null) {
-            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-            date = Date.from(instant);
+            date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         }
 
         if (name.isEmpty()) {
@@ -276,7 +262,11 @@ public class AccountController implements Initializable {
 
         if (result.getKey()) {
             mainController.changeInitialsAndComplete(name.substring(0, 1) + lastName.substring(0, 1), true);
-            mainController.goToHomeControllerView("Home");
+            if (_isComplete) {
+                mainController.goToAccountControllerView("Profile");
+            }else{
+                mainController.goToHomeControllerView("Home");
+            }
         } else {
             JFXDialogLayout dialogContent = new JFXDialogLayout();
             Text textHeading = new Text("Error");
@@ -311,4 +301,59 @@ public class AccountController implements Initializable {
 
     }
 
+    public void afterInitialize() {
+        if (editProfileName != null || profileValueName != null) {
+            Request request = new Request();
+            Pair<Boolean, String> result = request.get("Account/GetUser?id=" + _token);
+
+            if (result.getKey()) {
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    JsonNode nodeResponse = mapper.readTree(result.getValue());
+                    _user = mapper.readValue(nodeResponse.get("user").asText(), User.class);
+
+                    if (editProfileName != null) {
+                        if (_user.getName() != null && !_user.getName().isEmpty()) {
+                            editProfileName.setText(_user.getName());
+                        }
+                        if (_user.getLastName() != null && !_user.getLastName().isEmpty()) {
+                            editProfileLastName.setText(_user.getLastName());
+                        }
+                        if (_user.getAddress() != null && !_user.getAddress().isEmpty()) {
+                            editProfileAddress.setText(_user.getAddress());
+                        }
+                        if (_user.getContactPhone() != null && !_user.getContactPhone().isEmpty()) {
+                            editProfilePhone.setText(_user.getContactPhone());
+                        }
+                        if (_user.getBornDate() != null) {
+                            editProfileDate.setValue(_user.getBornDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+                        }
+                    } else if (profileValueName != null) {
+                        profileValueName.setText(_user.getName());
+                        profileValueLastName.setText(_user.getLastName());
+
+                        if (_user.getAddress() != null && !_user.getAddress().isEmpty()) {
+                            profileValueDirecction.setText(_user.getAddress());
+                        } else {
+                            profileValueDirecction.setText("N/A");
+                        }
+                        if (_user.getContactPhone() != null && !_user.getContactPhone().isEmpty()) {
+                            profileValuePhone.setText(_user.getContactPhone());
+                        } else {
+                            profileValuePhone.setText("N/A");
+                        }
+                        if (_user.getBornDate() != null) {
+                            profileValueDate.setText(_user.getBornDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().toString());
+                        } else {
+                            profileValueDate.setText("N/A");
+                        }
+                    }
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            } else {
+                mainController.goToAccountControllerView("Login");
+            }
+        }
+    }
 }

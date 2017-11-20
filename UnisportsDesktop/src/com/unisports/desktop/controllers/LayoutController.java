@@ -38,19 +38,14 @@ public class LayoutController implements Initializable {
 
     @FXML
     private Pane ContentPane;
-
     @FXML
     private Button accountInformationButton;
-
     @FXML
     private Button createEventButton;
-
     @FXML
     private Button createTeamButton;
-
     @FXML
     private Button signInButton;
-
     @FXML
     private Button registerButton;
 

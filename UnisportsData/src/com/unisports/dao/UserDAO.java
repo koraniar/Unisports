@@ -14,13 +14,13 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class UserDAO {
+
     private Database _database;
     private Connection _connection;
     private String tableName;
-    
-    public UserDAO(){
+
+    public UserDAO() {
         tableName = Constants.microsoft ? "[User]" : "User";
         _database = new Database();
         try {
@@ -29,34 +29,34 @@ public class UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean createUser(User user){
+
+    public boolean createUser(User user) {
         try {
-            PreparedStatement statement = _connection.prepareStatement("INSERT INTO " + tableName + " (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate," + 
-                    " ExcellentAverage, RegularAverage, BadAverage, NonAttendanceAverage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+            PreparedStatement statement = _connection.prepareStatement("INSERT INTO " + tableName + " (Id, Name, LastName, Email, ContactPhone, Address, BornDate, Password, OverallRate,"
+                    + " ExcellentAverage, RegularAverage, BadAverage, NonAttendanceAverage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             statement.setString(1, user.getId().toString());
             statement.setString(2, user.getName());
-            statement.setString(3, user.getLastName());  
-            statement.setString(4, user.getEmail()); 
-            
-            if (user.getContactPhone()!= null) {
+            statement.setString(3, user.getLastName());
+            statement.setString(4, user.getEmail());
+
+            if (user.getContactPhone() != null) {
                 statement.setString(5, user.getContactPhone());
-            }else{
+            } else {
                 statement.setNull(5, java.sql.Types.VARCHAR);
             }
-            
-            if (user.getAddress()!= null) {
+
+            if (user.getAddress() != null) {
                 statement.setString(6, user.getAddress());
-            }else{
+            } else {
                 statement.setNull(6, java.sql.Types.VARCHAR);
             }
-            
-            if (user.getBornDate()!= null) {
+
+            if (user.getBornDate() != null) {
                 statement.setTimestamp(7, new Timestamp(user.getBornDate().getTime()));
-            }else{
+            } else {
                 statement.setNull(7, java.sql.Types.DATE);
             }
-            
+
             statement.setString(8, user.getPassword());
             statement.setDouble(9, user.getOveralRate());
             statement.setDouble(10, user.getExcellentAverage());
@@ -64,7 +64,6 @@ public class UserDAO {
             statement.setDouble(12, user.getBadAverage());
             statement.setDouble(13, user.getNonAttendanceAverage());
 
-            
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -74,34 +73,34 @@ public class UserDAO {
             return false;
         }
     }
-    
-    public boolean updateUser(User user){
+
+    public boolean updateUser(User user) {
         try {
-            PreparedStatement statement = _connection.prepareStatement("UPDATE " + tableName + " SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?," + 
-                    " Password = ?, OverallRate = ?, ExcellentAverage = ?, RegularAverage = ?, BadAverage = ?, NonAttendanceAverage = ? WHERE Id = ?");
-            
+            PreparedStatement statement = _connection.prepareStatement("UPDATE " + tableName + " SET Name = ?, LastName = ?, Email = ?, ContactPhone = ?, Address = ?, BornDate = ?,"
+                    + " Password = ?, OverallRate = ?, ExcellentAverage = ?, RegularAverage = ?, BadAverage = ?, NonAttendanceAverage = ? WHERE Id = ?");
+
             statement.setString(1, user.getName());
-            statement.setString(2, user.getLastName());  
-            statement.setString(3, user.getEmail()); 
-            
-            if (user.getContactPhone()!= null) {
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getEmail());
+
+            if (user.getContactPhone() != null) {
                 statement.setString(4, user.getContactPhone());
-            }else{
+            } else {
                 statement.setNull(4, java.sql.Types.VARCHAR);
             }
-            
-            if (user.getAddress()!= null) {
+
+            if (user.getAddress() != null) {
                 statement.setString(5, user.getAddress());
-            }else{
+            } else {
                 statement.setNull(5, java.sql.Types.VARCHAR);
             }
-            
-            if (user.getBornDate()!= null) {
+
+            if (user.getBornDate() != null) {
                 statement.setTimestamp(6, new Timestamp(user.getBornDate().getTime()));
-            }else{
+            } else {
                 statement.setNull(6, java.sql.Types.DATE);
             }
-            
+
             statement.setString(7, user.getPassword());
             statement.setDouble(8, user.getOveralRate());
             statement.setDouble(9, user.getExcellentAverage());
@@ -110,7 +109,6 @@ public class UserDAO {
             statement.setDouble(12, user.getNonAttendanceAverage());
             statement.setString(13, user.getId().toString());
 
-            
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -120,12 +118,12 @@ public class UserDAO {
             return false;
         }
     }
-    
-    public boolean deleteUser(UUID id){
+
+    public boolean deleteUser(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("DELETE FROM " + tableName + " WHERE Id = ?;");
             statement.setString(1, id.toString());
-            
+
             int result = statement.executeUpdate();
             statement.close();
             //_database.Disconnect();
@@ -135,24 +133,24 @@ public class UserDAO {
             return false;
         }
     }
-    
-    public User getUserById(UUID id){
+
+    public User getUserById(UUID id) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE Id=?;");
             statement.setString(1, id.toString());
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             User user = null;
-            
-            if(result.next()){
+
+            if (result.next()) {
                 user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
                 user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setBornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getTimestamp("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -160,7 +158,7 @@ public class UserDAO {
                 user.setBadAverage(result.getDouble("BadAverage"));
                 user.setNonAttendanceAverage(result.getDouble("NonAttendanceAverage"));
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -170,23 +168,23 @@ public class UserDAO {
             return null;
         }
     }
-    
-    public List<User> getAllUsers(){
+
+    public List<User> getAllUsers() {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + ";");
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<User> users = new ArrayList<User>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 User user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
                 user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setBornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getTimestamp("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -195,7 +193,7 @@ public class UserDAO {
                 user.setNonAttendanceAverage(result.getDouble("NonAttendanceAverage"));
                 users.add(user);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -205,24 +203,24 @@ public class UserDAO {
             return null;
         }
     }
-    
-    public List<User> getUserByPartOfName(String word){
+
+    public List<User> getUserByPartOfName(String word) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE LOWER(Name) LIKE ?;");
             statement.setString(1, "%" + word.toLowerCase() + "%");
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             List<User> users = new ArrayList<User>();
-            
-            while(result.next()){
+
+            while (result.next()) {
                 User user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
                 user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setBornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getTimestamp("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -231,7 +229,7 @@ public class UserDAO {
                 user.setNonAttendanceAverage(result.getDouble("NonAttendanceAverage"));
                 users.add(user);
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();
@@ -241,24 +239,24 @@ public class UserDAO {
             return null;
         }
     }
-    
-    public User getUserByEmail(String email){
+
+    public User getUserByEmail(String email) {
         try {
             PreparedStatement statement = _connection.prepareStatement("SELECT * FROM " + tableName + " WHERE Email=?;");
             statement.setString(1, email);
-            
+
             ResultSet result = statement.executeQuery();
-            
+
             User user = null;
-            
-            if(result.next()){
+
+            if (result.next()) {
                 user = new User(UUID.fromString(result.getString("Id")));
                 user.setName(result.getString("Name"));
                 user.setLastName(result.getString("LastName"));
                 user.setEmail(result.getString("Email"));
                 user.setContactPhone(result.getString("ContactPhone"));
                 user.setAddress(result.getString("Address"));
-                user.setBornDate(result.getDate("BornDate"));
+                user.setBornDate(result.getTimestamp("BornDate"));
                 user.setPassword(result.getString("Password"));
                 user.setOveralRate(result.getDouble("OverallRate"));
                 user.setExcellentAverage(result.getDouble("ExcellentAverage"));
@@ -266,7 +264,7 @@ public class UserDAO {
                 user.setBadAverage(result.getDouble("BadAverage"));
                 user.setNonAttendanceAverage(result.getDouble("NonAttendanceAverage"));
             }
-            
+
             result.close();
             statement.close();
             //_database.Disconnect();

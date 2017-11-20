@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
     <children>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="531.0" layoutY="663.0" onAction="#onEditProfile" style="-fx-background-color: #f4f4f4;" text="Guardar Datos">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="531.0" layoutY="663.0" onAction="#onSaveEditProfile" style="-fx-background-color: #f4f4f4;" text="Guardar Datos">
             <font>
                 <Font name="Roboto Regular" size="18.0" />
             </font>

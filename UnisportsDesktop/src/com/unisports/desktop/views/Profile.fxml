@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -10,37 +8,65 @@
 
 <AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unisports.desktop.controllers.AccountController">
     <children>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="531.0" layoutY="663.0" onAction="#onEditProfile" style="-fx-background-color: #f4f4f4;" text="Guardar Datos">
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="539.0" layoutY="662.0" onAction="#onEditProfile" style="-fx-background-color: #f4f4f4;" text="Editar Datos">
             <font>
                 <Font name="Roboto Regular" size="18.0" />
             </font>
         </JFXButton>
-        <JFXTextField fx:id="editProfileName" labelFloat="true" layoutX="386.0" layoutY="103.0" prefHeight="42.0" prefWidth="428.0" promptText="Nombres" text="hola">
-         <font>
-            <Font name="Roboto Regular" size="20.0" />
-         </font></JFXTextField>
-        <Text layoutX="285.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil 2">
+        <Text layoutX="285.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil">
             <font>
                 <Font size="42.0" />
             </font>
         </Text>
-      <JFXTextField fx:id="editProfileLastName" labelFloat="true" layoutX="386.0" layoutY="174.0" prefHeight="27.0" prefWidth="428.0" promptText="Apellidos" text="hola">
-         <font>
-            <Font name="Roboto Regular" size="20.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="editProfileAddress" labelFloat="true" layoutX="386.0" layoutY="245.0" prefHeight="27.0" prefWidth="428.0" promptText="Dirección">
-         <font>
-            <Font name="Roboto Regular" size="20.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="editProfilePhone" labelFloat="true" layoutX="386.0" layoutY="315.0" prefHeight="27.0" prefWidth="428.0" promptText="Teléfono">
-         <font>
-            <Font name="Roboto Regular" size="20.0" />
-         </font></JFXTextField>
       <Pane layoutX="497.0" layoutY="445.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4f4f4;" />
-      <JFXDatePicker fx:id="editProfileDate" defaultColor="#4059a9" layoutX="386.0" layoutY="388.0" prefHeight="42.0" prefWidth="428.0" />
-      <Text fill="#363636" layoutX="386.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento">
+      <Text fx:id="profileValueDateLabel" fill="#363636" layoutX="386.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento">
          <font>
             <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValueDate" layoutX="386.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Born Date">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValuePhoneLabel" fill="#363636" layoutX="386.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValuePhone" layoutX="386.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValueDirecctionLabel" fill="#363636" layoutX="386.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValueDirecction" layoutX="386.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maybe so long address">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#363636" layoutX="386.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValueLastName" layoutX="386.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name and second last name">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#363636" layoutX="385.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombres">
+         <font>
+            <Font name="Roboto Regular" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="profileValueName" layoutX="385.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name and second Name">
+         <font>
+            <Font name="Roboto Regular" size="20.0" />
          </font>
       </Text>
     </children>
