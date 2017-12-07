@@ -20,6 +20,10 @@ public class Request {
         try {
             String url = String.format("%s/%s/%s", Constants.environmentHost, Constants.environmentRest, urlDest);
 
+            System.out.println("--------post--------");
+            System.out.println(url);
+            System.out.println(content);
+
             boolean result = false;
             String message = "Unexpected error";
             try (CloseableHttpClient client = HttpClients.createDefault()) {
@@ -29,11 +33,9 @@ public class Request {
                 post.setEntity(body);
                 HttpResponse response = client.execute(post);
                 ObjectMapper mapper = new ObjectMapper();
-                
+
                 String responseJson = EntityUtils.toString(response.getEntity());
-                System.out.println("--------post--------");                
-                System.out.println(url);                
-                System.out.println(content);
+
                 System.out.println(responseJson);
 
                 JsonNode nodeResponse = mapper.readTree(responseJson);
@@ -61,10 +63,13 @@ public class Request {
             return new Pair<>(false, "Error inesperado, por favor intenta de nuevo mas tarde");
         }
     }
-    
+
     public Pair<Boolean, String> get(String urlDest) {
         try {
             String url = String.format("%s/%s/%s", Constants.environmentHost, Constants.environmentRest, urlDest);
+
+            System.out.println("--------get--------");
+            System.out.println(url);
 
             boolean result = false;
             String message = "Unexpected error";
@@ -72,10 +77,9 @@ public class Request {
                 HttpGet get = new HttpGet(url);
                 get.setHeader("Accept", "application/json");
                 HttpResponse response = client.execute(get);
-                
+
                 String responseJson = EntityUtils.toString(response.getEntity());
-                System.out.println("--------get--------");
-                System.out.println(url);
+
                 System.out.println(responseJson);
 
                 switch (response.getStatusLine().getStatusCode()) {

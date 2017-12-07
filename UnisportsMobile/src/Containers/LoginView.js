@@ -40,7 +40,7 @@ class LoginView extends React.Component {
 
         try {
             fetch(url, {
-                method: 'POST',
+                method: 'GET',
                 body: '',
                 headers: {
                     'Accept': 'application/json',
